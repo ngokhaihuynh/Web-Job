@@ -88,6 +88,7 @@ namespace WebJob.Areas.Admin.Controllers
             return View();
         }
         // xin chào 1
+        // xin chào 2
 
     }
 }
