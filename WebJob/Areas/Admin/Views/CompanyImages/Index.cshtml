@@ -1,0 +1,145 @@
+﻿@model  IEnumerable<WebJob.Models.EF.CompanyImage>
+@{
+    ViewBag.Title = "Ảnh Công ty";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<style>
+    .glImage {
+        list-style: none;
+        margin: 8px 0 0 0;
+        padding: 0;
+        display: flex;
+    }
+
+        .glImage li {
+            margin-right: 4px;
+            display: inline-block;
+            position: relative;
+        }
+
+    .box-btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Ảnh công ty</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-danger">Xóa hết</button>
+                <input type="button" class="btn btn-success" value="Tải ảnh" onclick="BrowseServer('txtImange');" />
+
+            </div>
+        </div>
+        <div class="card-body">
+
+            <ul class="glImage">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <li id="trow_@item.CompanyImageID">
+                            <img src="@item.ImageURL" width="200" alt="@item.Company.CompanyName" />
+                            <div class="box-btn">
+                                <a href="#" data-id="@item.CompanyImageID" class="btn btn-sm btn-danger btnDelete">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <a href="#" data-id="@item.CompanyImageID" class="btn btn-sm btn-success btnDefault">
+                                    <i class="fa fa-check"></i>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+
+<script>
+
+    function BrowseServer(field) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+
+                var companyId = '@ViewBag.CompanyID'; // Chuyển thành chuỗi
+                var jobId = '@ViewBag.JobID'; // Chuyển thành chuỗi
+                AddImage(jobId, fileUrl, companyId);
+            };
+            finder.popup();
+    }
+
+    function AddImage(jobId, url, companyId) {
+        $.ajax({
+            url: '/admin/companyimages/AddImage',
+            type: 'POST',
+            data: { companyImgId: jobId, url: url, jobId: jobId, companyId: companyId },
+            success: function (rs) {
+                if (rs.success) {
+                    window.location.reload();
+                } else {
+                    alert('Error: ' + rs.message);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('An error occurred: ' + textStatus + ' - ' + errorThrown);
+            }
+        });
+    }
+
+
+
+
+    function AddImage(id, url, companyId) {
+        $.ajax({
+            url: '/admin/companyimages/AddImage',
+            type: 'POST',
+            data: { companyImgId: id, url: url, companyId: companyId },
+            success: function (rs) {
+                if (rs.success) {
+                    window.location.reload();
+                }
+            },
+            error: function () {
+                alert('An error occurred.');
+            }
+        });
+    }
+
+
+    $(document).ready(function () {
+        $('body').on('click', '.btnDelete', function () {
+            var id = $(this).data('id');
+            var conf = confirm('bạn có muốn xóa ảnh này không?');
+            if (conf === true) {
+                $.ajax({
+                    url: '/admin/companyimages/delete',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (rs) {
+                        if (rs.success) {
+                            $('#trow_' + id).remove();
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

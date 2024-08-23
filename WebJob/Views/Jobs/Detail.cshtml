@@ -1,0 +1,306 @@
+﻿@model  WebJob.Models.EF.Job
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+@if (Model != null)
+{
+    var strImge = "";
+    var img = Model.CompanyImages.FirstOrDefault(x => x.IsDefault);
+    if (img != null)
+    {
+        strImge = img.ImageURL;
+    }
+    <!-- job detail header -->
+    <div class="container-fluid job-detail-wrap">
+        <div class="container job-detail">
+            <div class="job-detail-header">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12 col-12">
+                        <div class="job-detail-header-logo">
+                            <a href="#">
+                                <img src="@strImge" class="job-logo-ima" alt="job-logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-12">
+                        <div class="job-detail-header-desc">
+                            <div class="job-detail-header-title">
+                                <a href="#">@Model.JobTitle</a>
+                            </div>
+                            <div class="job-detail-header-company">
+                                <a href="#">@Model.Company.CompanyName</a>
+                            </div>
+                            <div class="job-detail-header-de">
+                                <ul>
+                                    <li><i class="fa fa-map-marker icn-jd"></i><span>@Model.Location.LocationName</span></li>
+                                    <li><i class="fa fa-usd icn-jd"></i><span>@Model.Salary.SalaryMin - @Model.Salary.SalaryMax triệu</span></li>
+                                    <li><i class="fa fa-calendar icn-jd"></i><span>15/01/2019</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="job-detail-header-tag">
+                                <ul>
+                                    <li>
+                                        <a href="#">Java</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">.NET</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">SQL</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">C#</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-12">
+                        <div class="jd-header-wrap-right">
+                            <div class="jd-center">
+                                <a href="#" class="btn btn-primary btn-apply">Nộp đơn</a>
+                                
+                                <a href="#" data-id="@Model.JobID" class="btn btn-danger btnAddSave">lưu</a>
+
+                                <p class="jd-view">Lượt xem: <span>1.520</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- (end) job detail header -->
+
+    <div class="clearfix"></div>
+
+    <!-- Phần thân -->
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <!-- Main wrapper -->
+                <div class="col-md-8 col-sm-12 col-12 clear-left">
+                    <div class="main-wrapper">
+                        <h2 class="widget-title">
+                            <span>Quyền lợi</span>
+                        </h2>
+                        <!-- content -->
+                        <div class="welfare-wrap">
+                            <div class="row">
+                                <div class="welfare-list">
+                                    <ul>
+                                        <li>
+                                            <p><i class="fa fa-usd icn-welfare"></i>Have opponunity for growth.</p>
+                                        </li>
+                                        <li>
+                                            <p><i class="fa fa-user icn-welfare"></i>Working under energisitic, innovative, friendly environment.</p>
+                                        </li>
+                                        <li>
+                                            <p><i class="fa fa-check-circle icn-welfare"></i>Competitive salary and attractive benefits packages.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="widget-title">
+                            <span>Mô tả công việc</span>
+                        </h2>
+                        <div class="jd-content">
+                            @Html.Raw(Model.JobDescription)
+                        </div>
+                        <h2 class="widget-title">
+                            <span>Yêu cầu công việc</span>
+                        </h2>
+                        <div class="jd-content">
+                            @Html.Raw(Model.JobRequirements)
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+                <!-- Sidebar -->
+                <div class="col-md-4 col-sm-12 col-12 clear-right">
+                    <div class="side-bar mb-3">
+                        <h2 class="widget-title">
+                            <span>Thông tin</span>
+                        </h2>
+
+                        <div class="job-info-wrap">
+                            <div class="job-info-list">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="ji-title">Nơi làm việc:</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="ji-main">@Model.Company.CompanyAddress</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-info-list">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="ji-title">Cấp bậc:</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="ji-main">Nhân viên</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-info-list">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="ji-title">Lương:</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="ji-main">@Model.Salary.SalaryMin - @Model.Salary.SalaryMax triệu</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-info-list">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="ji-title">Hạn nộp:</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="ji-main">31/12/2019</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-info-list">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="ji-title">Ngành nghề:</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="ji-main">@Model.JobCategory.CategoryName</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-info-list">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="ji-title">Kỹ năng:</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="ji-main">PR Activity</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="job-info-list">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span class="ji-title">Kinh nghiệm:</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="ji-main">@Model.Experience.ExperienceLevel</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="side-bar mb-3">
+                        <h2 class="widget-title">
+                            <span>Giới thiệu công ty</span>
+                        </h2>
+                        <div class="company-intro">
+                            <a href="#">
+                                <img src="@strImge" class="job-logo-ima" alt="job-logo">
+                            </a>
+                        </div>
+                        <h2 class="company-intro-name">Fpt Software</h2>
+                        <ul class="job-add">
+                            <li>
+                                <i class="fa fa-map-marker ja-icn"></i>
+                                <span>@Model.Company.CompanyAddress </span>
+                            </li>
+                            <li>
+                                <i class="fa fa-bar-chart ja-icn"></i>
+                                <span>Quy mô công ty: 50-100 người</span>
+                            </li>
+                        </ul>
+
+                        <div class="wrap-comp-info mb-2">
+                            <a href="#" class="btn btn-primary btn-company">Xem thêm</a>
+                        </div>
+                    </div>
+
+                    <div class="side-bar mb-3">
+                        <h2 class="widget-title">
+                            <span>Việc làm tương tự</span>
+                        </h2>
+
+                        <div class="job-tt-contain">
+                            <div class="job-tt-item">
+
+                                <a href="#" class="thumb">
+                                    <div style="background-image: url(img/alipay-logo.png);"></div>
+                                </a>
+
+                                <div class="info">
+                                    <a href="#" class="jobname">
+                                        Fullstack .NET Developer (Angular/React)
+                                    </a>
+                                    <a href="#" class="company">
+                                        Alipay Software
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="job-tt-item">
+
+                                <a href="#" class="thumb">
+                                    <div style="background-image: url(img/fpt-logo.png);"></div>
+                                </a>
+
+                                <div class="info">
+                                    <a href="#" class="jobname">
+                                        [HCM] 02 Solution Architects–Up to $2000
+                                    </a>
+                                    <a href="#" class="company">
+                                        FPT Software
+                                    </a>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+
+                    <div class="side-bar mb-3">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="home-ads">
+                                        <a href="#">
+                                            <img src="~/Content/assets/img/ads1.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- (end) Phần thân -->
+}

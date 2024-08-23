@@ -1,0 +1,29 @@
+﻿@model  IEnumerable<WebJob.Models.EF.Category>
+@if (Model != null && Model.Any())
+{
+    <ul class="navbar-nav mr-auto tnav-left tn-nav">
+
+        @foreach (var item in Model)
+        {
+            if (item.Alias.Equals("trang-chu"))
+            {
+                item.Alias = "";
+            }
+            <li class="nav-item">
+                <a class="nav-link" href="/@item.Alias">@item.Title</a>
+            </li>
+        }
+
+        @*<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu tdropdown" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>*@
+    </ul>
+}

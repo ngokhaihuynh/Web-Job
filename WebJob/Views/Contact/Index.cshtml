@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<!-- login main -->
+<div class="login-main">
+    <div class="w-login m-auto">
+        <div class="row">
+            <!-- login main descriptions -->
+            <div class="col-md-6 col-sm-12 col-12 login-main-left">
+                <img src="~/Content/assets/img/banner-login.png">
+            </div>
+            <!-- login main form -->
+            <div class="col-md-6 col-sm-12 col-12 login-main-right">
+
+                <form class="login-form">
+                    <div class="login-main-header">
+                        <h3>Liên hệ</h3>
+                    </div>
+                    <div class="input-div one">
+                        <div class="div lg-lable">
+                            <h5>Họ và tên</h5>
+                            <input type="text" class="input form-control-lgin">
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="div lg-lable">
+                            <h5>Số điên thoại</h5>
+                            <input type="tel" class="input form-control-lgin">
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="div lg-lable">
+                            <h5>Email</h5>
+                            <input type="email" class="input form-control-lgin">
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="div lg-lable">
+                            <h5>Nội dung cần hỗ trợ</h5>
+                            <input type="text" class="input form-control-lgin">
+                        </div>
+                    </div>
+                    @*<div class="input-div pass">
+                        <div class="div lg-lable">
+                            <h5>Số điện thoại</h5>
+                            <input type="tel" class="input form-control-lgin">
+                        </div>
+                   </div>*@
+                   
+                    <button type="submit" class="btn btn-primary float-right btn-login d-block w-100">Gửi</button>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height:20px"></div>
+<!-- (end) login main -->
