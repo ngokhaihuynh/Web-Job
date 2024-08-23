@@ -87,6 +87,7 @@ namespace WebJob.Areas.Admin.Controllers
             ViewBag.ProductCategory = new SelectList(db.categoryProducts.ToList(), "CateProId", "Title");
             return View();
         }
+        // xin chào 1
 
     }
 }
