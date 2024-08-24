@@ -82,13 +82,51 @@ namespace WebJob.Areas.Admin.Controllers
             ViewBag.ProductCategory = new SelectList(db.categoryProducts.ToList(), "CateProId", "Title");
             return View(model);
         }
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
             ViewBag.ProductCategory = new SelectList(db.categoryProducts.ToList(), "CateProId", "Title");
-            return View();
+            var item = db.products.Find(id);
+            return View(item);
         }
-        // xin chào 1
-        // xin chào 2
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Product model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.ProductID > 0)
+                {
+                    model.ModifiedDate = DateTime.Now;
+                    model.CreatedDate = DateTime.Now;
+                    model.Alias = WebJob.Models.Common.Filter.FilterChar(model.Title);
+                    db.products.Attach(model);
+                    db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Không tìm thấy bản ghi cần chỉnh sửa.");
+                }
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+
+            var item = db.products.Find(id);
+            if (item != null)
+            {
+                db.products.Remove(item);
+                db.SaveChanges();
+                return Json(new { success = true });
+
+            }
+            return Json(new { success = false });
+        }
     }
 }
