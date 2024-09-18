@@ -34,6 +34,13 @@ namespace WebJob
                 namespaces: new[] { "WebJob.Controllers" }
             );
             routes.MapRoute(
+                name: "goi",
+                url: "goi",
+                defaults: new { controller = "Products", action = "Index", alias = UrlParameter.Optional },
+                namespaces: new[] { "WebJob.Controllers" }
+            );
+
+            routes.MapRoute(
              name: "SaveJob",
              url: "cong-viec-da-luu",
              defaults: new { controller = "SaveJob", action = "Index", alias = UrlParameter.Optional },

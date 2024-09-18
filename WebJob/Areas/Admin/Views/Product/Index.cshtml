@@ -22,6 +22,7 @@
         </li>
     </ul>}
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -96,11 +97,11 @@
                                 <td>@i</td>
                                 @*<td><img src="@item.Company.CompanyImages.FirstOrDefault(x=> x.IsDefault).ImageURL??" width="50" /></td>*@
                                 <td>
-                                    <img src="@item.ProductImages.FirstOrDefault(x=>x.IsDefault).Image" width="50" alt="Alternate Text" />
+                                    <img class="imgproduct" data-id="@item.ProductID" src="@item.ProductImages.FirstOrDefault(x=>x.IsDefault).Image" width="50" alt="Alternate Text" />
                                 </td>
                                 <td>@item.Title</td>
                                 <td>@item.CategoryProduct.Title</td>
-                               
+
                                 <td>
                                     <span>@item.Price</span>
                                 </td>
@@ -108,7 +109,7 @@
                                     @(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("dd/MM/yyyy") : "N/A")
 
                                 </td>
-                                
+
                                 <td class="text-center">
                                     <a href='#' data-id="@item.ProductID" class="btnActive"> @Html.Raw(strCheck) </a>
 
@@ -175,9 +176,9 @@
             });
 
 
-            $('body').on("click", ".imgcompany", function () {
+            $('body').on("click", ".imgproduct", function () {
                 var proid = $(this).attr("data-id");
-                $('#dialog #myIframe').attr("src", "/admin/CompanyImages/Index?id=" + proid);
+                $('#dialog #myIframe').attr("src", "/admin/ProductImages/Index?id=" + proid);
                 $('#dialog').dialog('open');
                 return false;
             });

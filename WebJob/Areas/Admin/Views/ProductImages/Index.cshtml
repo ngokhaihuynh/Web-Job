@@ -1,8 +1,147 @@
-﻿
+﻿@model IEnumerable<WebJob.Models.EF.ProductImage>
 @{
     ViewBag.Title = "Ảnh các gói";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutEmpty.cshtml";
 }
 
-<h2>Index</h2>
+<style>
+    .glImage {
+        list-style: none;
+        margin: 8px 0 0 0;
+        padding: 0;
+        display: flex;
+    }
 
+        .glImage li {
+            margin-right: 4px;
+            display: inline-block;
+            position: relative;
+        }
+
+    .box-btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Ảnh Sản Phẩm</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-danger">Xóa hết</button>
+                <input type="button" class="btn btn-success" value="Tải ảnh" onclick="BrowseServer('txtImange');" />
+            </div>
+        </div>
+        <div class="card-body">
+            <ul class="glImage">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <li id="trow_@item.ProductImgID">
+                            <img src="@item.Image" width="200" />
+                            <div class="box-btn">
+                                <!-- Nút xóa ảnh -->
+                                <a href="#" data-id="@item.ProductImgID" class="btn btn-sm btn-danger btnDelete">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+
+                                <!-- Nút chọn ảnh đại diện -->
+                                @if (item.IsDefault)
+                                {
+                                    <a href="#" data-id="@item.ProductImgID" class="btn btn-sm btn-success btnDefault">
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" data-id="@item.ProductImgID" class="btn btn-sm btn-warning btnDefault">
+                                        X
+                                    </a>
+                                }
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="card-footer">
+        </div>
+    </div>
+</section>
+
+<script>
+    function BrowseServer(field) {
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (fileUrl) {
+            AddImage(@ViewBag.ProductId, fileUrl);
+        };
+        finder.popup();
+    }
+
+    // Gọi Ajax để thêm ảnh
+    function AddImage(id, url) {
+        $.ajax({
+            url: '/admin/productimages/AddImage',
+            type: 'POST',
+            data: { productId: id, url: url },
+            success: function (rs) {
+                if (rs.success) {
+                    window.location.reload();
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra.');
+            }
+        });
+    }
+
+    // Xóa ảnh
+    $(document).ready(function () {
+        $('body').on('click', '.btnDelete', function () {
+            var id = $(this).data('id');
+            var conf = confirm('Bạn có muốn xóa ảnh này không?');
+            if (conf === true) {
+                $.ajax({
+                    url: '/admin/productimages/Delete',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (rs) {
+                        if (rs.success) {
+                            $('#trow_' + id).remove();
+                        } else {
+                            alert('Xóa thất bại.');
+                        }
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra.');
+                    }
+                });
+            }
+        });
+
+        // Đặt ảnh đại diện
+        $('body').on('click', '.btnDefault', function () {
+            var id = $(this).data('id');
+            $.ajax({
+                url: '/admin/productimages/SetDefaultImage',
+                type: 'POST',
+                data: { id: id },
+                success: function (rs) {
+                    if (rs.success) {
+                        window.location.reload();
+                    } else {
+                        alert(rs.message || 'Có lỗi xảy ra khi đặt ảnh đại diện.');
+                    }
+                },
+                error: function () {
+                    alert('Có lỗi xảy ra.');
+                }
+            });
+        });
+    });
+</script>

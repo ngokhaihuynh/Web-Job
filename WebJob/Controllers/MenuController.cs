@@ -39,6 +39,19 @@ namespace WebJob.Controllers
             return PartialView("_MenuJobLeft", items);
         }
 
+        public ActionResult MenuProductLeft(int? id)
+        {
+            if (id != null)
+            {
+                ViewBag.CateProId = id;
+            }
+
+            var items = db.categoryProducts.ToList();
+            var AllProduct = db.products.Count();
+            ViewBag.All = AllProduct;
+            return PartialView("_MenuProductLeft", items);
+        }
+
         //public ActionResult MenuCategory()
         //{
         //    var items = db.JobCategories.ToList();

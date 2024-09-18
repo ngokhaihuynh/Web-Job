@@ -197,6 +197,7 @@
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SaveJobController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3299,6 +3300,9 @@
     <Content Include="Views\Jobs\JobCategory.cshtml" />
     <Content Include="Views\Jobs\Detail.cshtml" />
     <Content Include="Views\SaveJob\Index.cshtml" />
+    <Content Include="Views\Products\View_itemsByCatePdId.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Menu\_MenuProductLeft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
