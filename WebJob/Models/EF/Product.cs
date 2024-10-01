@@ -34,7 +34,6 @@ namespace WebJob.Models.EF
 
         public virtual ICollection<ProductImage> ProductImages { get; set; } = new HashSet<ProductImage>();
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new HashSet<OrderDetail>();
-
         public virtual CategoryProduct CategoryProduct { get; set; }
 
     }

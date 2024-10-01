@@ -91,34 +91,38 @@
                         foreach (var item in Model)
                         {
                             var strCheck = item.IsActive ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
-                            <tr id="trow_@item.ProductID">
-                                <td><input type="checkbox" class="cbkItem" value="@item.ProductID" /></td>
+                    <tr id="trow_@item.ProductID">
+                        <td><input type="checkbox" class="cbkItem" value="@item.ProductID" /></td>
 
-                                <td>@i</td>
-                                @*<td><img src="@item.Company.CompanyImages.FirstOrDefault(x=> x.IsDefault).ImageURL??" width="50" /></td>*@
-                                <td>
-                                    <img class="imgproduct" data-id="@item.ProductID" src="@item.ProductImages.FirstOrDefault(x=>x.IsDefault).Image" width="50" alt="Alternate Text" />
-                                </td>
-                                <td>@item.Title</td>
-                                <td>@item.CategoryProduct.Title</td>
+                        <td>@i</td>
+                        @*<td><img src="@item.Company.CompanyImages.FirstOrDefault(x=> x.IsDefault).ImageURL??" width="50" /></td>*@
 
-                                <td>
-                                    <span>@item.Price</span>
-                                </td>
-                                <td>
-                                    @(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("dd/MM/yyyy") : "N/A")
 
-                                </td>
+                        <td> 
+                            @* khi null sẽ lỗi *@
+                            <img class="imgproduct" data-id="@item.ProductID" src="@item.ProductImages.FirstOrDefault(x=>x.IsDefault).Image??" width="50" alt="Alternate Text" />
+                        </td>
 
-                                <td class="text-center">
-                                    <a href='#' data-id="@item.ProductID" class="btnActive"> @Html.Raw(strCheck) </a>
+                        <td>@item.Title</td>
+                        <td>@item.CategoryProduct.Title</td>
 
-                                </td>
-                                <td>
-                                    <a href="/admin/product/edit/@item.ProductID" class="btn btn-sm btn-primary">Sửa</a>
-                                    <a href="#" data-id="@item.ProductID" class="btn btn-sm btn-danger btnDelete">Xóa</a>
-                                </td>
-                            </tr>
+                        <td>
+                            <span>@item.Price</span>
+                        </td>
+                        <td>
+                            @(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("dd/MM/yyyy") : "N/A")
+
+                        </td>
+
+                        <td class="text-center">
+                            <a href='#' data-id="@item.ProductID" class="btnActive"> @Html.Raw(strCheck) </a>
+
+                        </td>
+                        <td>
+                            <a href="/admin/product/edit/@item.ProductID" class="btn btn-sm btn-primary">Sửa</a>
+                            <a href="#" data-id="@item.ProductID" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                        </td>
+                    </tr>
                             i++;
                         }
                     }

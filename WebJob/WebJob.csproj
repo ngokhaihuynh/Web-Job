@@ -3303,6 +3303,10 @@
     <Content Include="Views\Products\View_itemsByCatePdId.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Menu\_MenuProductLeft.cshtml" />
+    <Content Include="Views\Menu\_MenuProductCategory.cshtml" />
+    <Content Include="Views\Menu\_MenuArrivals.cshtml" />
+    <Content Include="Views\Products\ProductCategory.cshtml" />
+    <Content Include="Views\Products\DetailProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

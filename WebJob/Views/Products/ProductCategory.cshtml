@@ -113,17 +113,17 @@
                                             <i class="fa fa-angle-up" aria-hidden="true"></i>
                                         </a>
                                     </p>
-                                   
+
                                     @* danh muc *@
-                                    @Html.Action("MenuProductLeft", "Menu")
+                                    @Html.Action("MenuProductLeft", "Menu", new {id=ViewBag.CateId })
 
                                     @*<p>
                                         <a id="clickc2_advance" class="btnf btn-filter" data-toggle="collapse" href="#filter-price" role="button" aria-expanded="false" aria-controls="collapseExample">
                                             Mức Lương
                                             <i class="fa fa-angle-up" aria-hidden="true"></i>
                                         </a>
-                                    </p>*@
-                                    @*<div class="collapse show" id="filter-price">
+                                    </p>
+                                    <div class="collapse show" id="filter-price">
                                         <div class="card o-card card-body">
                                             <div class="filter-panel">
                                                 <div class="panel-content">
@@ -148,7 +148,7 @@
                                         </div>
                                     </div>*@
                                 </div>
-                             
+
                             </div>
                         </div> <!-- filter bar -->
                         <script type="text/javascript">
@@ -171,8 +171,69 @@
                 <div class="job-board-wrap">
                     <div class="job-group">
                         @*SAN PHAM 1*@
-                      @Html.Action("View_itemsByCatePdId", "Products")
-                     
+                        @*@Html.Action("View_itemsByCatePdId", "Products")*@
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                var strImage = "";
+                                var img = item.ProductImages.FirstOrDefault(x => x.IsDefault);
+                                if (img != null)
+                                {
+                                    strImage = img.Image;
+                                }
+
+                                <div class="job pagi @item.CategoryProduct.Alias">
+                                    <div class="job-content">
+                                        <div class="job-logo">
+                                            <a href="#">
+                                                <img src="@strImage" class="job-logo-ima" alt="job-logo">
+                                            </a>
+                                        </div>
+
+                                        <div class="job-desc">
+                                            <div class="job-title">
+                                                <a href="/chi-tiet-goi/@item.Alias-p@(item.ProductID)">@item.Title</a>
+                                            </div>
+
+                                            @*<div class="job-company">
+                                                    <a href="#">Fpt Software</a> | <a href="#" class="job-address">
+                                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                        Đà Nẵng
+                                                    </a>
+                                                </div>*@
+
+
+                                            <div class="job-inf">
+
+                                                <div class="job-salary">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+
+
+                                                    @if (item.PriceSale > 0)
+                                                    {
+                                                        <span style="color:red" class="salary-min">@item.PriceSale.ToString("N0")</span> <span style="text-decoration:line-through" class="salary">@item.Price.ToString("N0")</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="salary-min">@item.Price.ToString("N0")</span>
+                                                    }
+
+                                                    @*<span class="salary-max">35 <em class="salary-unit">triệu</em></span>*@
+                                                </div>
+                                                @*<div class="job-deadline">
+                                                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                        <div class="wrap-btn-appl">
+                                            <a href="#" class="btn btn-appl">Mua ngay</a>
+                                            <a href="#" data-id="@item.ProductID" class="btn btn-danger btnAddSave">Thêm vào giỏ hàng</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
 
                     </div>
                 </div>

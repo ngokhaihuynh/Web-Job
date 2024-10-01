@@ -1,4 +1,7 @@
-﻿@model IEnumerable<WebJob.Models.EF.Job>
+﻿@using System.Collections.Generic
+@model IEnumerable<WebJob.Models.EF.Job>
+
+
 @{
     ViewBag.Title = "Danh sách việc làm";
     Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
@@ -317,7 +320,7 @@
                                         </div>
                                         <div class="wrap-btn-appl">
                                             <a href="#" class="btn btn-appl">Ứng tuyển ngay</a>
-                                            <a href="#"  data-id="@item.JobID" class="btn btn-danger btnAddSave">lưu</a>
+                                            <a href="#" data-id="@item.JobID" class="btn btn-danger btnAddSave">lưu</a>
 
                                         </div>
 

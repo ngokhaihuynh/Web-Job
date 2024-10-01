@@ -1,0 +1,23 @@
+﻿@model  IEnumerable<WebJob.Models.EF.CategoryProduct>
+
+@if (Model != null && Model.Any())
+{
+
+    <ul>
+        @foreach (var item in Model)
+        {
+            //var activeJobCount = item.pro.Count(j => j.IsActive);
+            <li>
+                <a href="@item.Alias-@item.CateProId">
+                    <span class="cate-img">
+                        <em>@item.Title</em>
+                    </span>
+                    @*<span class="cate-count">@activeJobCount</span>*@
+                </a>
+            </li>
+
+        }
+
+
+    </ul>
+}

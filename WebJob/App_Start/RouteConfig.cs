@@ -33,12 +33,7 @@ namespace WebJob
                 defaults: new { controller = "Jobs", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "WebJob.Controllers" }
             );
-            routes.MapRoute(
-                name: "goi",
-                url: "goi",
-                defaults: new { controller = "Products", action = "Index", alias = UrlParameter.Optional },
-                namespaces: new[] { "WebJob.Controllers" }
-            );
+           
 
             routes.MapRoute(
              name: "SaveJob",
@@ -67,6 +62,7 @@ namespace WebJob
                namespaces: new[] { "WebJob.Controllers" }
             );
 
+
             routes.MapRoute(
               name: "DetailJob",
               url: "chi-tiet/{alias}-p{id}",
@@ -74,9 +70,34 @@ namespace WebJob
               namespaces: new[] { "WebJob.Controllers" }
           );
 
+            // Phan product
 
+                // san pham
+            routes.MapRoute(
+              name: "CategoryProducts",
+              url: "danh-muc-san-pham/{alias}-{id}",
+              defaults: new { controller = "Products", action = "ProductCategory", id = UrlParameter.Optional },
+              namespaces: new[] { "WebJob.Controllers" }
+          );
+
+            routes.MapRoute(
+           name: "Product",
+           url: "goi",
+           defaults: new { controller = "Products", action = "Index", alias = UrlParameter.Optional },
+           namespaces: new[] { "WebJob.Controllers" }
+       );
+
+           routes.MapRoute(
+           name: "detailProduct",
+           url: "chi-tiet-goi/{alias}-p{id}",
+           defaults: new { controller = "Products", action = "DetailProduct", alias = UrlParameter.Optional },
+           namespaces: new[] { "WebJob.Controllers" }
+       );
+
+
+
+            // end product
             //
-
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

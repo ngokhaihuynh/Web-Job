@@ -15,13 +15,38 @@ namespace WebJob.Controllers
         // GET: Jobs
         public ActionResult Index(int? id)
         {
-            
-            return View();
+            var items = db.products.ToList();
+            if (id != null)
+            {
+                items = items.Where(x => x.CateProId == id).ToList();
+            }
+            return View(items);
         }
 
-        public ActionResult View_itemsByCatePdId(int cateid)
+        public ActionResult DetailProduct(string alias, int id)
         {
-            var items = db.products.Where(x => x.CateProId == cateid).ToList();
+
+            var item = db.products.Find(id);
+            var defaultImages = item.ProductImages.Where(x => x.IsDefault).ToList();
+            ViewBag.DefaultImages = defaultImages;
+            return View(item);
+        }
+
+        public ActionResult ProductCategory(string alias, int id)
+        {
+            var items = db.products.ToList();
+            if (id > 0)
+            {
+                items = items.Where(x => x.CateProId == id).ToList();
+            }
+
+            ViewBag.CateId = id;
+            return View(items);
+        }
+
+        public ActionResult View_itemsByCatePdId()
+        {
+            var items = db.products.Where(x => x.IsActive).Take(10).ToList();
             return PartialView(items);
         }
 
