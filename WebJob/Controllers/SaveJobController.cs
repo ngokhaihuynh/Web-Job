@@ -62,6 +62,7 @@ namespace WebJob.Controllers
                 save.AddSaveJob(item);
                 Session["Save"] = save;
                 code = new { success = true, msg = "Lưu thành công", code = 1, Count = save.Items.Count };
+
             }
             return Json(code);
         }
@@ -82,5 +83,17 @@ namespace WebJob.Controllers
             }
             return Json(code);
         }
+
+
+        public ActionResult GetSaveJobItems()
+        {
+            SaveJob save = (SaveJob)Session["Save"];
+            if (save != null)
+            {
+                return PartialView("_SaveJobView", save.Items);
+            }
+            return PartialView("_SaveJobView", new List<SaveJobItem>()); // trả về danh sách rỗng nếu không có dữ liệu
+        }
+
     }
 }

@@ -243,3 +243,4 @@ C:\Users\ngokh\Desktop\WebJob\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.c
 C:\Users\ngokh\Desktop\WebJob\WebJob\obj\Debug\WebJob.csproj.CopyComplete
 C:\Users\ngokh\Desktop\WebJob\WebJob\obj\Debug\WebJob.dll
 C:\Users\ngokh\Desktop\WebJob\WebJob\obj\Debug\WebJob.pdb
+C:\Users\ngokh\Desktop\WebJob\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache

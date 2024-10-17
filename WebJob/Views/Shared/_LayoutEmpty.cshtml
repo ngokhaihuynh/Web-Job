@@ -141,40 +141,13 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     @Html.Action("MenuTop", "Menu")
-                    <ul class="navbar-nav mr-auto my-2 my-lg-0 tnav-right tn-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-bell" aria-hidden="true"></i>
-                                <span id="checkout_items" class="notification-badge">0</span> <!-- Số lượng thông báo -->
-                                <span class="hidden-text">Tìm kiếm</span>
-                                <!-- Tooltip -->
-                                <div class="tooltip">
-                                    <div class="tooltip-content">
-                                        <div class="job-item">
-                                            <img src="img/job1.jpg" alt="Job 1" class="job-image">
-                                            <div class="job-info">
-                                                <span class="job-name">Công việc 1</span>
-                                                <span class="job-salary">10,000,000 - 15,000,000 VND</span>
-                                            </div>
-                                            <button class="btn-remove" data-id="1">Xóa</button>
-                                        </div>
-                                        <div class="job-item">
-                                            <img src="img/job2.jpg" alt="Job 2" class="job-image">
-                                            <div class="job-info">
-                                                <span class="job-name">Công việc 2</span>
-                                                <span class="job-salary">12,000,000 - 20,000,000 VND</span>
-                                            </div>
-                                            <button class="btn-remove" data-id="2">Xóa</button>
-                                        </div>
-                                        <div class="job-item">
-                                            <a class="btn btn-appl" href="/cong-viec-da-luu">Xem nhiều hơn</a>
 
-                                        </div>
-                                        <!-- Thêm các công việc khác nếu cần -->
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                    <ul class="navbar-nav mr-auto my-2 my-lg-0 tnav-right tn-nav">
+                        @Html.Partial("~/Views/Shared/_SaveJobView.cshtml", ViewBag.SaveJobItems as IEnumerable<WebJob.Models.SaveJobItem>)
+
+
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Đăng Ký</a>
                         </li>
@@ -193,6 +166,9 @@
                             <a class="nav-link btn-employers" href="#" tabindex="-1" aria-disabled="true" style="color: #fff!important">Nhà Tuyển Dụng</a>
                         </li>
                     </ul>
+
+
+
                 </div>
             </nav>
         </div>
@@ -360,3 +336,4 @@
 
 </body>
 </html>
+

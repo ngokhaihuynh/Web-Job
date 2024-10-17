@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebJob.Models.SaveJobItem>
+<li class="nav-item active">
+    <a class="nav-link" href="#">
+        <i class="fa fa-bell" aria-hidden="true"></i>
+        <span id="checkout_items" class="notification-badge">@Model.Count()</span>
+        <span class="hidden-text">Tìm kiếm</span>
+        <div class="tooltip">
+            <div class="tooltip-content">
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="job-item">
+                            <img src="@item.SaveJobImg" alt="Job 1" class="job-image">
+                            <div class="job-info">
+                                <span class="job-name"><a href="/chi-tiet/@item.Alias-p@(item.SaveJobId)">@item.SaveJobName</a></span>
+                                <span class="job-salary">@item.SaveJobSalaryMin - @item.SaveJobSalaryMax</span>
+                            </div>
+                            <a href="#" data-id="@item.SaveJobId" class="btn btn-danger btnDelete">Xóa</a>
+                        </div>
+                    }
+                }
+                <div class="job-item">
+                    <a class="btn btn-appl" href="/cong-viec-da-luu">Xem nhiều hơn</a>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
