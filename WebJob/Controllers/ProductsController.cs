@@ -23,6 +23,7 @@ namespace WebJob.Controllers
             return View(items);
         }
 
+    
         public ActionResult DetailProduct(string alias, int id)
         {
 

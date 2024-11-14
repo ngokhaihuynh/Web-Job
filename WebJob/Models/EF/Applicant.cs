@@ -8,24 +8,26 @@ using System.Web;
 namespace WebJob.Models.EF
 {
     [Table("tb_Applicant")]
-    public class Applicant
+    public class Applicant : CommonAbstract
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ApplicantID { get; set; }
 
-        
+
         [StringLength(255)]
         public string FullName { get; set; }
 
-        
+
         [StringLength(255)]
         [EmailAddress]
         public string Email { get; set; }
 
-        
+
         [StringLength(50)]
         public string PhoneNumber { get; set; }
+
+        public string CVFilePath { get; set; }
 
         public string CoverLetter { get; set; }
 

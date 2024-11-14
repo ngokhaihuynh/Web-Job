@@ -1,29 +1,63 @@
 ﻿@model  IEnumerable<WebJob.Models.EF.Category>
 @if (Model != null && Model.Any())
 {
-    <ul class="navbar-nav mr-auto tnav-left tn-nav">
+<ul class="navbar-nav mr-auto tnav-left tn-nav">
 
-        @foreach (var item in Model)
+    @foreach (var item in Model)
+    {
+        if (item.Alias.Equals("trang-chu"))
         {
-            if (item.Alias.Equals("trang-chu"))
-            {
-                item.Alias = "";
-            }
-            <li class="nav-item">
-                <a class="nav-link" href="/@item.Alias">@item.Title</a>
-            </li>
+            item.Alias = "";
         }
 
-        @*<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu tdropdown" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>*@
-    </ul>
+        // Kiểm tra nếu đường dẫn hiện tại trùng với Alias
+        bool isActive = Request.Url.AbsolutePath.Equals("/" + item.Alias, StringComparison.OrdinalIgnoreCase);
+
+        <li class="nav-item @(isActive ? "active" : "")">
+            <a class="nav-link" href="/@item.Alias">@item.Title</a>
+        </li>
+    }
+
+
+    @*<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+            </a>
+            <div class="dropdown-menu tdropdown" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>*@
+</ul>
 }
+<style>
+    .nav-item.active .nav-link {
+        color: #007bff; /* Màu chữ khi mục được chọn */
+        font-weight: bold;
+        border-bottom: 2px solid blue; /* Đường viền dưới màu xanh */
+        padding-bottom: 5px; /* Khoảng cách giữa nội dung và đường viền */
+    }
+
+    ul.tn-nav li a:hover {
+           font-weight: bold;
+         border-bottom: 0px solid; 
+        
+    }
+
+</style>
+
+<script>
+    $(document).ready(function () {
+        // Lấy URL hiện tại của trang
+        var currentPath = window.location.pathname;
+
+        // Duyệt qua tất cả các liên kết trong menu và kiểm tra nếu href của nó giống với đường dẫn hiện tại
+        $('.nav-item a').each(function () {
+            if ($(this).attr('href') === currentPath) {
+                $(this).parent().addClass('active'); // Thêm lớp active vào <li> tương ứng
+            }
+        });
+    });
+</script>

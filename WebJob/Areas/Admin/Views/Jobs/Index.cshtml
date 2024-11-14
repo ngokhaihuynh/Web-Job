@@ -126,7 +126,8 @@
                                 <td class="text-center">
                                     <a href='#' data-id="@item.JobID" class="btnNow"> @Html.Raw(strCheckNow) </a>
 
-                                </td> <td class="text-center">
+                                </td>
+                                <td class="text-center">
                                     <a href='#' data-id="@item.JobID" class="btnActive"> @Html.Raw(strCheck) </a>
 
                                 </td>
@@ -172,6 +173,7 @@
     <iframe id="myIframe" style="border:0; width:100%; height:100%;"></iframe>
 </div>
 
+
 @section scripts {
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
     <script>
@@ -190,6 +192,12 @@
                     window.location.reload();
                 }
             });
+            //$('body').on("click", ".imgcompany", function () {
+            //    var proid = $(this).attr("data-id");
+            //    $('#dialog #myIframe').attr("src", "/admin/CompanyImages/Index?id=" + proid);
+            //    $('#dialog').dialog('open');
+            //    return false;
+            //});
 
 
             $('body').on("click", ".imgcompany", function () {
@@ -337,6 +345,174 @@
     </script>
 
 }
+
+
+
+@*@section scripts {
+        <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+        <script>
+            $(document).ready(function () {
+
+                $('#dialog').dialog({
+                    autoOpen: false,
+                    show: "fade",
+                    hide: "fade",
+                    model: true,
+                    height: '600',
+                    width: '700',
+                    resizable: true,
+                    title: 'Quản lý sản phẩm',
+                    close: function () {
+                        window.location.reload();
+                    }
+                });
+
+
+                $('body').on("click", ".imgcompany", function () {
+                    var proid = $(this).attr("data-id");
+                    $('#dialog #myIframe').attr("src", "/admin/CompanyImages/Index?id=" + proid);
+                    $('#dialog').dialog('open');
+                    return false;
+                });
+
+
+                // Xóa tất cả
+                $('body').on('click', '#btnDeleteAll', function (e) {
+                    e.preventDefault();
+                    var str = "";
+                    var checkbox = $(this).parents('.card').find('tr td input:checkbox');
+                    var i = 0;
+                    checkbox.each(function () {
+
+                        if (this.checked) {
+                            checkbox.attr('selected', 'checked');
+                            var _id = $(this).val();
+                            if (i === 0) {
+                                str += _id;
+                            } else {
+                                str += "," + _id;
+                            }
+                            i++;
+                        } else {
+                            checkbox.attr('selected', '');
+
+                        }
+                    });
+                    if (str.length > 0) {
+                        var conf = confirm('Bạn có muốn xóa các bản ghi được chọn?');
+                        if (conf == true) {
+                            $.ajax({
+                                url: '/admin/jobs/DeleteAll',
+                                type: 'POST',
+                                data: { ids: str },
+                                success: function (rs) {
+                                    if (rs.success) {
+                                        location.reload();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+
+
+                // check tất cả
+                $('body').on('change', '#SelectAll', function () {
+                    var checkStatus = this.checked;
+                    var checkbox = $(this).parents('.card-body').find('tr td input:checkbox');
+                    checkbox.each(function () {
+                        this.checked = checkStatus;
+                        if (this.checked) {
+                            checkbox.attr('selected', 'checked');
+                        } else {
+                            checkbox.attr('selected', '');
+                        }
+                    });
+                });
+
+                // xóa 1 đối tượng
+                $('body').on('click', '.btnDelete', function () {
+                    var id = $(this).data("id");
+                    var conf = confirm('Bạn có muốn xóa?');
+                    if (conf === true) {
+                        $.ajax({
+                            url: '/admin/jobs/delete',
+                            type: 'POST',
+                            data: { id: id },
+                            success: function (rs) {
+                                if (rs.success) {
+                                    $('#trow_' + id).remove();
+                                    location.reload();
+                                } else {
+                                    alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                                }
+                            },
+                            error: function () {
+                                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                            }
+                        });
+                    }
+                });
+
+                // thay đổi trạng thái hiển thị
+                $('body').on('click', '.btnNow', function (e) {
+                    e.preventDefault();
+                    var btn = $(this);
+                    var id = btn.data("id");
+                    $.ajax({
+                        url: '/admin/jobs/IsNow',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+
+                            if (rs.success) {
+                                if (rs.IsNow) {
+                                    btn.html("<i class='fa fa-check text-success'></i>");
+
+                                } else {
+                                    btn.html("<i class='fas fa-times text-danger'></i>");
+
+                                }
+                            }
+                        },
+
+                        error: function () {
+                            alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                        }
+                    });
+
+                }); // thay đổi trạng thái hiển thị
+                $('body').on('click', '.btnActive', function (e) {
+                    e.preventDefault();
+                    var btn = $(this);
+                    var id = btn.data("id");
+                    $.ajax({
+                        url: '/admin/jobs/isActive',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+
+                            if (rs.success) {
+                                if (rs.isActive) {
+                                    btn.html("<i class='fa fa-check text-success'></i>");
+
+                                } else {
+                                    btn.html("<i class='fas fa-times text-danger'></i>");
+
+                                }
+                            }
+                        },
+
+                        error: function () {
+                            alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                        }
+                    });
+
+                });
+            });
+        </script>
+
+    }*@
 
 
 

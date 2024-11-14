@@ -56,6 +56,7 @@ namespace WebJob.Models
         public DbSet<Order> orders { get; set; }
         public DbSet<OrderDetail> orderDetails { get; set; }
         public DbSet<ProductImage> productImages { get; set; }
+        public DbSet<ThongKe> thongKes { get; set; }
 
         
         public static ApplicationDbContext Create()

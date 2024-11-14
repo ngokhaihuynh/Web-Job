@@ -1,0 +1,217 @@
+﻿@{
+    ViewBag.Title = "Ứng tuyển việc làm";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+
+
+<div class="clearfix"></div>
+
+<!-- recuiter Nav -->
+<nav class="navbar navbar-expand-lg navbar-light nav-recuitment">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNava" aria-controls="navbarNava" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container" id="navbarNava">
+        <ul class="navbar-nav nav-recuitment-li">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Quản lý hồ sơ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Việc làm của tôi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Việc làm đã lưu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Quản lý hồ sơ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cài đặt</a>
+            </li>
+        </ul>
+        <ul class="rec-nav-right">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Tạo hồ sơ</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- recuiter Nav -->
+<!-- Widget recuitment -->
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="home-ads">
+                    <a href="#">
+                        <img src="~/Content/assets/img/hna2.jpg" alt="Advertisement">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- (end) widget recuitment -->
+<!-- Published recuitment -->
+<div class="container-fluid published-recuitment-wrapper">
+    <div class="container published-recuitment-content">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-12 recuitment-inner">
+                <!-- Form Ứng tuyển -->
+                @using (Html.BeginForm("AppllyJob", "SaveJob", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <!-- Thêm input hidden chứa jobId -->
+                    <input type="hidden" name="jobId" value="@Request.QueryString["jobId"]" />
+
+                    <!-- Các trường thông tin ứng tuyển -->
+                    <div class="accordion" id="accordionExample">
+                        <div class="card recuitment-card">
+                            <div class="card-header recuitment-card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <a class="btn btn-link btn-block text-left recuitment-header" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Thông tin tài khoản
+                                    </a>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body recuitment-body row">
+                                    <div class="col-md-3">
+                                        <div class="avatar-upload">
+                                            <div class="avatar-edit">
+                                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                                <label for="imageUpload"></label>
+                                            </div>
+                                            <div class="avatar-preview">
+                                                <div id="imagePreview" style="background-image: url(https://i.pravatar.cc/500?img=7);"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right label">Họ tên<span style="color: red" class="pl-2">*</span></label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="FullName" class="form-control" placeholder="Nhập họ và tên" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right label">Số điện thoại</label>
+                                            <div class="col-sm-9">
+                                                <input type="tel" name="PhoneNumber" class="form-control" placeholder="Nhập số điện thoại">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right label">Email<span style="color: red" class="pl-2">*</span></label>
+                                            <div class="col-sm-9">
+                                                <input type="email" name="Email" class="form-control" placeholder="Nhập Email" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label text-right label">Thư giới thiệu<span style="color: red" class="pl-2">*</span></label>
+                                            <div class="col-sm-9">
+                                                <textarea name="CoverLetter" class="form-control" placeholder="Viết một thư giới thiệu ngắn gọn về bản thân" style="height: 150px;" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card recuitment-card">
+                            <div class="card-header recuitment-card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <a class="btn btn-link btn-block text-left collapsed recuitment-header" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        File đính kèm
+                                    </a>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body recuitment-body">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label text-right label">Chọn hồ sơ đính kèm<span style="color: red" class="pl-2">*</span></label>
+                                        <div class="col-sm-9">
+                                            <input type="file" id="file" name="CVFilePath" class="recuitment-card-acttachment" required />
+                                            <label for="file" class="btn-1"><i class="fa fa-paperclip pr-2"></i>Chọn file</label>
+                                            <p class="output-file"><span id="previewFileName"></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="notification" style="display:none;" class="alert"></div>
+                    <div class="rec-submit">
+                        <button type="submit" class="btn-submit-recuitment mb-3 ml-3">
+                            <i class="fa fa-floppy-o pr-2"></i>Ứng tuyển
+                        </button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#file').change(function (e) {
+            var fileName = e.target.files[0].name;
+            $('#previewFileName').text(fileName);
+            $(".output-file").append('<style>.output-file:before{display:inline-block !important;}</style>');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('form').submit(function (event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: $(this).attr("action"),
+                type: $(this).attr("method"),
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        window.location.href = response.redirectUrl;
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function () {
+                    alert("Đã xảy ra lỗi trong quá trình gửi dữ liệu.");
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .alert {
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+
+    .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+</style>

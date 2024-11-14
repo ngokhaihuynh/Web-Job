@@ -16,10 +16,10 @@ namespace WebJob.Models.EF
 
         public int JobID { get; set; }
         public int ApplicantID { get; set; }
+        public string CoverLetter { get; set; }
+        public string Note { get; set; }
 
-        
-        [StringLength(500)]
-        public string CVFilePath { get; set; }
+       
 
         public virtual Job Job { get; set; }
         public virtual Applicant Applicant { get; set; }

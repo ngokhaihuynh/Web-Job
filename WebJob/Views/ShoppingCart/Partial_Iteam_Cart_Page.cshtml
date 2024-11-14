@@ -1,0 +1,99 @@
+﻿@model  IEnumerable<WebJob.Models.ShoppingCartItem>
+
+@{ Layout = null; }
+
+@if (Model != null && Model.Any())
+{
+    var i = 0;
+    var tongtien = decimal.Zero;
+    foreach (var item in Model)
+    {
+        tongtien += item.Total;
+        <div class="job pagi">
+            <div class="job-content" id="trow_@item.SaveProductId">
+                <div class="job-logo">
+                    <a href="#">
+                        <img src="@item.SaveProductImg" class="job-logo-ima" alt="job-logo">
+                    </a>
+                </div>
+                <div class="job-desc">
+                    <div class="job-title">
+                        <a href="/chi-tiet-goi/@item.Alias-p@(item.SaveProductId)">@item.SaveProductName</a>
+                    </div>
+                    <div class="job-inf">
+
+                        <div class="job-salary">
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                            @*<span class="salary-min">@item.SaveProductSalaryMax<em class="salary-unit"></em></span>
+                                <span class="salary-max">@item.SaveProductSalaryMin <em class="salary-unit"></em></span>*@
+
+                            @if (item.SaveProductSalaryMin > 0)
+                            {
+                                <i class=""></i><span>@WebJob.Models.Common.common.FormatNumber(item.SaveProductSalaryMax, 0)</span>
+                                <i class=""></i><span>@WebJob.Models.Common.common.FormatNumber(item.SaveProductSalaryMin, 0)</span>
+                            }
+                            else
+                            {
+                                <i class=""></i><span>@WebJob.Models.Common.common.FormatNumber(item.SaveProductSalaryMax, 0)</span>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+                <div class="wrap-btn-appl">
+                    @*<a href="#" class="btn btn-appl">Thanh toán</a>*@
+                    @*<a href="#" data-id="@item.SaveJobId" class="btn btn-danger btnDelete">Xóa</a>*@
+                    <a href="#" data-id="@item.SaveProductId" class="btn btn-danger btnDeleteProduct">Xóa</a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    }
+    <div style="height:20px">
+        <span style="font-weight:bold; color: red; float: right">Tổng: @WebJob.Models.Common.common.FormatNumber(tongtien, 0) </span>
+    </div>
+
+    <div style="height:40px; margin-top: 10px">
+        <a style="float:right" href="/thanh-toan" class="btn btn-appl">Thanh toán</a>
+        <a style="float:right; margin-right: 10px" href="#" class="btn btn-danger btnDeleteAll">Xóa tất cả</a>
+    </div>
+}
+
+else
+{
+    <div class="job pagi">
+        <div class="job-content">
+            <span>Không có gói dịch vụ nào trong giỏ hàng</span>
+
+        </div>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        $('body').on('click', '.btnDeleteAll', function (e) {
+            e.preventDefault();
+            var confirmDelete = confirm('Bạn có chắc chắn muốn xóa tất cả sản phẩm khỏi giỏ hàng?');
+            if (confirmDelete) {
+                $.ajax({
+                    url: '/shoppingcart/DeleteAll', // Đường dẫn đến phương thức xóa tất cả trong controller
+                    type: 'POST',
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            // Cập nhật lại giỏ hàng hoặc reload lại trang sau khi xóa thành công
+                            location.reload();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert("Có lỗi xảy ra khi kết nối với server.");
+                    }
+                });
+            }
+        });
+    });
+</script>

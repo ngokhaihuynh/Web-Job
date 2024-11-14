@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container search-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Thanh toán</h1>
+                <p class="text-center">Bạn kiểm tra lại thông tin đơn hàng!</p>
+            </div>
+
+        </div>
+        <hr />
+
+        @if (ViewBag.CheckCart != null)
+        {
+            <div class="row">
+                <div id="show_success"></div>
+                <div class="col-md-9">
+                    @Html.Action("Partial_CheckOut", "ShoppingCart")
+                </div>
+                <div class="col-md-3">
+                    @Html.Action("Partial_Item_ThanhToan", "ShoppingCart")
+                </div>
+
+            </div>
+        }
+        else
+        {
+            <div>
+                Bạn chưa có sản phâm! Quay lại trang <a href="/goi">sản phẩm</a> để mua các dịch vụ!
+            </div>
+            <hr />
+        }
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function OnFailure(rs) {
+            if (!rs.success) {
+                $('#show_success').html("Mua hàng không thành công! Vui lòng thử lại!");
+            }
+        }
+
+        $(document).ready(function () {
+            $('#myForm').validate({
+                rules: {
+                    'CustomerName': {
+                        required: true
+                    },
+                    'Phone': {
+                        required: true
+                    },
+                    
+                    'Address': {
+                        required: true
+                    },
+                    
+                    'Email': {
+                        required: true
+                    }
+                },
+                messages: {
+                    'CustomerName': {
+                        required: 'Bạn không được để trống'
+                    },
+                    'Phone': {
+                        required: 'Bạn không được để trống'
+                    },
+                    'Address': {
+                        required: 'Bạn không được để trống'
+                    },
+                    'Email': {
+                        required: 'Vui lòng nhập Email hợp lệ'
+                    }
+
+                }
+            });
+        });
+
+    </script>
+
+    }
+<style>
+    .error{
+        color: red;
+    }
+</style>

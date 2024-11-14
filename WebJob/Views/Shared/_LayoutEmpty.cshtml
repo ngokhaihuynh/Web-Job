@@ -12,11 +12,9 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.min.css">
 
-
-
     <!-- Font Awesome -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
 
     <!-- select 2 css -->
     <link rel="stylesheet" href="~/Content/assets/css/select2.min.css">
@@ -27,6 +25,9 @@
     <link rel="stylesheet" href="~/Content/assets/css/owlcarousel/owl.theme.default.min.css">
     <!-- main css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Content/assets/js/jquery-3.4.1.slim.min.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
     <style>
         .fx {
             position: fixed;
@@ -145,14 +146,23 @@
                     <ul class="navbar-nav mr-auto my-2 my-lg-0 tnav-right tn-nav">
 
 
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                             <a class="nav-link" href="/cong-viec-da-luu">
-                                <i class="fa fa-bell" aria-hidden="true"></i>
+                                @*<i class="fa fa-bell" aria-hidden="true"></i>*@
+                                <i class="fa-solid fa-bookmark"></i>
                                 <span id="checkout_items" class="notification-badge">0</span> <!-- Số lượng thông báo -->
                                 <span class="hidden-text">Thông báo</span>
                             </a>
                         </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/gio-hang">
+                                @*<i class="fa fa-shopping-cart" aria-hidden="true"></i>*@
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span id="checkout_cart" class="notification-badge">0</span> <!-- Số lượng thông báo -->
+                                <span class="hidden-text">Giỏ hàng</span>
 
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="#">Đăng Ký</a>
@@ -328,16 +338,19 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script src="~/Scripts/jsSaveJob.js"></script>
+    <script src="~/Scripts/JsShopping.js"></script>
     <script src="~/Content/assets/js/popper.min.js"></script>
     <script src="~/Content/assets/js/bootstrap.min.js"></script>
     <script src="~/Content/assets/js/select2.min.js"></script>
     <script src="~/Content/assets/js/jobdata.js"></script>
-
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script type="~/Content/assets/text/javascript" src="js/main.js"></script>
     <!-- Owl Stylesheets Javascript -->
     <script src="~/Content/assets/js/owlcarousel/owl.carousel.js"></script>
     <!-- Read More Plugin -->
-
+    @RenderSection("scripts", required: false)
 
 
 </body>

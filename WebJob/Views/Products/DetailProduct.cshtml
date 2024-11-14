@@ -7,155 +7,189 @@
 @if (Model != null)
 {
 
-<!-- job detail header -->
-<div class="container-fluid job-detail-wrap">
-    <div class="container job-detail">
-        <div class="job-detail-header">
-            <div class="row">
-                <div class="col-md-2 col-sm-12 col-12">
-                    @if (Model.ProductImages != null && Model.ProductImages.Any())
-                    {
-                        <div class="job-detail-header-logo">
-                            @foreach (var item in Model.ProductImages.Where(img => img.IsDefault)) // Lọc các hình ảnh có IsDefault = true
-                            {
-                                <a href="#">
-                                    <img src="@item.Image" class="job-logo-ima" alt="@item.Product.Title">
-                                </a>
-                            }
-                        </div>
-                    }
-                    else
-                    {
-                        <p>Không có hình ảnh nào được đánh dấu là mặc định.</p>
-                    }
+    <!-- job detail header -->
+    <div class="container-fluid job-detail-wrap">
+        <div class="container job-detail">
+            <div class="job-detail-header">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12 col-12">
+                        @if (Model.ProductImages != null && Model.ProductImages.Any())
+                        {
+                            <div class="job-detail-header-logo">
+                                @foreach (var item in Model.ProductImages.Where(img => img.IsDefault)) // Lọc các hình ảnh có IsDefault = true
+                                {
+                                    <a href="#">
+                                        <img src="@item.Image" class="job-logo-ima" alt="@item.Product.Title">
+                                    </a>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p>Không có hình ảnh nào được đánh dấu là mặc định.</p>
+                        }
 
 
-                </div>
-                <div class="col-md-7 col-sm-12 col-12">
-                    <div class="job-detail-header-desc">
-                        <div class="job-detail-header-title">
-                            <a href="#">@Model.Title</a>
-                        </div>
-                        @*<div class="job-detail-header-company">
-                            <a href="#">Fpt Software</a>
-                        </div>*@
-                        <div class="job-detail-header-de">
-                            <ul>
-                                @*<li><i class="fa fa-map-marker icn-jd"></i><span>Đà Nẵng</span></li>*@
-                                <li><i class="fa fa-usd icn-jd"></i><span>@Model.Price</span></li>
-                                @*<li><i class="fa fa-calendar icn-jd"></i><span>15/01/2019</span></li>*@
-                            </ul>
-                        </div>
-                        
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-12 col-12">
-                    <div class="jd-header-wrap-right">
-                        <div class="jd-center">
-                            <a href="#" class="btn btn-primary btn-apply">Mua ngay</a>
-                            <p class="jd-view">Lượt xem: <span>1.520</span></p>
+                    <div class="col-md-7 col-sm-12 col-12">
+                        <div class="job-detail-header-desc">
+                            <div class="job-detail-header-title">
+                                <a href="#">@Model.Title</a>
+                            </div>
+                            @*<div class="job-detail-header-company">
+                                    <a href="#">Fpt Software</a>
+                                </div>*@
+                            <div class="job-detail-header-de">
+                                <ul>
+                                    @if (Model.PriceSale > 0)
+                                    {
+                                        <li><i class="fa fa-usd icn-jd"></i><span>@WebJob.Models.Common.common.FormatNumber(Model.Price, 0)</span></li>
+                                        <li><i class="fa fa-usd icn-jd"></i><span>@WebJob.Models.Common.common.FormatNumber(Model.PriceSale, 0)</span></li>
+                                    }
+                                    else
+                                    {
+                                        <li><i class="fa fa-usd icn-jd"></i><span>@WebJob.Models.Common.common.FormatNumber(Model.Price, 0)</span></li>
+                                    }
+
+                                    @*<li><i class="fa fa-map-marker icn-jd"></i><span>Đà Nẵng</span></li>*@
+
+                                    @*<li><i class="fa fa-calendar icn-jd"></i><span>15/01/2019</span></li>*@
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-12">
+                        <div class="jd-header-wrap-right">
+                            <div class="jd-center">
+                                <a href="#" data-id="@Model.ProductID" class="btn btn-primary btn-apply btnBuyNow" >Mua ngay</a>
+                                <a href="#" data-id="@Model.ProductID" class="btn btn-danger btnAddToCart">Thêm vào giỏ hàng</a>
+                                <p class="jd-view">Lượt xem: <span>1.520</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- (end) job detail header -->
+    <!-- (end) job detail header -->
 
-<div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-<!-- Phần thân -->
-<div class="wrapper">
-    <div class="container">
-        <div class="row">
-            <!-- Main wrapper -->
-            <div class="col-md-8 col-sm-12 col-12 clear-left">
-                <div class="main-wrapper">
-                    <!--<h2 class="widget-title">
-                        <span>Phúc lợi</span>
-                    </h2>-->
-                    <!-- content -->
-                    <!--<div class="welfare-wrap">
-                        <div class="row">
-                            <div class="welfare-list">
-                                <ul>
-                                    <li>
-                                        <p><i class="fa fa-usd icn-welfare"></i>Have opponunity for growth.</p>
-                                    </li>
-                                    <li>
-                                        <p><i class="fa fa-user icn-welfare"></i>Working under energisitic, innovative, friendly environment.</p>
-                                    </li>
-                                    <li>
-                                        <p><i class="fa fa-check-circle icn-welfare"></i>Competitive salary and attractive benefits packages.</p>
-                                    </li>
-                                </ul>
+    <!-- Phần thân -->
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <!-- Main wrapper -->
+                <div class="col-md-8 col-sm-12 col-12 clear-left">
+                    <div class="main-wrapper">
+                        <!--<h2 class="widget-title">
+                            <span>Phúc lợi</span>
+                        </h2>-->
+                        <!-- content -->
+                        <!--<div class="welfare-wrap">
+                            <div class="row">
+                                <div class="welfare-list">
+                                    <ul>
+                                        <li>
+                                            <p><i class="fa fa-usd icn-welfare"></i>Have opponunity for growth.</p>
+                                        </li>
+                                        <li>
+                                            <p><i class="fa fa-user icn-welfare"></i>Working under energisitic, innovative, friendly environment.</p>
+                                        </li>
+                                        <li>
+                                            <p><i class="fa fa-check-circle icn-welfare"></i>Competitive salary and attractive benefits packages.</p>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
+                        </div>-->
+                        <h2 class="widget-title">
+                            <span>Mô tả gói</span>
+                        </h2>
+                        <div class="jd-content">
+                            @Model.Description
                         </div>
-                    </div>-->
-                    <h2 class="widget-title">
-                        <span>Mô tả gói</span>
-                    </h2>
-                    <div class="jd-content">
-                        @Model.Description
-                    </div>
-                    <h2 class="widget-title">
-                        <span>Chi tiết gói</span>
-                    </h2>
-                    <div class="jd-content">
-                       @Model.Detail
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="col-md-4 col-sm-12 col-12 clear-right">
-               
-                <div class="side-bar mb-3">
-                    <h2 class="widget-title">
-                        <span>Các gói tương tự</span>
-                    </h2>
-
-                    <div class="job-tt-contain">
-                        <div class="job-tt-item">
-
-                            <a href="#" class="thumb">
-                                <div style="background-image: url(img/alipay-logo.png);"></div>
-                            </a>
-
-                            <div class="info">
-                                <a href="#" class="jobname">
-                                    Fullstack .NET Developer (Angular/React)
-                                </a>
-                                <a href="#" class="company">
-                                    Alipay Software
-                                </a>
-                            </div>
+                        <h2 class="widget-title">
+                            <span>Chi tiết gói</span>
+                        </h2>
+                        <div class="jd-content">
+                            @Model.Detail
                         </div>
-
 
                     </div>
                 </div>
 
-                @*<div class="side-bar mb-3">
+                <!-- Sidebar -->
+                <div class="col-md-4 col-sm-12 col-12 clear-right">
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="home-ads">
-                                    <a href="#">
-                                        <img src="~/Content/img/ads1.jpg">
+                    <div class="side-bar mb-3">
+                        <h2 class="widget-title">
+                            <span>Các gói tương tự</span>
+                        </h2>
+
+                        <div class="job-tt-contain">
+                            <div class="job-tt-item">
+
+                                <a href="#" class="thumb">
+                                    <div style="background-image: url(img/alipay-logo.png);"></div>
+                                </a>
+
+                                <div class="info">
+                                    <a href="#" class="jobname">
+                                        Fullstack .NET Developer (Angular/React)
+                                    </a>
+                                    <a href="#" class="company">
+                                        Alipay Software
                                     </a>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
 
-                </div>*@
+                    @*<div class="side-bar mb-3">
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="home-ads">
+                                            <a href="#">
+                                                <img src="~/Content/img/ads1.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>*@
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- (end) Phần thân -->
+    <!-- (end) Phần thân -->
 }
+
+<script>
+    $(document).ready(function () {
+        $('.btnBuyNow').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+
+            $.ajax({
+                url: '/ShoppingCart/BuyNow',
+                type: 'POST',
+                data: { id: id },
+                success: function () {
+                    window.location.href = '/ShoppingCart/CheckOut';  // Chuyển sang trang thanh toán
+                },
+                error: function () {
+                    alert("Không thể kết nối với server");
+                }
+            });
+        });
+    });
+
+
+</script>

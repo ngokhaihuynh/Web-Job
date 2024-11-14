@@ -53,9 +53,19 @@
                                 <a href="#" data-id="@item.CompanyImageID" class="btn btn-sm btn-danger btnDelete">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                                <a href="#" data-id="@item.CompanyImageID" class="btn btn-sm btn-success btnDefault">
-                                    <i class="fa fa-check"></i>
-                                </a>
+                                <!-- Nút chọn ảnh đại diện -->
+                                @if (item.IsDefault)
+                                {
+                                    <a href="#" data-id="@item.CompanyImageID" class="btn btn-sm btn-success btnDefault">
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" data-id="@item.CompanyImageID" class="btn btn-sm btn-warning btnDefault">
+                                        X
+                                    </a>
+                                }
                             </div>
                         </li>
                     }
@@ -75,7 +85,7 @@
 
 <script>
 
-    function BrowseServer(field) {
+    @*function BrowseServer(field) {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
 
@@ -84,62 +94,118 @@
                 AddImage(jobId, fileUrl, companyId);
             };
             finder.popup();
-    }
+    }*@
 
-    function AddImage(jobId, url, companyId) {
-        $.ajax({
-            url: '/admin/companyimages/AddImage',
-            type: 'POST',
-            data: { companyImgId: jobId, url: url, jobId: jobId, companyId: companyId },
-            success: function (rs) {
-                if (rs.success) {
-                    window.location.reload();
-                } else {
-                    alert('Error: ' + rs.message);
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert('An error occurred: ' + textStatus + ' - ' + errorThrown);
+
+
+
+
+ function BrowseServer(field) {
+    var finder = new CKFinder();
+    finder.selectActionFunction = function (fileUrl) {
+        var companyId = '@ViewBag.CompanyID'; // Chuyển thành chuỗi
+        var jobId = '@ViewBag.JobID'; // Chuyển thành chuỗi
+        AddImage(0, fileUrl, companyId, jobId); // Đảm bảo rằng bạn đang sử dụng jobId và companyId chính xác
+    };
+    finder.popup();
+}
+
+function AddImage(companyImgId, url, companyId, jobId) {
+    $.ajax({
+        url: '/admin/companyimages/AddImage',
+        type: 'POST',
+        data: { companyImgId: companyImgId, url: url, companyId: companyId, jobId: jobId },
+        success: function (rs) {
+            if (rs.success) {
+                window.location.reload();
+            } else {
+                alert('Error: ' + rs.message); // Hiển thị thông điệp lỗi nếu có
             }
-        });
-    }
-
-
-
-
-    function AddImage(id, url, companyId) {
-        $.ajax({
-            url: '/admin/companyimages/AddImage',
-            type: 'POST',
-            data: { companyImgId: id, url: url, companyId: companyId },
-            success: function (rs) {
-                if (rs.success) {
-                    window.location.reload();
-                }
-            },
-            error: function () {
-                alert('An error occurred.');
-            }
-        });
-    }
-
-
-    $(document).ready(function () {
-        $('body').on('click', '.btnDelete', function () {
-            var id = $(this).data('id');
-            var conf = confirm('bạn có muốn xóa ảnh này không?');
-            if (conf === true) {
-                $.ajax({
-                    url: '/admin/companyimages/delete',
-                    type: 'POST',
-                    data: { id: id },
-                    success: function (rs) {
-                        if (rs.success) {
-                            $('#trow_' + id).remove();
-                        }
-                    }
-                });
-            }
-        });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert('An error occurred: ' + textStatus + ' - ' + errorThrown);
+        }
     });
+}
+
+
+
+$(document).ready(function () {
+    $('body').on('click', '.btnDelete', function () {
+        var id = $(this).data('id');
+        var conf = confirm('bạn có muốn xóa ảnh này không?');
+        if (conf === true) {
+            $.ajax({
+                url: '/admin/companyimages/delete',
+                type: 'POST',
+                data: { id: id },
+                success: function (rs) {
+                    if (rs.success) {
+                        $('#trow_' + id).remove();
+                    }
+                }
+            });
+        }
+    });
+});
+
+
+  // Đặt ảnh đại diện
+$('body').on('click', '.btnDefault', function () {
+    var id = $(this).data('id');
+    var jobId = '@ViewBag.JobID'; // Hoặc lấy jobId từ nơi nào đó hợp lý
+
+    $.ajax({
+        url: '/admin/companyimages/SetDefaultImage',
+        type: 'POST',
+        data: { id: id, jobId: jobId }, // Thêm jobId vào dữ liệu gửi đi
+        success: function (rs) {
+            if (rs.success) {
+                window.location.reload();
+            } else {
+                alert(rs.message || 'Có lỗi xảy ra khi đặt ảnh đại diện.');
+            }
+        },
+        error: function () {
+            alert('Có lỗi xảy ra.');
+        }
+    });
+});
+
+
+    //function AddImage(id, url, companyId) {
+    //    $.ajax({
+    //        url: '/admin/companyimages/AddImage',
+    //        type: 'POST',
+    //        data: { companyImgId: id, url: url, companyId: companyId },
+    //        success: function (rs) {
+    //            if (rs.success) {
+    //                window.location.reload();
+    //            }
+    //        },
+    //        error: function () {
+    //            alert('An error occurred.');
+    //        }
+    //    });
+    //}
+
+
+    //$(document).ready(function () {
+    //    $('body').on('click', '.btnDelete', function () {
+    //        var id = $(this).data('id');
+    //        var conf = confirm('bạn có muốn xóa ảnh này không?');
+    //        if (conf === true) {
+    //            $.ajax({
+    //                url: '/admin/companyimages/delete',
+    //                type: 'POST',
+    //                data: { id: id },
+    //                success: function (rs) {
+    //                    if (rs.success) {
+    //                        $('#trow_' + id).remove();
+    //                    }
+    //                }
+    //            });
+    //        }
+    //    });
+    //});
 </script>

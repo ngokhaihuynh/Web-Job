@@ -14,11 +14,17 @@ namespace WebJob.Models.EF
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderID { get; set; }
         public string Code { get; set; }
+        [Required(ErrorMessage ="Không được để trống!")]
         public string CustomerName {get; set;}
+        [Required(ErrorMessage = "Không được để trống!")]
         public string Phone { get; set; }
+        [Required(ErrorMessage = "Không được để trống!")]
         public string Address { get; set; }
-        public string TotalAmount { get; set; }
-        public int Quantyti  { get; set; }
+        //[Required(ErrorMessage = "Không được để trống!")]
+        public string Email { get; set; }
+        public decimal TotalAmount { get; set; }
+        public int Quantity  { get; set; }
+        public int TypePayment  { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new HashSet<OrderDetail>();
 
 

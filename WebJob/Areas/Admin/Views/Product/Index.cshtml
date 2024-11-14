@@ -28,7 +28,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Quản lý danh sách việc làm</h1>
+                <h1>Quản lý danh sách các gói dịch vụ</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -98,10 +98,26 @@
                         @*<td><img src="@item.Company.CompanyImages.FirstOrDefault(x=> x.IsDefault).ImageURL??" width="50" /></td>*@
 
 
-                        <td> 
-                            @* khi null sẽ lỗi *@
-                            <img class="imgproduct" data-id="@item.ProductID" src="@item.ProductImages.FirstOrDefault(x=>x.IsDefault).Image??" width="50" alt="Alternate Text" />
-                        </td>
+                    <td>
+                        @* khi null sẽ lỗi *@
+                        @*  <img class="imgproduct" data-id="@item.ProductID" src="@item.ProductImages.FirstOrDefault(x=>x.IsDefault).Image??" width="50" alt="Alternate Text" />*@
+
+                        @if (item.ProductImages.FirstOrDefault(x => x.IsDefault)?.Image != null)
+                        {
+                            <img class="imgproduct" data-id="@item.ProductID"
+                                 src="@item.ProductImages.FirstOrDefault(x => x.IsDefault).Image"
+                                 width="50" alt="Ảnh sản phẩm" />
+                        }
+                        else
+                        {
+                            <span>Không có hình ảnh</span>
+                        }
+
+
+                    </td>
+
+                      
+
 
                         <td>@item.Title</td>
                         <td>@item.CategoryProduct.Title</td>

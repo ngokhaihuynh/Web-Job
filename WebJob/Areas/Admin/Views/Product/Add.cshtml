@@ -1,6 +1,6 @@
 ﻿@model WebJob.Models.EF.Product 
 @{
-    ViewBag.Title = "Thêm mới gói sản phẩm";
+    ViewBag.Title = "Thêm mới gói dịch vụ";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -27,7 +27,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Thêm mới việc làm</h1>
+                <h1>Thêm mới gói dịch vụ</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -75,11 +75,11 @@
                                             @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Tên gói" })
                                             @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
                                         </div>
-                                        <div class="form-group">
+                                        @*<div class="form-group">
                                             <label for="exampleInputEmail1">Alias</label>
                                             @Html.TextBoxFor(x => x.Alias, new { @class = "form-control", @placeholder = "Alias" })
                                             @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
-                                        </div>
+                                        </div>*@
 
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Danh mục gói</label>

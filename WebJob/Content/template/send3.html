@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Ứng Viên</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="application-container">
+        <h2>Vị trí ứng tuyển: {{JobName}}</h2>
+        <h3>Ứng viên: {{FullName}}</h3>
+
+        <div class="info-item">
+            <label>Số điện thoại:</label>
+            <span>{{PhoneNumber}}</span>
+        </div>
+
+        <div class="info-item">
+            <label>Ngày ứng tuyển:</label>
+            <span>{{NgayDat}}</span>
+        </div>
+
+        <div class="info-item">
+            <label>Lời nhắn:</label>
+            <p>{{CoverLetter}}</p>
+        </div>
+
+        <div class="info-item">
+            <label>CV của ứng viên:</label>
+            <a href="{{CVLink}}" target="_blank">{{CVFileName}}</a>
+        </div>
+    </div>
+
+</body>
+</html>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #f4f4f9;
+    }
+
+    .application-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+        .application-container h2 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .application-container h3 {
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+    .info-item {
+        margin-bottom: 15px;
+    }
+
+        .info-item label {
+            font-weight: bold;
+            color: #333333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-item span,
+        .info-item p,
+        .info-item a {
+            font-size: 16px;
+            color: #555555;
+        }
+
+        .info-item a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+            .info-item a:hover {
+                text-decoration: underline;
+            }
+</style>

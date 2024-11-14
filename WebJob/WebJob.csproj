@@ -50,6 +50,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\drive-download-20240717T080442Z-001\ckfinder\bin\Debug\CKFinder.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -199,6 +202,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SaveJobController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,10 +238,50 @@
     <Compile Include="Migrations\202408211223518_AddDatabaseProduct.designer.cs">
       <DependentUpon>202408211223518_AddDatabaseProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411110903376_UpdateNullPriceSale.cs" />
+    <Compile Include="Migrations\202411110903376_UpdateNullPriceSale.designer.cs">
+      <DependentUpon>202411110903376_UpdateNullPriceSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411120833587_UpdateOrder.cs" />
+    <Compile Include="Migrations\202411120833587_UpdateOrder.designer.cs">
+      <DependentUpon>202411120833587_UpdateOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411120914323_UpdateTypePaymentOrdet.cs" />
+    <Compile Include="Migrations\202411120914323_UpdateTypePaymentOrdet.designer.cs">
+      <DependentUpon>202411120914323_UpdateTypePaymentOrdet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411120932257_UpdateOrder1.cs" />
+    <Compile Include="Migrations\202411120932257_UpdateOrder1.designer.cs">
+      <DependentUpon>202411120932257_UpdateOrder1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411121040189_updateTotalAmount.cs" />
+    <Compile Include="Migrations\202411121040189_updateTotalAmount.designer.cs">
+      <DependentUpon>202411121040189_updateTotalAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411121659422_UpdateApplicant.cs" />
+    <Compile Include="Migrations\202411121659422_UpdateApplicant.designer.cs">
+      <DependentUpon>202411121659422_UpdateApplicant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411121714330_UpdateModifineApplicant.cs" />
+    <Compile Include="Migrations\202411121714330_UpdateModifineApplicant.designer.cs">
+      <DependentUpon>202411121714330_UpdateModifineApplicant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411130818105_UpdateTableThhongke.cs" />
+    <Compile Include="Migrations\202411130818105_UpdateTableThhongke.designer.cs">
+      <DependentUpon>202411130818105_UpdateTableThhongke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411130831396_UpdateThongke.cs" />
+    <Compile Include="Migrations\202411130831396_UpdateThongke.designer.cs">
+      <DependentUpon>202411130831396_UpdateThongke.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicantViewModel.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
+    <Compile Include="Models\Common\common.cs" />
     <Compile Include="Models\Common\Filter.cs" />
+    <Compile Include="Models\Common\ThongKeTruyCap.cs" />
+    <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\EF\Adv.cs" />
     <Compile Include="Models\EF\Applicant.cs" />
     <Compile Include="Models\EF\Article.cs" />
@@ -265,9 +309,13 @@
     <Compile Include="Models\EF\Salary.cs" />
     <Compile Include="Models\EF\Setting.cs" />
     <Compile Include="Models\EF\Skill.cs" />
+    <Compile Include="Models\EF\ThongKe.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\SaveJob.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\ThongKeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -3112,6 +3160,9 @@
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\template\send1.html" />
+    <Content Include="Content\template\send2.html" />
+    <Content Include="Content\template\send3.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -3249,6 +3300,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jsSaveJob.js" />
+    <Content Include="Scripts\JsShopping.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Uploads\images\1.png" />
     <Content Include="Uploads\images\4.png" />
@@ -3308,6 +3360,14 @@
     <Content Include="Views\Products\ProductCategory.cshtml" />
     <Content Include="Views\Products\DetailProduct.cshtml" />
     <Content Include="Views\Shared\_SaveJobPartial.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Partial_Iteam_Cart_Page.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
+    <Content Include="Views\SaveJob\AppllyJob.cshtml" />
+    <Content Include="Views\ShoppingCart\Partial_Item_ThanhToan.cshtml" />
+    <Content Include="Views\ShoppingCart\Partial_CheckOut.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
+    <Content Include="Views\Home\Refresh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3353,6 +3413,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408211223518_AddDatabaseProduct.resx">
       <DependentUpon>202408211223518_AddDatabaseProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411110903376_UpdateNullPriceSale.resx">
+      <DependentUpon>202411110903376_UpdateNullPriceSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411120833587_UpdateOrder.resx">
+      <DependentUpon>202411120833587_UpdateOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411120914323_UpdateTypePaymentOrdet.resx">
+      <DependentUpon>202411120914323_UpdateTypePaymentOrdet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411120932257_UpdateOrder1.resx">
+      <DependentUpon>202411120932257_UpdateOrder1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411121040189_updateTotalAmount.resx">
+      <DependentUpon>202411121040189_updateTotalAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411121659422_UpdateApplicant.resx">
+      <DependentUpon>202411121659422_UpdateApplicant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411121714330_UpdateModifineApplicant.resx">
+      <DependentUpon>202411121714330_UpdateModifineApplicant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411130818105_UpdateTableThhongke.resx">
+      <DependentUpon>202411130818105_UpdateTableThhongke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411130831396_UpdateThongke.resx">
+      <DependentUpon>202411130831396_UpdateThongke.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

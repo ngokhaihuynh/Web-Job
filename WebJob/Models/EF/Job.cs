@@ -28,6 +28,7 @@ namespace WebJob.Models.EF
         public int? IndustryID { get; set; }
         public int? LevelID { get; set; }
         public int? JobCategoryID { get; set; }
+        public int ViewCount { get; set; }
 
         public string Alias { get; set; }
         [AllowHtml]

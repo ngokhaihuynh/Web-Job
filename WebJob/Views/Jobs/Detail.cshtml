@@ -61,11 +61,12 @@
                     <div class="col-md-3 col-sm-12 col-12">
                         <div class="jd-header-wrap-right">
                             <div class="jd-center">
-                                <a href="#" class="btn btn-primary btn-apply">Nộp đơn</a>
-                                
+                                <a href="/ung-tuyen?jobId=@Model.JobID" class="btn btn-primary btn-apply">Nộp đơn</a>
+                               
+
                                 <a href="#" data-id="@Model.JobID" class="btn btn-danger btnAddSave">lưu</a>
 
-                                <p class="jd-view">Lượt xem: <span>1.520</span></p>
+                                <p class="jd-view">Lượt xem: <span>@Model.ViewCount</span></p>
                             </div>
                         </div>
                     </div>

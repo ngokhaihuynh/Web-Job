@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+<div class="container-fluid">
+    <div class="container search-wrapper">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-12">
+                @*<h4 class="search-find">Tìm thấy việc làm đang lưu</h4>*@
+                <div class="job-board-wrap">
+                    <div class="job-group" id="load_data">
+
+                        @Html.Action("Partial_Iteam_Cart_Page", "ShoppingCart")
+                    </div>
+                   
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

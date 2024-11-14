@@ -17,7 +17,7 @@
                         {
                             foreach (var item in Model)
                             {
-                                <div class="job pagi" >
+                                <div class="job pagi">
                                     <div class="job-content" id="trow_@item.SaveJobId">
                                         <div class="job-logo">
                                             <a href="#">
@@ -41,22 +41,25 @@
                                             </div>
                                         </div>
                                         <div class="wrap-btn-appl">
-                                            <a href="#" class="btn btn-appl">Ứng tuyển ngay</a>
-                                            @*<a href="#" data-id="@item.SaveJobId" class="btn btn-danger btnDelete">Xóa</a>*@
+                                            @*<a href="/ung-tuyen" data-id="@item.SaveJobId" class="btn btn-appl">Ứng tuyển ngay</a>*@
+                                            <a href="/ung-tuyen?jobId=@item.SaveJobId" class="btn btn-appl">Ứng tuyển ngay</a>
+                                          
                                             <a href="#" data-id="@item.SaveJobId" class="btn btn-danger btnDelete">Xóa</a>
 
 
                                         </div>
-                                        @*<div class="wrap-btn-appl">
-                                        
-                                            <a href="#" data-id="@item.SaveJobId" class="btn btn-danger btnDelete">Xóa</a>
 
-                                        </div>*@
                                     </div>
                                 </div>
 
                             }
+                            <div style="height:40px; margin-top: 10px" >
+
+                                <a href="#" style="float: right;" class="btn btn-danger btnDeleteAllJob">Xóa tất cả</a>
+
+                            </div>
                         }
+
                         else
                         {
                             <div class="job pagi">
@@ -76,3 +79,28 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+        $('body').on('click', '.btnDeleteAllJob', function (e) {
+            e.preventDefault();
+            var confirmDelete = confirm('Bạn có chắc chắn muốn xóa tất cả công việc đã lưu?');
+            if (confirmDelete) {
+                $.ajax({
+                    url: '/SaveJob/DeleteAllJobs', // Đường dẫn đến phương thức DeleteAllJobs
+                    type: 'POST',
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload(); // Làm mới trang để cập nhật lại danh sách công việc
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert("Có lỗi xảy ra khi kết nối với server.");
+                    }
+                });
+            }
+        });
+    });
+</script>

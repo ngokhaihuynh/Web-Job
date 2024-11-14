@@ -35,6 +35,18 @@ namespace WebJob.Controllers
         public ActionResult Detail(string alias, int id)
         {
             var item = db.Jobs.Find(id);
+
+            // tang luot xem khi click vao
+            if(item != null)
+            {
+                db.Jobs.Attach(item);
+                item.ViewCount = item.ViewCount + 1;
+                db.Entry(item).Property(x => x.ViewCount).IsModified = true;
+                db.SaveChanges();
+            }
+
+           
+
             // lấy công việc tương tự
             return View(item);
         }

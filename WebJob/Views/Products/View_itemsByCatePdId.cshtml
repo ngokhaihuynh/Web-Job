@@ -37,14 +37,18 @@
                             <i class="fa fa-money" aria-hidden="true"></i>
 
 
-                            @if (item.PriceSale > 0)
+                            @if (item.PriceSale.HasValue && item.PriceSale > 0)
                             {
-                                <span style="color:red" class="salary-min">@item.PriceSale.ToString("N0")</span> <span style="text-decoration:line-through" class="salary">@item.Price.ToString("N0")</span>
+                                <span style="color:red" class="salary-min">@item.PriceSale.Value.ToString("N0")</span>
+                                <span>-</span>
+                                <span style="text-decoration:line-through" class="salary">@item.Price.ToString("N0")</span>
                             }
                             else
                             {
                                 <span class="salary-min">@item.Price.ToString("N0")</span>
+                                
                             }
+
 
                             @*<span class="salary-max">35 <em class="salary-unit">triệu</em></span>*@
                         </div>
@@ -54,8 +58,8 @@
                     </div>
                 </div>
                 <div class="wrap-btn-appl">
-                    <a href="#" class="btn btn-appl">Mua ngay</a>
-                    <a href="#" data-id="@item.ProductID" class="btn btn-danger btnAddSave">Thêm vào giỏ hàng</a>
+                    <a href="#" data-id="@item.ProductID" class="btn btn-appl btnBuyNow">Mua ngay</a>
+                    <a href="#" data-id="@item.ProductID" class="btn btn-danger btnAddToCart">Thêm vào giỏ hàng</a>
                 </div>
             </div>
         </div>
@@ -63,3 +67,34 @@
         <div></div>
     }
 }
+
+<style>
+    span.salary-min::after {
+        content: "-";
+        padding: 0 2px 0 6px;
+        color: #555;
+        display:none;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.btnBuyNow').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+
+            $.ajax({
+                url: '/ShoppingCart/BuyNow',
+                type: 'POST',
+                data: { id: id },
+                success: function () {
+                    window.location.href = '/ShoppingCart/CheckOut';  // Chuyển sang trang thanh toán
+                },
+                error: function () {
+                    alert("Không thể kết nối với server");
+                }
+            });
+        });
+    });
+
+
+</script>

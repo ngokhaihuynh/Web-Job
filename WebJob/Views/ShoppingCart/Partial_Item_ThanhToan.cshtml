@@ -1,0 +1,36 @@
+﻿@model  IEnumerable<WebJob.Models.ShoppingCartItem>
+@{
+    ViewBag.Title = "Partial_Item_ThanhToan";
+    Layout = null;
+}
+
+@if (Model != null && Model.Any())
+{
+    <h3>Giỏ Hàng<span style="float:right;"><small>@Model.Count()</small></span> </h3>
+    var i = 0;
+    var tongtien = decimal.Zero;
+    <div style="border: 1px solid #80808080">
+        <table class="table">
+            @foreach (var item in Model)
+            {
+                tongtien += item.Total;
+                <tr>
+                    <td>@item.SaveProductName</td>
+                    <td>@WebJob.Models.Common.common.FormatNumber(item.Price, 0)</td>
+                </tr>
+            }
+
+            <tr>
+                <td>Thành tiền: </td>
+                <td>@WebJob.Models.Common.common.FormatNumber(tongtien, 0) </td>
+            </tr>
+
+        </table>
+    </div>
+}
+
+else
+{
+
+    <span>Không có gì để trong giỏ hàng!</span>
+}

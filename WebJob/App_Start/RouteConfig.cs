@@ -13,13 +13,17 @@ namespace WebJob
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // cac tranh menu lon
+            // cac trang menu lon
+
+            // trang chu
             routes.MapRoute(
                 name: "Home",
                 url: "trang-chu",
                 defaults: new { controller = "Home", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "WebJob.Controllers" }
             );
+            
+            // Lien he
             routes.MapRoute(
                 name: "Contact",
                 url: "lien-he",
@@ -27,6 +31,7 @@ namespace WebJob
                 namespaces: new[] { "WebJob.Controllers" }
             );
 
+            // cac viec lam
             routes.MapRoute(
                 name: "CategoryJob",
                 url: "viec-lam",
@@ -34,13 +39,37 @@ namespace WebJob
                 namespaces: new[] { "WebJob.Controllers" }
             );
            
-
+            // luu cong viec
             routes.MapRoute(
              name: "SaveJob",
              url: "cong-viec-da-luu",
              defaults: new { controller = "SaveJob", action = "Index", alias = UrlParameter.Optional },
              namespaces: new[] { "WebJob.Controllers" }
          );
+
+            // Ứng tuyển
+            routes.MapRoute(
+            name: "AppllyJob",
+            url: "ung-tuyen",
+            defaults: new { controller = "SaveJob", action = "AppllyJob", alias = UrlParameter.Optional },
+            namespaces: new[] { "WebJob.Controllers" }
+        );
+            // Luu san pham
+            routes.MapRoute(
+            name: "SaveProduct",
+            url: "gio-hang",
+            defaults: new { controller = "ShoppingCart", action = "Index", alias = UrlParameter.Optional },
+            namespaces: new[] { "WebJob.Controllers" }
+        );
+
+            // thanh toan
+            routes.MapRoute(
+            name: "Checkout",
+            url: "thanh-toan",
+            defaults: new { controller = "ShoppingCart", action = "CheckOut", alias = UrlParameter.Optional },
+            namespaces: new[] { "WebJob.Controllers" }
+        );
+
 
             // cac trang menu nho
             routes.MapRoute(
