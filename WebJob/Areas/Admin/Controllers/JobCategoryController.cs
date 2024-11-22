@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebJob.Models;
@@ -40,6 +41,51 @@ namespace WebJob.Areas.Admin.Controllers
 
             return View(model);
         }
+
+        // Hiển thị form sửa
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var jobCategory = db.JobCategories.Find(id);
+            if (jobCategory == null)
+                return HttpNotFound();
+
+            return View(jobCategory);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(JobCategory model)
+        {
+            if (ModelState.IsValid)
+            {
+                var existingCategory = db.JobCategories.Find(model.JobCategoryID);
+                if (existingCategory != null)
+                {
+                    // Cập nhật các trường dữ liệu
+                    existingCategory.CategoryName = model.CategoryName;
+                    existingCategory.Alias = WebJob.Models.Common.Filter.FilterChar(model.CategoryName);
+                    existingCategory.Icon = model.Icon;
+                    existingCategory.IsActive = model.IsActive;
+                    existingCategory.ModifiedDate = DateTime.Now;
+
+                    db.Entry(existingCategory).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Không tìm thấy danh mục.");
+                }
+            }
+            return View(model);
+        }
+
+
+
 
         [HttpPost]
         public ActionResult Delete(int id)

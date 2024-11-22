@@ -1,0 +1,241 @@
+﻿@model PagedList.IPagedList<WebJob.Models.EF.Applicant>
+@using PagedList;
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Danh mục CV ứng tuyển";
+    Layout = "~/Areas/Employer/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container search-wrapper">
+        <div class="row">
+            <!-- Bộ lọc công việc -->
+            <div class="col-md-3 col-sm-12 col-12">
+                <a id="click_advance" class="btn btn-c-filter" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                    <i class="pr-2 fa fa-times" id="icon-s-sw" aria-hidden="true"></i>Filter &amp; Refind
+                </a>
+
+                <div class="collapse show" id="collapseExample">
+                    <div class="card card-body bg-card-body-filter">
+                        <div class="filter-bar">
+                            <div class="filter-form">
+                                <div class="filter-form-item">
+                                    <p>
+                                        <a id="clickc_advance" class="btnf btn-filter" data-toggle="collapse" href="#filter-topic" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            Ngành nghề
+                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                    <div class="collapse show" id="filter-topic">
+                                        <div class="card o-card card-body">
+                                            <div class="filter-panel">
+                                                <div class="panel-content">
+                                                    @if (ViewBag.UniqueJobs != null && ViewBag.UniqueJobs is List<WebJob.Models.EF.Job>)
+                                                    {
+                                                        foreach (var job in ViewBag.UniqueJobs as List<WebJob.Models.EF.Job>)
+                                                        {
+                                                            <div class="filter-topic cotain-common-filter">
+                                                                <a href="@Url.Action("ApplicantsByJob", new { jobId = job.JobID })" class="filter-action @(job.JobID == ViewBag.SelectedJobId ? "selected-job" : "")">
+                                                                    @job.JobTitle
+                                                                </a>
+                                                                <span class="filter-count">@job.JobApplications.Count()</span>
+                                                            </div>
+
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <p>Không có công việc nào để hiển thị.</p>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- ./ collapse -->
+            </div>
+
+            <!-- Danh sách ứng viên -->
+            <div class="col-md-9 col-sm-12 col-12">
+                <h4 class="search-find">Tìm thấy @Model.TotalItemCount CV ứng tuyển</h4>
+                <div class="job-board-wrap">
+                    <div class="job-group">
+                        @if (Model != null && Model.Any())
+                        {
+                            var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
+                            foreach (var item in Model)
+                            {
+                                var fileName = System.IO.Path.GetFileName(item.CVFilePath);
+                                <div class="job pagi">
+                                    <div class="job-content">
+                                        <div class="job-logo">
+                                            <a href="#">
+                                                <span>@i</span>
+                                            </a>
+                                        </div>
+
+                                        <div class="job-desc">
+                                            <div class="job-title">
+                                                <a href="#">@item.FullName</a>
+                                                @*<span>-</span>
+                                                <a href="#">@item.PhoneNumber</a>*@
+                                            </div>
+                                            @*<div class="job-company">
+                                        <a href="#">SDT: @item.PhoneNumber</a>
+                                    </div>*@
+                                            <div class="job-company">
+
+                                                CV: <a style="color:cornflowerblue" href="@Url.Content(item.CVFilePath)" target="_blank">@fileName</a>
+                                            </div>
+                                            <div class="job-inf">
+                                                @*<div class="job-salary">
+                                                    <span class="salary-min">Email: @item.Email</span>
+                                                </div>*@
+                                                <div class="job-salary">
+                                                    <span class="salary-min">
+                                                        @if (item.ViewStatus == 0)
+                                                        {
+                                                            <span>Trạng thái:</span> @:Chưa xem
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>Trạng thái:  </span> @:Đã xem
+                                                        }
+                                                        </span>
+                                                </div>
+                                                @*<div class="job-deadline">
+                                                    @foreach (var jobApp in item.JobApplications)
+                                                    {
+                                                        <span>
+
+                                                            Ngày hết hạn:
+                                                            <strong>@jobApp.Job.EndDate.ToString("dd/MM/yyyy")</strong>
+                                                        </span>
+                                                    }
+                                                </div>*@
+                                            </div>
+                                        </div>
+                                        <div class="wrap-btn-appl">
+                                            <a href="/Employer/Applicant/View/@item.ApplicantID" class="btn btn-appl">Xem ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                i++;
+                            }
+                        }
+                    </div>
+
+                </div>
+                <!-- Phân trang -->
+                <div class="pagination-container">
+                    @Html.PagedListPager(Model, page => Url.Action("ApplicantsByJob", new { jobId = ViewBag.SelectedJobId, page }))
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS để in đậm công việc đang chọn -->
+<style>
+    span.salary-min::after {
+        display: none;
+    }
+
+    .selected-job {
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .filter-topic {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .filter-action {
+        text-decoration: none;
+        font-weight: normal;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80%;
+    }
+
+    .selected-job {
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .filter-count {
+        font-size: 14px;
+        color: #999;
+        flex-shrink: 0;
+    }
+    /*css phân trang*/
+    .pagination-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .pagination-container .pagination {
+            display: inline-flex;
+            justify-content: center;
+            padding-left: 0;
+            list-style: none;
+            border-radius: 5px;
+        }
+
+            .pagination-container .pagination li {
+                margin: 0 5px;
+            }
+
+                .pagination-container .pagination li a,
+                .pagination-container .pagination li span {
+                    display: block;
+                    padding: 8px 15px;
+                    color: #007bff;
+                    text-decoration: none;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    background-color: #fff;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                }
+
+                    .pagination-container .pagination li a:hover,
+                    .pagination-container .pagination li span:hover {
+                        background-color: #007bff;
+                        color: #fff;
+                    }
+
+            .pagination-container .pagination .active a,
+            .pagination-container .pagination .active span {
+                background-color: #007bff;
+                color: #fff;
+                border-color: #007bff;
+            }
+
+            .pagination-container .pagination .disabled a,
+            .pagination-container .pagination .disabled span {
+                color: #ccc;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            .pagination-container .pagination .previous a,
+            .pagination-container .pagination .next a {
+                font-weight: bold;
+            }
+
+                .pagination-container .pagination .previous a:hover,
+                .pagination-container .pagination .next a:hover {
+                    background-color: #0056b3;
+                    color: #fff;
+                }
+</style>

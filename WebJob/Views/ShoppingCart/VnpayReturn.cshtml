@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "VnpayReturn";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="container-fluid">
+<div class="container search-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Thanh toán</h1>
+            @if (ViewBag.ThanhToanThanhCong != null)
+            {
+                <p class="text-center">Bạn thanh toán với @ViewBag.ThanhToanThanhCong !</p>
+            }
+        <p style="font-weight:bold; color: red; text-align: center; font-size: 20px; margin-top: 20px"> @ViewBag.InnerText</p>
+        </div>
+
+    </div>
+    <hr />
+
+    <div class="row">
+        <div id="show_success"></div>
+
+
+    </div>
+
+</div>
+    </div>
+

@@ -130,6 +130,13 @@
                                                     @Html.ValidationMessageFor(x => x.Location.LocationName, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="EndDate">Ngày hết hạn</label>
+                                                    @Html.TextBoxFor(x => x.EndDate, new { @class = "form-control", @placeholder = "Ngày hết hạn", @type = "date" })
+                                                    @Html.ValidationMessageFor(x => x.EndDate, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="row">
@@ -141,22 +148,16 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                           
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <div class="custom-control custom-checkbox">
-                                                        @Html.CheckBoxFor(x => x.IsActive, new { @class = "custom-control-input", @id = "customCheckbox2" })
-                                                        <label for="customCheckbox2" class="custom-control-label">Hiển thị</label>
+                                                        @Html.CheckBoxFor(x => x.IsNow, new { @class = "custom-control-input", @id = "customCheckbox" })
+                                                        <label for="customCheckbox" class="custom-control-label">Cần tuyển gấp</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
-                                                <div class="form-group">
-                                                    <div class="custom-control custom-checkbox">
-                                                        @Html.CheckBoxFor(x => x.IsActive, new { @class = "custom-control-input", @id = "customCheckbox2" })
-                                                        <label for="customCheckbox2" class="custom-control-label">Hiển thị</label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <div class="form-group ">
                                             <button type="submit" class="btn btn-success">Lưu</button>

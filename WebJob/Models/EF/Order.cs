@@ -8,7 +8,7 @@ using System.Web;
 namespace WebJob.Models.EF
 {
     [Table("tb_Order")]
-    public class Order:CommonAbstract
+    public class Order
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -23,8 +23,13 @@ namespace WebJob.Models.EF
         //[Required(ErrorMessage = "Không được để trống!")]
         public string Email { get; set; }
         public decimal TotalAmount { get; set; }
-        public int Quantity  { get; set; }
-        public int TypePayment  { get; set; }
+        public int TypePayment  { get; set; } // 1 là thanh toán cod, 2 là thanh toán chuyển khoản
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public string ModifiedBy { get; set; }
+        public int Status { get; set; } // 1 là chưa thanh toán, 2 là đã thanh toán
+        public string UserId { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new HashSet<OrderDetail>();
 
 

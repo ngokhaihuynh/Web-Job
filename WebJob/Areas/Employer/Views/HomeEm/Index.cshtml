@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Trang Nhà Tuyển Dụng";
+    Layout = "~/Areas/Employer/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+@*Trang để nhập xác thực*@
+@*<div>
+        @Html.Action("VerifyEmployerForm", "Employer")
+    </div>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu Nowjobs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+            .hero-section h1 {
+                font-size: 2.8rem;
+                margin-bottom: 15px;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+
+        .features-section {
+            padding: 40px 20px;
+        }
+
+            .features-section .feature {
+                text-align: center;
+                padding: 20px;
+                transition: transform 0.3s;
+            }
+
+                .features-section .feature:hover {
+                    transform: translateY(-10px);
+                }
+
+        .cta-section {
+            background-color: #4facfe;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+            .cta-section h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+        .footer {
+            
+            color: #fff;
+            padding: 20px 0;
+           
+        }
+
+            .footer a {
+                color: #4facfe;
+                text-decoration: none;
+            }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Chào mừng đến với Nowjobs</h1>
+            <p>Nền tảng kết nối nhà tuyển dụng và ứng viên nhanh chóng, hiệu quả và tối ưu chi phí.</p>
+            <a href="#features" class="btn btn-light btn-lg mt-3">Tìm hiểu thêm</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Lợi ích dành cho nhà tuyển dụng</h2>
+            <div class="row">
+                <div class="col-md-4 feature">
+                    <i class="fa fa-bolt fa-3x mb-3 text-primary"></i>
+                    <h4>Tuyển dụng nhanh chóng</h4>
+                    <p>Nowjobs giúp bạn tiếp cận hàng nghìn ứng viên tiềm năng chỉ trong vài phút.</p>
+                </div>
+                <div class="col-md-4 feature">
+                    <i class="fa fa-dollar-sign fa-3x mb-3 text-success"></i>
+                    <h4>Tiết kiệm chi phí</h4>
+                    <p>Đăng tin tuyển dụng với chi phí hợp lý và không lo phát sinh chi phí ẩn.</p>
+                </div>
+                <div class="col-md-4 feature">
+                    <i class="fa fa-user-check fa-3x mb-3 text-info"></i>
+                    <h4>Ứng viên chất lượng</h4>
+                    <p>Nowjobs cung cấp công cụ lọc giúp bạn tìm được ứng viên phù hợp nhất.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Bắt đầu hành trình tuyển dụng ngay hôm nay</h2>
+            <p>Đăng ký tài khoản miễn phí và đăng tin tuyển dụng chỉ với vài cú click.</p>
+            <a href="/Employer/Employer/VerificationDetails" class="btn btn-light btn-lg">Đăng ký ngay</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

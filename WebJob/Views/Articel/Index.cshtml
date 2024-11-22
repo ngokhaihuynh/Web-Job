@@ -1,0 +1,111 @@
+﻿@model WebJob.Models.EF.Article
+@{
+    ViewBag.Title = "Chi tiết bài viết";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+<!-- job detail header -->
+
+<div class="container-fluid">
+    <div class="container search-wrapper">
+        <div class="hiddendisplay row">
+
+
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-12">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="/tin-tuc">Tin tức</a></li>
+                                <li class="breadcrumb-item active">Chi tiết</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+        </div>
+    </div>
+</div>
+
+
+@if (Model != null)
+{
+    <div class="container-fluid ">
+        <div class="container job-detail">
+            <div class="job-detail-header">
+                <div class="row">
+
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="job-detail-header-desc">
+                            <div class="job-detail-header-title">
+                                <a href="#">@Model.Title</a>
+                            </div>
+                            <div class="job-detail-header-company">
+                                <a href="#">@Model.ArticleID</a>
+                            </div>
+                            <div class="job-detail-header-company">
+                                <a style="font-weight: bold; color: #007bff;" href="#">@Model.CreatedDate.Value.ToString("dd/MM/yyyy")</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- (end) job detail header -->
+
+    <div class="clearfix"></div>
+
+    <!-- Phần thân -->
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <!-- Main wrapper -->
+                <div class="col-md-8 col-sm-12 col-12 clear-left">
+                    <div class="main-wrapper">
+                        <div class="jd-content">
+                            @Html.Raw(Model.Content)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-12 clear-right">
+
+                    @Html.Action("Partial_LatestNews", "News")
+
+                    <div class="side-bar mb-3">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="home-ads">
+                                        <a href="#">
+                                            <img src="~/Content/assets/img/ads1.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+
+            </div>
+        </div>
+    </div>
+    <!-- (end) Phần thân -->
+}
+<style>
+    .jd-content img {
+        max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của khung chứa */
+        height: auto; /* Tự động điều chỉnh chiều cao theo tỷ lệ */
+        display: block; /* Tránh hiển thị inline gây khoảng trắng không cần thiết */
+        margin: 0 auto; /* Căn giữa nếu cần */
+    }
+</style>

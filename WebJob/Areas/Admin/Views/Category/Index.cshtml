@@ -55,6 +55,7 @@
                         <th>STT</th>
                         <th>Tên danh mục</th>
                         <th>Thứ tự</th>
+                        <th>Hiển thị ở</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,6 +68,7 @@
                                 <td>@i</td>
                                 <td>@item.Title</td>
                                 <td>@item.Position</td>
+                                <td>@item.CategoryType</td>
                                 <td>
                                     <a href="/admin/category/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
                                     <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>

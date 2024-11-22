@@ -1,0 +1,165 @@
+﻿@model PagedList.PagedList<WebJob.Models.EF.EmployerVerification>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Danh sách tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader {
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/accounts" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản lý tài khoản xác thực</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">@ViewBag.Title</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">@ViewBag.Title</h3>
+            <div class="card-tools">
+                @*<a href="/admin/accounts/add" class="btn btn-primary">Thêm mới</a>*@
+            </div>
+        </div>
+
+        <div class="card-body">
+            <!-- Bộ lọc -->
+            <div class="mb-3">
+                <a href="@Url.Action("Index", new { filter = "all" })" class="btn @(ViewBag.Filter == "all" ? "btn-primary" : "btn-outline-primary")">Tất cả</a>
+                <a href="@Url.Action("Index", new { filter = "verified" })" class="btn @(ViewBag.Filter == "verified" ? "btn-primary" : "btn-outline-primary")">Đã xác thực</a>
+                <a href="@Url.Action("Index", new { filter = "unverified" })" class="btn @(ViewBag.Filter == "unverified" ? "btn-primary" : "btn-outline-primary")">Chưa xác thực</a>
+            </div>
+
+            <!-- Bảng danh sách tài khoản -->
+            <!-- Bảng danh sách tài khoản -->
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên công ty</th>
+                            <th>Email</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.CompanyName</td>
+                                    <td>@item.Email</td>
+                                    <td>
+                                        @if (item.IsVerified)
+                                        {
+                                            <span class="badge badge-success">Đã xác thực</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-warning">Chưa xác thực</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Details", "VerifyAccount", new { id = item.Id })" class="btn btn-info btn-sm">Xem chi tiết</a>
+
+                                        <!-- Nút xác thực tài khoản -->
+                                        @if (!item.IsVerified)
+                                        {
+                                            <form action="@Url.Action("Verify", "VerifyAccount", new { id = item.Id })" method="post" style="display:inline;">
+                                                @Html.AntiForgeryToken()
+                                                <button type="submit" class="btn btn-success btn-sm">Xác thực</button>
+                                            </form>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5">Không có tài khoản nào</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Phân trang -->
+            <div class="row">
+                <div class="col-12 text-right">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CSS Tùy chỉnh -->
+<style>
+    .mb-3 a {
+        margin-right: 10px;
+    }
+
+    .btn-outline-primary {
+        color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+    table.table thead th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    table.table td, table.table th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .badge-success {
+        background-color: #28a745;
+        color: white;
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .badge-warning {
+        background-color: #ffc107;
+        color: black;
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+</style>

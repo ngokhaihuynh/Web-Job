@@ -21,7 +21,6 @@ namespace WebJob.Models.EF
         
         public int SalaryMin { get; set; }
 
-       
         public int SalaryMax { get; set; }
 
 

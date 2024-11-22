@@ -17,7 +17,7 @@ namespace WebJob.Models.EF
         [Required(ErrorMessage ="Tên danh mục không được để trống")]
         [StringLength(150)]
         public string Title { get; set; }
-
+        public CategoryType CategoryType { get; set; }
         public string Alias { get; set; }
 
         //[StringLength(150)]
@@ -28,12 +28,19 @@ namespace WebJob.Models.EF
         public string Description { get; set; }
         
         public int Position { get; set; }
+        //public int CategoryType { get; set; }
         public string SeoTitle { get; set; }
         public string SeoDescription { get; set; }
         public string SeoKeywords { get; set; }
         public bool IsActive { get; set; }
-
+       
         public virtual ICollection<Job> Jobs { get; set; } = new HashSet<Job>();
+    }
+    public enum CategoryType
+    {
+        Candidate = 1,  // Danh mục dành cho ứng viên
+        Employer = 2,    // Danh mục dành cho nhà tuyển dụng
+        Both = 3 // cho cả 2
     }
 
 }

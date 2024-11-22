@@ -19,8 +19,9 @@ namespace WebJob.Models.EF
         [StringLength(500)]
         public string Title { get; set; }
         public string Alias { get; set; }
-
-       
+        public string Tag { get; set; }
+        public string Meta { get; set; }
+ 
         [AllowHtml]
         public string Content { get; set; }
 

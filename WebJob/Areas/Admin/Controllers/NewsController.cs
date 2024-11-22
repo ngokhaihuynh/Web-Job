@@ -70,6 +70,7 @@ namespace WebJob.Areas.Admin.Controllers
                 {
                     model.ModifiedDate = DateTime.Now;
                     model.Alias = WebJob.Models.Common.Filter.FilterChar(model.Title);
+                    model.CreatedDate = DateTime.Now;
                     db.News.Attach(model);
                     db.Entry(model).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();

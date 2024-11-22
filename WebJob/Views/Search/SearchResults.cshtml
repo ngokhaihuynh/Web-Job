@@ -1,0 +1,112 @@
+﻿@model IEnumerable<WebJob.Models.EF.Job>
+@{
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="container-fluid search-fluid">
+    <div class="container">
+        <div class="search-wrapper">
+
+            <ul class="nav nav-tabs search-nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item search-nav-item">
+                    <a class="nav-link snav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tìm việc làm</a>
+                </li>
+                <li class="nav-item search-nav-item">
+                    <a class="nav-link snav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tìm công ty</a>
+                </li>
+            </ul>
+            <div class="tab-content search-tab-content" id="myTabContent">
+                <!-- content tab 1 -->
+               
+                    @Html.Action("SearchView", "Search")
+               
+                <!-- (end) content tab 1 -->
+                <!-- content tab 2 -->
+
+                <!-- (end) content tab 2 -->
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- (end) search section -->
+
+
+<div class="container-fluid">
+    <div class="container search-wrapper">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-12">
+                <h4 class="search-find">Tìm thấy @Model.Count() đang tuyển dụng</h4>
+                <div class="job-board-wrap">
+                    <div class="job-group">
+
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                var strImge = "";
+                                var img = item.CompanyImages.FirstOrDefault(x => x.IsDefault);
+                                if (img != null)
+                                {
+                                    strImge = img.ImageURL;
+                                }
+                                <div class="job pagi">
+                                    <div class="job-content">
+                                        <div class="job-logo">
+                                            <a href="/chi-tiet/@item.Alias-p@(item.JobID)">
+                                                <img src="@strImge" class="job-logo-ima" alt="job-logo">
+                                            </a>
+                                        </div>
+
+                                        <div class="job-desc">
+                                            <div class="job-title">
+                                                <a href="/chi-tiet/@item.Alias-p@(item.JobID)">@item.JobTitle</a>
+                                            </div>
+                                            <div class="job-company">
+                                                <a href="#">@item.Company.CompanyName</a> | <a href="#" class="job-address">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    Đà Nẵng
+                                                </a>
+                                            </div>
+
+                                            <div class="job-inf">
+                                                <div class="job-main-skill">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>  <a href="#"> @item.Salary.SalaryRange</a>
+                                                </div>
+                                                @*<div class="job-salary">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    <span class="salary-min">15<em class="salary-unit">triệu</em></span>
+                                                    <span class="salary-max">35 <em class="salary-unit">triệu</em></span>
+                                                </div>*@
+                                                <div class="job-deadline">
+                                                    <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>@item.EndDate.ToString("dd/MM/yyyy")</strong></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrap-btn-appl">
+                                            <a href="/ung-tuyen?jobId=@item.JobID" class="btn btn-appl">Ứng tuyển ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            <span>Không tìm thấy công việc nào phù hợp.</span>
+                        }
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

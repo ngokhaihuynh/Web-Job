@@ -1,0 +1,115 @@
+﻿@model WebJob.Models.EF.JobCategory
+@{
+    ViewBag.Title = "Sửa danh mục công việc";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/jobcategory" class="nav-link">Danh mục công việc</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Cập nhật</a>
+        </li>
+    </ul>}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Thêm mới tin tức</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Danh mục công việc</a></li>
+                    <li class="breadcrumb-item active">Cập nhật</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thông tin thêm mới</h3>
+
+
+        </div>
+        <div class="card-body">
+
+            @if (Model != null)
+            {
+                <div class="bs-stepper-content">
+
+
+                    @using (Html.BeginForm("Edit", "JobCategory", FormMethod.Post, new { }))
+                    {
+                        @Html.AntiForgeryToken();
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(x => x.JobCategoryID)
+                        @Html.HiddenFor(x => x.CreatedDate)
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tiêu đề</label>
+                                @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", @placeholder = "Tên danh mục" })
+                                @Html.ValidationMessageFor(x => x.CategoryName, null, new { @class = "text-danger" })
+                            </div>
+                           
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                <a href="/admin/jobcategory" class="btn btn-danger">Quay lại</a>
+
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+            }
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace('txtContent', {
+                customConfig: '/content/ckeditor/config.js',
+                extraAllowedContent: 'span',
+            });
+        });
+
+        function BrowseServer(field) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                document.getElementById(field).value = fileUrl;
+            };
+            finder.popup();
+        }
+    </script>
+
+}

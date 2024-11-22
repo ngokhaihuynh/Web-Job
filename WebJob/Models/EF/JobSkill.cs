@@ -15,10 +15,11 @@ namespace WebJob.Models.EF
         public int JobSkillID { get; set; }
 
         public int JobID { get; set; }
-        public int SkillID { get; set; }
-
-        public virtual Job Job { get; set; }
-        public virtual Skill Skill { get; set; }
+        //public int SkillID { get; set; }
+        public string JobSkillName { get; set; }
+        //public virtual Job Job { get; set; }
+        //public virtual Skill Skill { get; set; }
+        public virtual ICollection<Job> Jobs { get; set; } = new HashSet<Job>();
     }
 
 }

@@ -1,0 +1,140 @@
+﻿@model WebJob.Models.EmployerVerificationViewModel
+
+<div class="form-container">
+    <h3 class="text-center">Xác thực thông tin nhà tuyển dụng</h3>
+    <p class="text-muted text-center">Vui lòng cung cấp thông tin để xác thực tài khoản của bạn.</p>
+
+    @using (Html.BeginForm("VerifyEmployer", "Employer", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <!-- Hiển thị thông báo lỗi nếu có -->
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!-- Tên công ty -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.CompanyName, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control", placeholder = "Nhập tên công ty của bạn" })
+            @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Số điện thoại -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.PhoneNumber, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Nhập số điện thoại liên hệ" })
+            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Nhập email liên hệ" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Số giấy phép kinh doanh -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.BusinessLicenseNumber, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.BusinessLicenseNumber, new { @class = "form-control", placeholder = "Nhập số giấy phép kinh doanh" })
+            @Html.ValidationMessageFor(m => m.BusinessLicenseNumber, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Tài liệu xác minh -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.VerificationDocument, new { @class = "control-label" })
+            <input type="file" name="VerificationDocument" class="form-control" />
+            <small class="form-text text-muted">Chỉ chấp nhận file định dạng PDF, JPG, PNG (tối đa 5MB).</small>
+            @Html.ValidationMessageFor(m => m.VerificationDocument, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Nút gửi -->
+        <div class="form-group text-center">
+            <input type="submit" value="Gửi xác thực" class="btn btn-primary btn-lg btn-block" />
+        </div>
+    }
+</div>
+
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .form-container h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .form-container p {
+            margin-bottom: 20px;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+            .form-group input[type="file"] {
+                padding: 5px;
+            }
+
+    .text-danger {
+        font-size: 13px;
+        color: #d9534f;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .btn-lg {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    .btn-block {
+        width: 100%;
+    }
+
+    .form-text {
+        font-size: 12px;
+        color: #6c757d;
+    }
+</style>

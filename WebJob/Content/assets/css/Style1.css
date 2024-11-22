@@ -1,0 +1,66 @@
+﻿
+/*Bổ sung chô tìm kiếm*/
+/* Phong cách chung cho từng wrapper */
+.salary-wrapper,
+.experience-wrapper,
+.skills-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.select-salary,
+.select-experience,
+.select-skills {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    background-image: none;
+    appearance: none;
+}
+
+/* Icon riêng biệt cho từng phần */
+.salary-icon,
+.experience-icon,
+.skills-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #999;
+}
+
+/* Hiệu ứng khi tập trung */
+.select-salary:focus,
+.select-experience:focus,
+.select-skills:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Hiệu ứng hover */
+.salary-wrapper:hover .salary-icon,
+.experience-wrapper:hover .experience-icon,
+.skills-wrapper:hover .skills-icon {
+    color: #007bff;
+}
+
+/* Tùy chỉnh thêm cho từng phần */
+.select-salary {
+    background: #fff url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"%3E%3Cpath fill="%23999" d="M2 0L0 2h4z" /%3E%3C/svg%3E') no-repeat right 15px center;
+    background-size: 10px;
+}
+
+.select-experience {
+    background: #fff url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"%3E%3Cpath fill="%23999" d="M2 0L0 2h4z" /%3E%3C/svg%3E') no-repeat right 15px center;
+    background-size: 10px;
+}
+
+.select-skills {
+    background: #fff url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"%3E%3Cpath fill="%23999" d="M2 0L0 2h4z" /%3E%3C/svg%3E') no-repeat right 15px center;
+    background-size: 10px;
+}

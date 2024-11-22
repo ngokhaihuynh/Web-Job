@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebJob.Models.EF.JobSkill>
+@{
+    ViewBag.Title = "Danh sách kỹ năng công việc";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Quản lý kỹ năng công việc</h1>
+    <a href="@Url.Action("Create", "Skill")" class="btn btn-primary">Thêm mới</a>
+</section>
+
+<section class="content">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tên kỹ năng</th>
+               
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr id="row_@item.JobSkillID">
+                        <td>@item.JobSkillID</td>
+                        <td>@item.JobSkillName</td>
+                        <td>@item.JobID</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Skill", new { id = item.JobSkillID })" class="btn btn-primary btn-sm">Sửa</a>
+                            <a href="#" data-id="@item.JobSkillID" class="btn btn-danger btn-sm btnDelete">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">Không có dữ liệu</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                if (confirm("Bạn có chắc chắn muốn xóa?")) {
+                    $.ajax({
+                        url: '@Url.Action("Delete", "Skill")',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (res) {
+                            if (res.success) {
+                                $('#row_' + id).remove();
+                                alert(res.message);
+                            } else {
+                                alert(res.message);
+                            }
+                        },
+                        error: function () {
+                            alert("Có lỗi xảy ra. Vui lòng thử lại!");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

@@ -378,3 +378,397 @@ C:\Users\ngokh\OneDrive\Desktop\WebJob\WebJob\obj\Debug\WebJob.Migrations.Update
 C:\Users\ngokh\OneDrive\Desktop\WebJob\WebJob\bin\Dapper.dll
 C:\Users\ngokh\OneDrive\Desktop\WebJob\WebJob\bin\Dapper.xml
 C:\Users\ngokh\OneDrive\Desktop\WebJob\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
+C:\Users\ngokh\OneDrive\Desktop\WebJob\WebJob\obj\Debug\WebJob.Migrations.UpdateCategoryType.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\WebJob.dll.config
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\WebJob.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\WebJob.pdb
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\csc.exe
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\csc.exe.config
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\csc.rsp
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\csi.exe
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\csi.exe.config
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\csi.rsp
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.AppContext.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Console.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.IO.Compression.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Net.Http.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Net.Sockets.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.ValueTuple.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Xml.XPath.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\vbc.exe
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\vbc.exe.config
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\vbc.rsp
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\VBCSCompiler.exe
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Antlr3.Runtime.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\CKFinder.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Dapper.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\EntityFramework.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\EntityFramework.SqlServer.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Newtonsoft.Json.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Owin.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\PagedList.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\PagedList.Mvc.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.Helpers.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.Mvc.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.Optimization.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.Razor.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.WebPages.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.WebPages.Razor.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\WebGrease.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\CKFinder.pdb
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Dapper.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\EntityFramework.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\EntityFramework.SqlServer.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\PagedList.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\PagedList.Mvc.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.Helpers.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.Mvc.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.Razor.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.WebPages.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.WebPages.Razor.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\System.Web.Optimization.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Newtonsoft.Json.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Antlr3.Runtime.pdb
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.createdatebase.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.Updatedb.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.updateTime.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateFull.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateJobNơ.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.updateSalary.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.updateTypeSalary.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.AddDatabaseProduct.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateNullPriceSale.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateOrder.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateTypePaymentOrdet.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateOrder1.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.updateTotalAmount.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateApplicant.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateModifineApplicant.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateTableThhongke.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateThongke.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateCategoryType.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.csproj.GenerateResource.cache
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.cache
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.csproj.CopyComplete
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJob - Copy\WebJob\obj\Debug\WebJob.pdb
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\WebJob.dll.config
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\WebJob.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\WebJob.pdb
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\csc.exe
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\csc.exe.config
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\csc.rsp
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\csi.exe
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\csi.exe.config
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\csi.rsp
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.AppContext.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Console.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.IO.Compression.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Net.Http.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Net.Sockets.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.ValueTuple.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Xml.XPath.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\vbc.exe
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\vbc.exe.config
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\vbc.rsp
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\VBCSCompiler.exe
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Antlr3.Runtime.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\CKFinder.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Dapper.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\EntityFramework.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\EntityFramework.SqlServer.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Newtonsoft.Json.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Owin.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\PagedList.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\PagedList.Mvc.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.Helpers.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.Mvc.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.Optimization.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.Razor.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.WebPages.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.WebPages.Razor.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\WebGrease.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Antlr3.Runtime.pdb
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\CKFinder.pdb
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Dapper.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\EntityFramework.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\EntityFramework.SqlServer.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\Newtonsoft.Json.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\PagedList.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\PagedList.Mvc.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.Helpers.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.Mvc.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.Optimization.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.Razor.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.WebPages.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\bin\System.Web.WebPages.Razor.xml
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.createdatebase.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.Updatedb.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.updateTime.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateFull.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateJobNơ.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.updateSalary.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.updateTypeSalary.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.AddDatabaseProduct.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateNullPriceSale.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateOrder.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateTypePaymentOrdet.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateOrder1.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.updateTotalAmount.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateApplicant.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateModifineApplicant.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateTableThhongke.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateThongke.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.UpdateCategoryType.resources
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.GenerateResource.cache
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.cache
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.CopyComplete
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.dll
+C:\Users\ngokh\OneDrive\Desktop\WebJobcp2\WebJob\obj\Debug\WebJob.pdb
+D:\Jobs\WebJobcp2\WebJob\bin\WebJob.dll.config
+D:\Jobs\WebJobcp2\WebJob\bin\WebJob.dll
+D:\Jobs\WebJobcp2\WebJob\bin\WebJob.pdb
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\csc.exe
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\csc.exe.config
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\csc.rsp
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\csi.exe
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\csi.exe.config
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\csi.rsp
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.AppContext.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Collections.Immutable.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Console.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Globalization.Calendars.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.IO.Compression.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.IO.FileSystem.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Net.Http.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Net.Sockets.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Reflection.Metadata.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.ValueTuple.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Xml.XPath.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\vbc.exe
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\vbc.exe.config
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\vbc.rsp
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\VBCSCompiler.exe
+D:\Jobs\WebJobcp2\WebJob\bin\roslyn\VBCSCompiler.exe.config
+D:\Jobs\WebJobcp2\WebJob\bin\Antlr3.Runtime.dll
+D:\Jobs\WebJobcp2\WebJob\bin\CKFinder.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Dapper.dll
+D:\Jobs\WebJobcp2\WebJob\bin\EntityFramework.dll
+D:\Jobs\WebJobcp2\WebJob\bin\EntityFramework.SqlServer.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Google.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Web.Infrastructure.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Newtonsoft.Json.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Owin.dll
+D:\Jobs\WebJobcp2\WebJob\bin\PagedList.dll
+D:\Jobs\WebJobcp2\WebJob\bin\PagedList.Mvc.dll
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.Helpers.dll
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.Mvc.dll
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.Optimization.dll
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.Razor.dll
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.WebPages.Deployment.dll
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.WebPages.dll
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.WebPages.Razor.dll
+D:\Jobs\WebJobcp2\WebJob\bin\WebGrease.dll
+D:\Jobs\WebJobcp2\WebJob\bin\Antlr3.Runtime.pdb
+D:\Jobs\WebJobcp2\WebJob\bin\CKFinder.pdb
+D:\Jobs\WebJobcp2\WebJob\bin\Dapper.xml
+D:\Jobs\WebJobcp2\WebJob\bin\EntityFramework.xml
+D:\Jobs\WebJobcp2\WebJob\bin\EntityFramework.SqlServer.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Google.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Jobs\WebJobcp2\WebJob\bin\Newtonsoft.Json.xml
+D:\Jobs\WebJobcp2\WebJob\bin\PagedList.xml
+D:\Jobs\WebJobcp2\WebJob\bin\PagedList.Mvc.xml
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.Helpers.xml
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.Mvc.xml
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.Optimization.xml
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.Razor.xml
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.WebPages.xml
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.WebPages.Deployment.xml
+D:\Jobs\WebJobcp2\WebJob\bin\System.Web.WebPages.Razor.xml
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.createdatebase.resources
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.updateTime.resources
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.GenerateResource.cache
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.cache
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.CopyComplete
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.dll
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.pdb
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.addIduser1.resources
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.adduserid.resources
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.deletequantityu.resources
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.addOriginalprice.resources

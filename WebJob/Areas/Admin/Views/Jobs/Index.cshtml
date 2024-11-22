@@ -79,6 +79,7 @@
                         <th>Kinh nghiệm</th>
                         <th>Mức lương</th>
                         <th>Ngày tạo</th>
+                        <th>Ngày hết hạn</th>
                         <th>Cần tuyển gấp</th>
                         <th>Hiển thị</th>
                         <th style="width:150px;"></th>
@@ -121,6 +122,10 @@
                                 </td>
                                 <td>
                                     @(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("dd/MM/yyyy") : "N/A")
+
+                                </td>
+                                <td>
+                                    @(item.CreatedDate.HasValue ? item.EndDate.ToString("dd/MM/yyyy") : "N/A")
 
                                 </td>
                                 <td class="text-center">

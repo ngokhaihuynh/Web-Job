@@ -2,95 +2,11 @@
 @using WebJob.Models.EF
 @using System.Collections.Generic
 
+
 @{
     ViewBag.Title = "Các gói";
     Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
 }
-<!-- search section -->
-<div class="container-fluid search-fluid">
-    <div class="container">
-        <div class="search-wrapper">
-
-            <ul class="nav nav-tabs search-nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item search-nav-item">
-                    <a class="nav-link snav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tìm việc làm</a>
-                </li>
-                <li class="nav-item search-nav-item">
-                    <a class="nav-link snav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tìm công ty</a>
-                </li>
-            </ul>
-            <div class="tab-content search-tab-content" id="myTabContent">
-                <!-- content tab 1 -->
-                <div class="tab-pane stab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <form class="bn-search-form">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-12">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="input-group s-input-group">
-                                            <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select id="computer-languages">
-                                            <option value="" selected hidden>Tất cả ngôn ngữ</option>
-                                            <option>Java</option>
-                                            <option>.NET</option>
-                                            <option>Javascript</option>
-                                            <option>Php</option>
-                                            <option>Python</option>
-                                            <option>QC QC</option>
-                                            <option>Business Analyst</option>
-                                            <option>Tester</option>
-                                            <option>Ruby</option>
-                                        </select>
-                                        <i class="fa fa-code sfa" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select id="s-provinces">
-                                            <option value="" selected hidden>Tất cả địa điểm</option>
-                                            <option>Đà Nẵng</option>
-                                            <option>Hà Nội</option>
-                                            <option>Hồ Chí Minh</option>
-                                            <option>Buôn Ma Thuột</option>
-                                            <option>Quy Nhơn</option>
-                                            <option>Nha Trang</option>
-                                        </select>
-                                        <i class="fa fa-map-marker sfa" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- (end) content tab 1 -->
-                <!-- content tab 2 -->
-                <div class="tab-pane stab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <form class="bn-search-form">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-12">
-                                <div class="input-group s-input-group w-100">
-                                    <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                    <span><i class="fa fa-search"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- (end) content tab 2 -->
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- (end) search section -->
 
 
 
@@ -113,42 +29,13 @@
                                             <i class="fa fa-angle-up" aria-hidden="true"></i>
                                         </a>
                                     </p>
-                                   
+
                                     @* danh muc *@
                                     @Html.Action("MenuProductLeft", "Menu")
 
-                                    @*<p>
-                                        <a id="clickc2_advance" class="btnf btn-filter" data-toggle="collapse" href="#filter-price" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            Mức Lương
-                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
-                                        </a>
-                                    </p>*@
-                                    @*<div class="collapse show" id="filter-price">
-                                        <div class="card o-card card-body">
-                                            <div class="filter-panel">
-                                                <div class="panel-content">
-                                                    <div class="filter-topic filter-input-price">
-                                                        <form class="al-price-filter">
-                                                            <span class="_fpblock">
-                                                                <input type="number" class="if-price" id="" placeholder="50,000">
-                                                            </span>
-                                                            <span class="_fpblock _line">
-                                                                <p>-</p>
-                                                            </span>
-                                                            <span class="_fpblock">
-                                                                <input type="number" class="if-price" id="" placeholder="1,000,000">
-                                                            </span>
-                                                            <span class="_fpblock">
-                                                                <button type="submit" class="sb-fprice"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                                                            </span>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
+
                                 </div>
-                             
+
                             </div>
                         </div> <!-- filter bar -->
                         <script type="text/javascript">
@@ -171,13 +58,76 @@
                 <div class="job-board-wrap">
                     <div class="job-group">
                         @*SAN PHAM 1*@
-                      @Html.Action("View_itemsByCatePdId", "Products")
-                     
-
+                        @Html.Action("View_itemsByCatePdId", "Products")
+        
+                       
                     </div>
                 </div>
-
+                
             </div>
         </div>
     </div>
 </div>
+<style>
+    .product-item {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .product-item h5 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05);
+        }
+
+    .pagination-wrapper {
+        margin-top: 20px;
+    }
+
+    .pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+        .pagination li {
+            display: inline;
+            margin: 0 5px;
+        }
+
+            .pagination li a,
+            .pagination li span {
+                color: #007bff;
+                text-decoration: none;
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+            }
+
+                .pagination li a:hover,
+                .pagination li.active span {
+                    background-color: #007bff;
+                    color: white;
+                    border-color: #007bff;
+                }
+</style>

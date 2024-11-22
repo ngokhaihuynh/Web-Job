@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using WebJob.Models;
 using WebJob.Models.EF;
 using PagedList;
-
+using System.Data.Entity;
 
 namespace WebJob.Areas.Admin.Controllers
 {
@@ -17,18 +17,25 @@ namespace WebJob.Areas.Admin.Controllers
         // GET: Admin/Company
         public ActionResult Index(int? page)
         {
-            IEnumerable<Company> items = db.Companies.OrderByDescending(x => x.CompanyID);
             var pageSize = 10;
             if (page == null)
             {
                 page = 1;
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
-            items = items.ToPagedList(pageIndex, pageSize);
+
+            // Load công ty và kèm theo hình ảnh
+            var items = db.Companies
+                          .OrderByDescending(x => x.CompanyID)
+                          .Include(c => c.CompanyImages) // Kết nối bảng hình ảnh công ty
+                          .ToPagedList(pageIndex, pageSize);
+
             ViewBag.PageSize = pageSize;
             ViewBag.Page = page;
+
             return View(items);
         }
+
         public ActionResult Add()
         {
             // Chuẩn bị dữ liệu cho dropdown nếu cần

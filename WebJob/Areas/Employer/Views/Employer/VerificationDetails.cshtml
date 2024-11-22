@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "VerificationDetails";
+}
+@model WebJob.Models.EF.EmployerVerification
+
+<div class="verification-container">
+    <h3 class="text-center">Thông tin xác thực nhà tuyển dụng</h3>
+
+    @if (Model != null)
+    {
+        <table class="table table-bordered">
+            <tr>
+                <th>Tên công ty</th>
+                <td>@Model.CompanyName</td>
+            </tr>
+            <tr>
+                <th>Số điện thoại</th>
+                <td>@Model.PhoneNumber</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <th>Số giấy phép kinh doanh</th>
+                <td>@Model.BusinessLicenseNumber</td>
+            </tr>
+            <tr>
+                <th>Trạng thái</th>
+                <td>
+                    @if (ViewBag.Status.ToString() == "Đã xác thực")
+                    {
+                        <span class="badge badge-success">@ViewBag.Status</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-warning">@ViewBag.Status</span>
+                    }
+                </td>
+            </tr>
+        </table>
+
+        if (ViewBag.Status.ToString() != "Đã xác thực")
+        {
+            @*<a href="@Url.Action("VerifyEmployerForm", "Employer")" class="btn btn-primary">Xác thực ngay</a>*@
+        }
+    }
+    else
+    {
+        <p class="text-center">Bạn chưa gửi thông tin xác thực. <a href="@Url.Action("VerifyEmployerForm", "Employer")">Xác thực ngay</a>.</p>
+    }
+</div>
+
+<style>
+    .verification-container {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .verification-container h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+    .badge-success {
+        background-color: #28a745;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+
+    .badge-warning {
+        background-color: #ffc107;
+        color: #212529;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+</style>

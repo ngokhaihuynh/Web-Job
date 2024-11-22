@@ -9,6 +9,7 @@ using WebJob.Models.EF;
 
 namespace WebJob.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class JobsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -113,6 +114,8 @@ namespace WebJob.Areas.Admin.Controllers
                 jobInDb.JobDescription = model.JobDescription;
                 jobInDb.IsActive = model.IsActive;
                 jobInDb.IsNow = model.IsNow;
+                jobInDb.EndDate = model.EndDate;
+                jobInDb.Company.CompanyEmail = model.Company.CompanyEmail;
                 jobInDb.JobRequirements = model.JobRequirements;
                 //jobInDb.Salary.SalaryRange = model.Salary.SalaryRange;
                 jobInDb.Salary.SalaryMin = model.Salary.SalaryMin;

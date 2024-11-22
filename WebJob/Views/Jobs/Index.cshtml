@@ -1,5 +1,7 @@
 ﻿@using System.Collections.Generic
-@model IEnumerable<WebJob.Models.EF.Job>
+@using PagedList.Mvc
+@*@model IEnumerable<WebJob.Models.EF.Job>*@
+@model PagedList.IPagedList<WebJob.Models.EF.Job>
 
 
 @{
@@ -21,69 +23,15 @@
             </ul>
             <div class="tab-content search-tab-content" id="myTabContent">
                 <!-- content tab 1 -->
-                <div class="tab-pane stab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <form class="bn-search-form">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-12">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="input-group s-input-group">
-                                            <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select id="computer-languages">
-                                            <option value="" selected hidden>Tất cả ngôn ngữ</option>
-                                            <option>Java</option>
-                                            <option>.NET</option>
-                                            <option>Javascript</option>
-                                            <option>Php</option>
-                                            <option>Python</option>
-                                            <option>QC QC</option>
-                                            <option>Business Analyst</option>
-                                            <option>Tester</option>
-                                            <option>Ruby</option>
-                                        </select>
-                                        <i class="fa fa-code sfa" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select id="s-provinces">
-                                            <option value="" selected hidden>Tất cả địa điểm</option>
-                                            <option>Đà Nẵng</option>
-                                            <option>Hà Nội</option>
-                                            <option>Hồ Chí Minh</option>
-                                            <option>Buôn Ma Thuột</option>
-                                            <option>Quy Nhơn</option>
-                                            <option>Nha Trang</option>
-                                        </select>
-                                        <i class="fa fa-map-marker sfa" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="tab-content search-tab-content" id="myTabContent">
+                    <!-- content tab 1 -->
+                    @*Search*@
+                    @Html.Action("SearchView", "Search")
+                  
+                    <!-- (end) content tab 2 -->
                 </div>
                 <!-- (end) content tab 1 -->
-                <!-- content tab 2 -->
-                <div class="tab-pane stab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <form class="bn-search-form">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-12">
-                                <div class="input-group s-input-group w-100">
-                                    <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                    <span><i class="fa fa-search"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+               
                 <!-- (end) content tab 2 -->
             </div>
 
@@ -116,38 +64,7 @@
                                     @* Danh sach nganh nghe *@
                                     @Html.Action("MenuJobLeft", "Menu")
                                 </div>
-                                <div class="filter-form-item">
-                                    <p>
-                                        <a id="clickc2_advance" class="btnf btn-filter" data-toggle="collapse" href="#filter-price" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            Mức Lương
-                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
-                                        </a>
-                                    </p>
-                                    <div class="collapse show" id="filter-price">
-                                        <div class="card o-card card-body">
-                                            <div class="filter-panel">
-                                                <div class="panel-content">
-                                                    <div class="filter-topic filter-input-price">
-                                                        <form class="al-price-filter">
-                                                            <span class="_fpblock">
-                                                                <input type="number" class="if-price" id="" placeholder="50,000">
-                                                            </span>
-                                                            <span class="_fpblock _line">
-                                                                <p>-</p>
-                                                            </span>
-                                                            <span class="_fpblock">
-                                                                <input type="number" class="if-price" id="" placeholder="1,000,000">
-                                                            </span>
-                                                            <span class="_fpblock">
-                                                                <button type="submit" style="color:black" class="sb-fprice btn btn-success">@*<i class="fa fa-angle-right" aria-hidden="true"></i>*@ Tìm</button>
-                                                            </span>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                              
                                 @* luọt online *@
                                 <div class="filter-form-item">
                                     <p>
@@ -211,15 +128,16 @@
 
                                             <div class="job-inf">
                                                 @*<div class="job-main-skill">
-                                                        <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> Java</a>
-                                                    </div>*@
+                                    <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> Java</a>
+                                </div>*@
                                                 <div class="job-salary">
                                                     <i class="fa fa-money" aria-hidden="true"></i>
-                                                    <span class="salary-min">@item.Salary.SalaryMin<em class="salary-unit"></em></span>
-                                                    <span class="salary-max">@item.Salary.SalaryMax <em class="salary-unit">triệu</em></span>
+                                                    <span>@item.Salary.SalaryRange</span>
+                                                    @*<span class="salary-min">@item.Salary.SalaryMin<em class="salary-unit"></em></span>
+                                    <span class="salary-max">@item.Salary.SalaryMax <em class="salary-unit">triệu</em></span>*@
                                                 </div>
                                                 <div class="job-deadline">
-                                                    <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
+                                                    <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>@item.EndDate.ToString("dd/MM/yyyy")</strong></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -231,7 +149,15 @@
 
                                     </div>
                                 </div>
+
                             }
+                            <div class="pagination-container">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, id = ViewBag.CateId }))
+                            </div>
+                        }
+                        else
+                        {
+                            <span>Không có công việc nào!!</span>
                         }
 
 
@@ -242,3 +168,66 @@
         </div>
     </div>
 </div>
+<style>
+    /*css phân trang*/
+    .pagination-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .pagination-container .pagination {
+            display: inline-flex;
+            justify-content: center;
+            padding-left: 0;
+            list-style: none;
+            border-radius: 5px;
+        }
+
+            .pagination-container .pagination li {
+                margin: 0 5px;
+            }
+
+                .pagination-container .pagination li a,
+                .pagination-container .pagination li span {
+                    display: block;
+                    padding: 8px 15px;
+                    color: #007bff;
+                    text-decoration: none;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    background-color: #fff;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                }
+
+                    .pagination-container .pagination li a:hover,
+                    .pagination-container .pagination li span:hover {
+                        background-color: #007bff;
+                        color: #fff;
+                    }
+
+            .pagination-container .pagination .active a,
+            .pagination-container .pagination .active span {
+                background-color: #007bff;
+                color: #fff;
+                border-color: #007bff;
+            }
+
+            .pagination-container .pagination .disabled a,
+            .pagination-container .pagination .disabled span {
+                color: #ccc;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            .pagination-container .pagination .previous a,
+            .pagination-container .pagination .next a {
+                font-weight: bold;
+            }
+
+                .pagination-container .pagination .previous a:hover,
+                .pagination-container .pagination .next a:hover {
+                    background-color: #0056b3;
+                    color: #fff;
+                }
+</style>

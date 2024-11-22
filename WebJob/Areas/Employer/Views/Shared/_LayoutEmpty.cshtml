@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh mục công việc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Roboto Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- select 2 css -->
+    <link rel="stylesheet" href="~/Content/assets/css/select2.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="~/Content/assets/css/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/owlcarousel/owl.theme.default.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Content/assets/js/jquery-3.4.1.slim.min.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <style>
+        .fx {
+            position: fixed;
+            margin-top: -95px;
+        }
+        .icn-res {
+            color: #000;
+            border: none;
+        }
+    </style>
+    <style>
+        .nav-item {
+            position: relative; /* Để định vị tooltip */
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -10px; /* Điều chỉnh vị trí trên trục dọc */
+            right: -10px; /* Điều chỉnh vị trí trên trục ngang */
+            background-color: red; /* Màu nền cho thông báo */
+            color: white; /* Màu chữ */
+            border-radius: 50%; /* Hình dạng tròn */
+            padding: 0 6px; /* Khoảng cách giữa số và viền */
+            font-size: 12px; /* Kích thước chữ */
+            line-height: 20px; /* Căn chỉnh chữ với hình tròn */
+            text-align: center; /* Căn giữa chữ */
+            display: inline-block; /* Để có thể căn giữa chữ trong hình tròn */
+        }
+
+        .tooltip {
+            display: none; /* Ẩn tooltip mặc định */
+            position: absolute;
+            top: 30px;
+            left: 50%; /* Căn giữa với phần tử cha */
+            transform: translateX(-50%); /* Căn giữa chính xác */
+            background-color: #fff; /* Màu nền của tooltip */
+            color: #333; /* Màu chữ của tooltip */
+            padding: 10px; /* Khoảng cách bên trong tooltip */
+            border-radius: 4px; /* Bo tròn các góc của tooltip */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Đổ bóng cho tooltip */
+            z-index: 1000; /* Đảm bảo tooltip hiển thị trên các phần tử khác */
+            max-width: 800px; /* Kích thước tối đa của tooltip */
+            min-width: 400px; /* Kích thước tối đa của tooltip */
+            opacity: 0; /* Ẩn tooltip cho hiệu ứng chuyển tiếp */
+            transition: opacity 0.3s ease; /* Hiệu ứng chuyển tiếp cho tooltip */
+        }
+
+        .nav-item:hover .tooltip {
+            display: block; /* Hiển thị tooltip khi di chuột vào phần tử */
+            opacity: 1; /* Hiển thị tooltip khi di chuột vào phần tử */
+        }
+
+        .tooltip-content {
+            max-height: 800px; /* Kích thước tối đa của phần nội dung */
+            overflow-y: auto; /* Thêm thanh cuộn nếu nội dung vượt quá kích thước */
+        }
+
+        .job-item {
+            display: flex; /* Hiển thị hình ảnh và thông tin công việc theo hàng ngang */
+            margin-bottom: 20px; /* Khoảng cách giữa các công việc */
+            /*align-items: center;*/
+        }
+
+
+        .job-image {
+            width: 50px; /* Kích thước hình ảnh */
+            height: 50px; /* Kích thước hình ảnh */
+            border-radius: 4px; /* Bo tròn các góc của hình ảnh */
+            margin-right: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
+        }
+
+        .job-info {
+            flex-grow: 1; /* Để thông tin công việc chiếm không gian còn lại */
+        }
+
+        .job-name {
+            display: block; /* Hiển thị tên công việc */
+            font-weight: bold; /* Làm đậm tên công việc */
+            text-align: left;
+        }
+
+        .job-salary {
+            display: block; /* Hiển thị mức lương */
+            color: #666; /* Màu chữ cho mức lương */
+            text-align: left;
+        }
+
+        .btn-remove {
+            background-color: #f44336; /* Màu nền cho nút xóa */
+            color: white; /* Màu chữ cho nút xóa */
+            border: none; /* Loại bỏ viền của nút xóa */
+            padding: 5px 10px; /* Khoảng cách bên trong nút xóa */
+            border-radius: 4px; /* Bo tròn các góc của nút xóa */
+            cursor: pointer; /* Con trỏ khi di chuột vào nút xóa */
+        }
+
+            .btn-remove:hover {
+                background-color: #c62828; /* Thay đổi màu nền khi di chuột vào nút xóa */
+            }
+        /* menu đăng nhập*/
+        .user-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+            .user-icon i {
+                font-size: 24px;
+                color: #333;
+            }
+
+            .user-icon:hover {
+                color: #007bff;
+            }
+
+        .dropdown-menu {
+            min-width: 200px;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+            padding: 10px 15px;
+        }
+
+            .dropdown-item:hover {
+                background-color: #f8f9fa;
+                color: #007bff;
+            }
+    </style>
+</head>
+
+<body>
+    <!-- main nav -->
+    <div class="container-fluid fluid-nav another-page">
+        <div class="container cnt-tnar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light tjnav-bar">
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <a href="/Employer/HomeEm" class="nav-logo">
+                    <img src="~/Content/assets/img/logojobtran.png">
+                </a>
+                <button class="navbar-toggler tnavbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- <span class="navbar-toggler-icon"></span> -->
+                    <i class="fa fa-bars icn-res" aria-hidden="true"></i>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    @Html.Action("MenuTop", "Menu")
+
+                    <ul class="navbar-nav mr-auto my-2 my-lg-0 tnav-right tn-nav">
+
+
+                        <!--<li class="nav-item ">
+                        <a class="nav-link" href="/cong-viec-da-luu">
+
+                            <i class="fa-solid fa-bookmark"></i>
+                            <span id="checkout_items" class="notification-badge">0</span>-->
+                        <!-- Số lượng thông báo -->
+                        <!--<span class="hidden-text">Thông báo</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/gio-hang">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span id="checkout_cart" class="notification-badge">0</span>-->
+                        <!-- Số lượng thông báo -->
+                        <!--<span class="hidden-text">Giỏ hàng</span>
+                            </a>
+                        </li>-->
+                        @*<li class="nav-item">
+                                <a class="nav-link" href="#">Đăng Ký</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Đăng Nhập</a>
+                            </li>*@
+
+                        <ul class="navbar-nav ml-auto">
+                            @if (Request.IsAuthenticated)
+                            {
+                                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffDForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                }
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                        @User.Identity.Name
+                                    </a>
+                                    <div class="dropdown-menu tdropdown" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/cv-ung-tuyen">Xem danh sách ứng tuyển</a>
+                                        <a class="dropdown-item" href="#">Gói nhà tuyển dụng</a>
+                                        <a class="dropdown-item" href="/Employer/Employer/VerificationDetails">Xác thực tài khoản</a>
+                                        <a class="dropdown-item" href="javascript:document.getElementById('logOffDForm').submit()">Đăng xuất</a>
+                                    </div>
+                                </li>
+
+
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/account/register">Đăng Ký</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/account/login">Đăng Nhập</a>
+                                </li>
+                            }
+                        </ul>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                VI
+                            </a>
+                            <div class="dropdown-menu tdropdown" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">English</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-employers" href="/Home" tabindex="-1" aria-disabled="true" style="color: #fff!important">Ứng viên</a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- (end) main nav -->
+
+    <div class="clearfix"></div>
+
+
+
+
+    @RenderBody()
+
+
+
+    <!-- job support -->
+    <div class="container-fluid job-support-wrapper">
+        <div class="container-fluid job-support-wrap">
+            <div class="container job-support">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-12">
+                        <ul class="spp-list">
+                            <li>
+                                <span><i class="fa fa-question-circle pr-2 icsp"></i>Hỗ trợ nhà tuyển dụng:</span>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-phone pr-2 icsp"></i>0123.456.789</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-12">
+                        <div class="newsletter">
+                            <span class="txt6">Đăng ký nhận bản tin việc làm</span>
+                            <div class="input-group frm1">
+                                <input type="text" placeholder="Nhập email của bạn" class="newsletter-email form-control">
+                                <a href="#" class="input-group-addon"><i class="fa fa-lg fa-envelope-o colorb"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- (end) job support -->
+    <!-- footer -->
+    <div class="container-fluid footer-wrap  clear-left clear-right">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-md-4 col-sm-8 col-12">
+                    <h2 class="footer-heading">
+                        <span>About</span>
+                    </h2>
+                    <p class="footer-content">
+                        Discover the best way to find houses, condominiums, apartments and HDBs for sale and rent in Singapore with JobsOnline, Singapore's Fastest Growing Jobs Portal.
+                    </p>
+                    <ul class="footer-contact">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-phone fticn"></i> +123 456 7890
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-envelope fticn"></i>
+                                hello@123.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-map-marker fticn"></i>
+                                33 Xô Viết Nghệ Tĩnh, Đà Nẵng
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-4 col-12">
+                    <h2 class="footer-heading">
+                        <span>Ngôn ngữ nổi bật</span>
+                    </h2>
+                    <ul class="footer-list">
+                        <li><a href="#">Javascript</a></li>
+                        <li><a href="#">Java</a></li>
+                        <li><a href="#">Frontend</a></li>
+                        <li><a href="#">SQL Server</a></li>
+                        <li><a href="#">.NET</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-6 col-12">
+                    <h2 class="footer-heading">
+                        <span>Tất cả ngành nghề</span>
+                    </h2>
+                    <ul class="footer-list">
+                        <li><a href="#">Lập trình viên</a></li>
+                        <li><a href="#">Kiểm thử phần mềm</a></li>
+                        <li><a href="#">Kỹ sư cầu nối</a></li>
+                        <li><a href="#">Quản lý dự án</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-6 col-12">
+                    <h2 class="footer-heading">
+                        <span>Tất cả hình thức</span>
+                    </h2>
+                    <ul class="footer-list">
+                        <li><a href="#">Nhân viên chính thức</a></li>
+                        <li><a href="#">Nhân viên bán thời gian</a></li>
+                        <li><a href="#">Freelancer</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-12 col-12">
+                    <h2 class="footer-heading">
+                        <span>Tất cả tỉnh thành</span>
+                    </h2>
+                    <ul class="footer-list">
+                        <li><a href="#">Hồ Chính Minh</a></li>
+                        <li><a href="#">Hà Nội</a></li>
+                        <li><a href="#">Đà Nẵng</a></li>
+                        <li><a href="#">Buôn Ma Thuột</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid copyright-wrap">
+        <div class="container copyright">
+            <p class="copyright-content">
+                Copyright © 2020 <a href="#"> Tech<b>Job</b></a>. All Right Reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- (end) footer -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="j~/Content/assets/s/readmore.js"></script>
+    <script type="text/javascript">
+        $('.catelog-list').readmore({
+            speed: 75,
+            maxHeight: 150,
+            moreLink: '<a href="#">Xem thêm<i class="fa fa-angle-down pl-2"></i></a>',
+            lessLink: '<a href="#">Rút gọn<i class="fa fa-angle-up pl-2"></i></a>'
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Content/assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="~/Scripts/jsSaveJob.js"></script>
+    <script src="~/Scripts/JsShopping.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/select2.min.js"></script>
+    <script src="~/Content/assets/js/jobdata.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="~/Content/assets/text/javascript" src="js/main.js"></script>
+    <!-- Owl Stylesheets Javascript -->
+    <script src="~/Content/assets/js/owlcarousel/owl.carousel.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+
+    <!-- Read More Plugin -->
+    @RenderSection("scripts", required: false)
+    @RenderSection("naviheader", required: false)
+
+
+</body>
+</html>
+

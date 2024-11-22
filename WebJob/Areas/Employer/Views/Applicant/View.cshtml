@@ -1,0 +1,138 @@
+﻿@model  WebJob.Models.EF.Applicant
+@using PagedList
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Areas/Employer/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="container-fluid job-detail-wrap">
+    <div class="container job-detail">
+        <div class="job-detail-header">
+            <div class="row">
+                <div class="col-md-2 col-sm-12 col-12">
+                    <div class="job-detail-header-logo">
+                        <a href="#">
+                            <img src="~/Content/assets/img/avata.jpg" class="job-logo-ima" alt="job-logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-12 col-12">
+                    <div class="job-detail-header-desc">
+                        <div class="job-detail-header-title">
+                            <a href="#">@Model.FullName</a>
+                        </div>
+                        <div class="job-detail-header-company">
+
+                            <a href="#"> <i class="fa-solid fa-phone"></i> @Model.PhoneNumber</a>
+                        </div>
+                        <div class="job-detail-header-company">
+                            <strong>Trạng thái:</strong> @(Model.IsActive ? "Đã xem" : "Chưa xem")
+                        </div>
+                        <div class="job-detail-header-company">
+                            @if (!string.IsNullOrEmpty(Model.CVFilePath))
+                            {
+                                var fileName = System.IO.Path.GetFileName(Model.CVFilePath);<!-- Lấy tên tệp -->
+                           
+                            <a style="color:royalblue" href="@Url.Content(Model.CVFilePath)" target="_blank"> <i class="fa-solid fa-file"></i> @fileName</a>
+                            }
+                            else
+                            {
+                                <span>Chưa có CV được tải lên.</span>
+                            }
+                        </div>
+
+
+                        <div class="job-detail-header-de">
+                            <ul>
+                                <li><i class="fa-solid fa-envelope"></i> <span>@Model.Email</span></li>
+
+                                <li>
+
+                                    <span>
+                                        @foreach (var jobApp in Model.JobApplications)
+                                        {
+                                            <span>
+                                                <i class="fa fa-calendar icn-jd"></i>
+                                                Ngày hết hạn:
+                                                <strong>@jobApp.Job.EndDate.ToString("dd/MM/yyyy")</strong>
+                                            </span>
+                                        }
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-12">
+                    <div class="jd-header-wrap-right">
+                        <div class="jd-center">
+                            @*<a href="#" class="btn btn-primary btn-apply">Nộp đơn</a>*@
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- (end) job detail header -->
+
+<div class="clearfix"></div>
+
+<!-- Phần thân -->
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <!-- Main wrapper -->
+            <div class="col-md-12 col-sm-12  clear-left">
+                <div class="main-wrapper">
+
+                    <h2 class="widget-title">
+                        <span>Lời giới thiệu</span>
+                    </h2>
+                    <div class="jd-content">
+                        @Html.Raw(Model.CoverLetter)
+                    </div>
+                    <h2 class="widget-title">
+                        <span>Nhận xét về ứng viên</span>
+                    </h2>
+                    <div class="jd-content">
+                        <!-- Hiển thị nhận xét hiện tại nếu có -->
+                        @*@if (!string.IsNullOrEmpty(Model.FeebBack))
+                        {
+                            <p><strong>Nhận xét hiện tại:</strong></p>
+                            <p>@Model.FeebBack</p> 
+                        }
+                        else
+                        {
+                            <p>Chưa có nhận xét nào cho ứng viên này.</p>
+                        }*@
+
+                        <!-- Form nhập nhận xét mới hoặc chỉnh sửa -->
+                        <form action="@Url.Action("View", "Applicant", new { id = Model.ApplicantID })" method="post">
+                            <div class="form-group">
+                                <label for="feedback">Thêm nhận xét:</label>
+                                <textarea name="feedback" id="feedback" class="form-control" rows="4">@Model.FeebBack</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Lưu nhận xét</button>
+                        </form>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

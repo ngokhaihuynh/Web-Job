@@ -1,56 +1,60 @@
-﻿@model  IEnumerable<WebJob.Models.EF.Category>
+﻿@model IEnumerable<WebJob.Models.EF.Category>
+@using WebJob.Models.EF
+
 @if (Model != null && Model.Any())
 {
-<ul class="navbar-nav mr-auto tnav-left tn-nav">
-
-    @foreach (var item in Model)
-    {
-        if (item.Alias.Equals("trang-chu"))
+    <ul class="navbar-nav mr-auto tnav-left tn-nav">
+        @foreach (var item in Model)
         {
-            item.Alias = "";
+            // Chỉ hiển thị danh mục cho Ứng viên và cho cả hai (ứng viên và nhà tuyển dụng)
+            if (item.CategoryType == CategoryType.Candidate || item.CategoryType == CategoryType.Both)
+            {
+                if (item.Alias.Equals("trang-chu"))
+                {
+                    item.Alias = "";
+                }
+
+                // Kiểm tra nếu đường dẫn hiện tại trùng với Alias
+                bool isActive = Request.Url.AbsolutePath.Equals("/" + item.Alias, StringComparison.OrdinalIgnoreCase);
+
+                <li class="nav-item @(isActive ? "active" : "")">
+                    <a class="nav-link" href="/@item.Alias">@item.Title</a>
+                </li>
+            }
         }
-
-        // Kiểm tra nếu đường dẫn hiện tại trùng với Alias
-        bool isActive = Request.Url.AbsolutePath.Equals("/" + item.Alias, StringComparison.OrdinalIgnoreCase);
-
-        <li class="nav-item @(isActive ? "active" : "")">
-            <a class="nav-link" href="/@item.Alias">@item.Title</a>
-        </li>
-    }
-
-
-    @*<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-            </a>
-            <div class="dropdown-menu tdropdown" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </li>*@
-</ul>
+    </ul>
 }
+
 <style>
     .nav-item.active .nav-link {
-        color: #007bff; /* Màu chữ khi mục được chọn */
+        color: #007bff;
         font-weight: bold;
-        border-bottom: 2px solid blue; /* Đường viền dưới màu xanh */
-        padding-bottom: 5px; /* Khoảng cách giữa nội dung và đường viền */
+        border-bottom: 2px solid blue;
+        padding-bottom: 5px;
     }
 
     ul.tn-nav li a:hover {
-           font-weight: bold;
-         border-bottom: 0px solid; 
-        
+        font-weight: bold;
+        border-bottom: 0px solid;
+    }
+    /* Định kiểu cho thanh menu luôn hiển thị */
+    /*.tnav-left.tn-nav {
+        position: sticky;*/ /* Hoặc dùng fixed */
+        /*top: 0;
+        z-index: 1000;*/ /* Đảm bảo menu nằm trên các thành phần khác */
+        /*background-color: white;*/ /* Nền menu */
+        /*box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);*/ /* Hiệu ứng đổ bóng */
+    /*}*/
+
+    /* Hiệu ứng mượt khi cuộn */
+    html {
+        scroll-behavior: smooth;
     }
 
 </style>
 
 <script>
     $(document).ready(function () {
-        // Lấy URL hiện tại của trang
         var currentPath = window.location.pathname;
 
         // Duyệt qua tất cả các liên kết trong menu và kiểm tra nếu href của nó giống với đường dẫn hiện tại

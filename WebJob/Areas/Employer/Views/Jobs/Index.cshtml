@@ -1,0 +1,199 @@
+﻿@model IPagedList<WebJob.Models.EF.Job>
+@using PagedList.Mvc;
+@using PagedList;
+
+@{
+    ViewBag.Title = "Danh sách công việc";
+    Layout = "~/Areas/Employer/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container search-wrapper">
+        <div class="row">
+
+          
+
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+
+                        <div class="col-sm-12">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="/cv-ung-tuyen">CV ứng tuyển</a></li>
+                                <li class="breadcrumb-item active">Việc làm đã đằng</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- Bộ lọc công việc -->
+            <!-- Danh sách công việc -->
+            <div class="col-md-12 col-sm-12 col-12">
+                <h4 class="search-find">Tìm thấy @Model.TotalItemCount công việc</h4>
+                <div class="job-board-wrap">
+                    <div class="job-group">
+                        @if (Model != null && Model.Any())
+                        {
+                            var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
+                            foreach (var item in Model)
+                            {
+                                var strImge = "";
+                                var img = item.CompanyImages.FirstOrDefault(x => x.IsDefault);
+                                if (img != null)
+                                {
+                                    strImge = img.ImageURL;
+                                }
+                                <div class="job pagi">
+                                    <div class="job-content">
+                                        <div class="job-logo">
+                                            @*<a href="#">
+                                            <span>@i</span>
+                                        </a>*@
+                                            <a href="/chi-tiet/@item.Alias-p@(item.JobID)">
+                                                <img src="@strImge" class="job-logo-ima" alt="job-logo">
+                                            </a>
+                                        </div>
+
+                                        <div class="job-desc">
+                                            <div class="job-title">
+                                                <a href="#">@item.JobTitle</a>
+                                            </div>
+                                            <div class="job-company">
+                                                <!-- Kiểm tra EndDate trước khi gọi ToString -->
+                                                <span>Ngày hết hạn: @item.EndDate.ToString("dd/MM/yyyy") </span>
+                                            </div>
+                                            <div class="job-inf">
+                                                <div class="job-salary">
+                                                    <span class="salary-min">Trạng thái: @(item.IsActive ? "Hoạt động" : "Tạm dừng")</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrap-btn-appl">
+                                            <a href="/Employer/Jobs/Edit/@item.JobID" class="btn btn-appl">Chỉnh sửa</a>
+                                            <a href="#" class="btn btn-danger">Xóa</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*  i++;*@ <!-- Tăng giá trị của i sau mỗi vòng lặp -->
+                            }
+                        }
+
+                        else
+                        {
+                            <p class="no-data-message">Không có công việc nào được lưu bởi tài khoản này.</p>
+                        }
+                    </div>
+                </div>
+
+                <!-- Phân trang -->
+                <div class="pagination-container">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    span.salary-min::after {
+        display: none;
+    }
+
+    .selected-job {
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .filter-topic {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .filter-action {
+        text-decoration: none;
+        font-weight: normal;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80%;
+    }
+
+    .filter-count {
+        font-size: 14px;
+        color: #999;
+        flex-shrink: 0;
+    }
+
+    .no-data-message {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #999;
+    }
+
+    /*css phân trang*/
+    .pagination-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .pagination-container .pagination {
+            display: inline-flex;
+            justify-content: center;
+            padding-left: 0;
+            list-style: none;
+            border-radius: 5px;
+        }
+
+            .pagination-container .pagination li {
+                margin: 0 5px;
+            }
+
+                .pagination-container .pagination li a,
+                .pagination-container .pagination li span {
+                    display: block;
+                    padding: 8px 15px;
+                    color: #007bff;
+                    text-decoration: none;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    background-color: #fff;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                }
+
+                    .pagination-container .pagination li a:hover,
+                    .pagination-container .pagination li span:hover {
+                        background-color: #007bff;
+                        color: #fff;
+                    }
+
+            .pagination-container .pagination .active a,
+            .pagination-container .pagination .active span {
+                background-color: #007bff;
+                color: #fff;
+                border-color: #007bff;
+            }
+
+            .pagination-container .pagination .disabled a,
+            .pagination-container .pagination .disabled span {
+                color: #ccc;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            .pagination-container .pagination .previous a,
+            .pagination-container .pagination .next a {
+                font-weight: bold;
+            }
+
+                .pagination-container .pagination .previous a:hover,
+                .pagination-container .pagination .next a:hover {
+                    background-color: #0056b3;
+                    color: #fff;
+                }
+</style>

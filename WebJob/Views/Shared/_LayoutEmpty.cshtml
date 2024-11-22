@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using WebJob.Common
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
     <!-- Roboto Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
-
+ 
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.min.css">
 
@@ -19,7 +20,7 @@
     <!-- select 2 css -->
     <link rel="stylesheet" href="~/Content/assets/css/select2.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <link href="~/Content/assets/css/Style1.css" rel="stylesheet" />
     <!-- Owl Stylesheets -->
     <link rel="stylesheet" href="~/Content/assets/css/owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="~/Content/assets/css/owlcarousel/owl.theme.default.min.css">
@@ -29,10 +30,40 @@
     <script src="~/Content/assets/js/jquery-3.4.1.slim.min.js"></script>
     @Scripts.Render("~/bundles/jqueryval")
     <style>
+        body {
+            padding-top: 70px; /* Điều chỉnh giá trị này tương ứng với chiều cao navbar */
+        }
+
+        .container-fluid.fluid-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+             box-shadow: none;
+        }
+
+
         .fx {
             position: fixed;
             margin-top: -95px;
         }
+
+        .job-title a {
+            display: block; /* Đảm bảo là khối */
+            white-space: nowrap; /* Không xuống dòng */
+            overflow: hidden; /* Ẩn phần dư thừa */
+            text-overflow: ellipsis; /* Hiển thị dấu ba chấm */
+            max-width: 200px; /* Đặt chiều rộng tối đa phù hợp */
+            font-size: 16px; /* Kích thước chữ tùy chỉnh */
+            color: #333; /* Màu chữ */
+            text-decoration: none; /* Bỏ gạch chân mặc định */
+        }
+
+            .job-title a:hover {
+                text-decoration: underline; /* Hiệu ứng khi rê chuột */
+            }
+
     </style>
     <style>
         .nav-item {
@@ -122,17 +153,47 @@
             .btn-remove:hover {
                 background-color: #c62828; /* Thay đổi màu nền khi di chuột vào nút xóa */
             }
+        /* menu đăng nhập*/
+        .user-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+            .user-icon i {
+                font-size: 24px;
+                color: #333;
+            }
+
+            .user-icon:hover {
+                color: #007bff;
+            }
+
+        .dropdown-menu {
+            min-width: 200px;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+            padding: 10px 15px;
+        }
+
+            .dropdown-item:hover {
+                background-color: #f8f9fa;
+                color: #007bff;
+            }
     </style>
 </head>
 
 <body>
     <!-- main nav -->
-    <div class="container-fluid fluid-nav another-page">
+    <div style="position: fixed; z-index: 1000000;" class="container-fluid fluid-nav another-page">
         <div class="container cnt-tnar">
             <nav class="navbar navbar-expand-lg navbar-light bg-light tjnav-bar">
                 <!-- <a class="navbar-brand" href="#">Navbar</a> -->
                 <a href="#" class="nav-logo">
-                    <img src="~/Content/assets/img/techjobs_bgw.png">
+                    <img src="~/Content/assets/img/logojobtran.png">
                 </a>
                 <button class="navbar-toggler tnavbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <!-- <span class="navbar-toggler-icon"></span> -->
@@ -154,22 +215,51 @@
                                 <span class="hidden-text">Thông báo</span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="/gio-hang">
-                                @*<i class="fa fa-shopping-cart" aria-hidden="true"></i>*@
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                <span id="checkout_cart" class="notification-badge">0</span> <!-- Số lượng thông báo -->
-                                <span class="hidden-text">Giỏ hàng</span>
+                        <!--<li class="nav-item ">
+                            <a class="nav-link" href="/gio-hang">-->
+                        @*<i class="fa fa-shopping-cart" aria-hidden="true"></i>*@
+                        <!--<i class="fa-solid fa-cart-shopping"></i>
+                        <span id="checkout_cart" class="notification-badge">0</span>-->
+                        <!-- Số lượng thông báo -->
+                        <!--<span class="hidden-text">Giỏ hàng</span>
 
                             </a>
-                        </li>
+                        </li>-->
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng Ký</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng Nhập</a>
-                        </li>
+                        <ul class="navbar-nav ml-auto">
+                            @if (Request.IsAuthenticated)
+                            {
+                                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffDForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                }
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                        @User.Identity.Name
+                                    </a>
+                                    <div class="dropdown-menu tdropdown" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="@Url.Action("MyAppliedJobs", "MyApplicant")">Xem danh sách đã ứng tuyển</a>
+                                        <a class="dropdown-item" href="/gio-hang">Gói dịch vụ</a>
+                                        <a class="dropdown-item" href="/goi-da-mua">Gói dịch vụ đã mua</a>
+                                        <a class="dropdown-item" href="/cong-viec-da-luu">Công việc dã lưu</a>
+                                        <a class="dropdown-item" href="javascript:document.getElementById('logOffDForm').submit()">Đăng xuất</a>
+                                    </div>
+                                </li>
+
+
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/account/register">Đăng Ký</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/account/login">Đăng Nhập</a>
+                                </li>
+                            }
+                        </ul>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 VI
@@ -179,7 +269,12 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-employers" href="#" tabindex="-1" aria-disabled="true" style="color: #fff!important">Nhà Tuyển Dụng</a>
+                            <a class="nav-link btn-employers"
+                               href="/Account/Login?returnUrl=/Employer/HomeEm"
+                               tabindex="-1"
+                               aria-disabled="true">
+                                Nhà Tuyển Dụng
+                            </a>
                         </li>
                     </ul>
 
@@ -195,9 +290,9 @@
 
 
 
-
-    @RenderBody()
-
+    <div class="content">
+        @RenderBody() <!-- Nội dung từng trang -->
+    </div>
 
 
     <!-- job support -->
@@ -211,19 +306,13 @@
                                 <span><i class="fa fa-question-circle pr-2 icsp"></i>Hỗ trợ nhà tuyển dụng:</span>
                             </li>
                             <li>
-                                <span><i class="fa fa-phone pr-2 icsp"></i>0123.456.789</span>
+                                <span><i class="fa fa-phone pr-2 icsp"></i>@SettingHelper.GetValue("SettingHotline")</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-6 col-sm-12 col-12">
-                        <div class="newsletter">
-                            <span class="txt6">Đăng ký nhận bản tin việc làm</span>
-                            <div class="input-group frm1">
-                                <input type="text" placeholder="Nhập email của bạn" class="newsletter-email form-control">
-                                <a href="#" class="input-group-addon"><i class="fa fa-lg fa-envelope-o colorb"></i></a>
-                            </div>
-                        </div>
-                    </div>
+
+                    @* nhận mail đăng ký *@
+                    @Html.Action("Partial_Subcrice", "Home")
                 </div>
             </div>
         </div>
@@ -336,7 +425,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="~/Content/assets/js/jquery-3.4.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/jsSaveJob.js"></script>
     <script src="~/Scripts/JsShopping.js"></script>
     <script src="~/Content/assets/js/popper.min.js"></script>

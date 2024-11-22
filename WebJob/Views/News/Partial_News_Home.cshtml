@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebJob.Models.EF.News>
+@{
+    ViewBag.Title = "Partial_News_Home";
+    Layout = null;
+}
+
+@if (Model != null && Model.Any())
+{
+    <div class="container-fluid">
+        <div class="container news-wrapper">
+            <div class="row">
+                <div class="col-md-12 news-wrapper-head">
+                    cẩm nang nghề nghiệp
+                </div>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-12 col-12 news-item">
+                        <div class="news-item-inner">
+                            <a href="/@item.Alias-n@(item.NewsID)">
+                                <div class="news-thumb" style="background-image: url(@item.ImageURL);"></div>
+                            </a>
+                            <div class="news-details">
+                                <div class="tags">
+                                    <a href="#tag1">@item.Tag</a>
+                                </div>
+                                <div class="title">
+                                    <a href="/@item.Alias-n@(item.NewsID)">
+                                        @item.Title
+                                    </a>
+                                </div>
+                                <div class="meta">
+                                    @item.Meta
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .title {
+        display: -webkit-box; /* Sử dụng layout của webkit để giới hạn dòng */
+        -webkit-box-orient: vertical; /* Định hướng dọc */
+        -webkit-line-clamp: 2; /* Hiển thị tối đa 2 dòng */
+        overflow: hidden; /* Ẩn phần nội dung vượt quá */
+        text-overflow: ellipsis; /* Thêm dấu "..." nếu nội dung bị cắt */
+        max-width: 320px; /* Giới hạn chiều rộng (tuỳ chỉnh) */
+    }
+
+        .title a {
+            color: inherit; /* Sử dụng màu mặc định */
+            text-decoration: none; /* Bỏ gạch chân */
+            transition: color 0.3s ease; /* Hiệu ứng chuyển màu */
+        }
+
+            .title a:hover {
+                color: blue; /* Màu khi hover */
+                text-decoration: underline; /* Thêm gạch chân khi hover */
+            }
+
+</style>

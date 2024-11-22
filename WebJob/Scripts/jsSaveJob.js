@@ -56,7 +56,7 @@ var SaveJobModule = {
     init: function () {
         this.showCount();
         this.LoadSaveJob();
-        this.DeleteAllJob();
+       
         this.setupEventHandlers();
     },
 
@@ -79,7 +79,7 @@ var SaveJobModule = {
         });
     },
     DeleteAllJob: function () {
-        console.log("Đang gọi hàm DeleteAll"); // Thêm dòng này để kiểm tra
+       // Thêm dòng này để kiểm tra
         $.ajax({
             url: '/SaveJob/DeleteAllJob',
             type: 'POST',

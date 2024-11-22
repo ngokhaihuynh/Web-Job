@@ -1,0 +1,51 @@
+﻿@model  IEnumerable<WebJob.Models.EF.Job>
+
+
+<div class="row job-best-salary-inner">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            var strImge = "";
+            var img = item.CompanyImages.FirstOrDefault(x => x.IsDefault);
+            if (img != null)
+            {
+                strImge = img.ImageURL;
+            }
+            <div class="col-md-6 job-over-item">
+                <div class="job-inner-over-item">
+                    <a href="#wrap">
+                        <div class="thumbnail">
+                            <img src="@strImge" alt="@item.Company.CompanyName">
+                        </div>
+                        <div class="content">
+                            <div class="job-name">
+                                @item.JobTitle
+                            </div>
+                            <a href="#company" class="company">
+                                @item.Company.CompanyName
+                            </a>
+                        </div>
+                        <div class="extra-info">
+                            <p class="salary mt-2"><i class="fa fa-money pr-2"></i>@item.Salary.SalaryRange</p>
+                            <p class="place"><i class="fa fa-map-marker pr-2"></i>@item.Location.LocationName</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Không có công việc nào phù hợp.</p>
+    }
+</div>
+
+<style>
+    .job-name {
+        max-width: 200px; /* Hoặc bất kỳ kích thước nào bạn muốn */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>

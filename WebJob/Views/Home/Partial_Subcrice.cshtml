@@ -1,0 +1,37 @@
+﻿@model  WebJob.Models.EF.EmailSubscription
+
+<div class="col-md-6 col-sm-12 col-12">
+    <div class="newsletter">
+        <span class="txt6">Đăng ký nhận bản tin việc làm</span>
+        @using (Ajax.BeginForm("Subscribe", "Home", new AjaxOptions
+        {
+            OnBegin = "OnBeginSub",
+            OnSuccess = "OnSuccessSub",
+            OnFailure = "OnFailureSub"
+
+        }))
+        {
+            @Html.AntiForgeryToken()
+            <script>
+
+                function OnBeginSub() {
+
+                }
+                function OnSuccessSub(rs) {
+                    if (rs.Success) {
+                        alert("Đăng ký thành công!");
+                    }
+                }
+                function OnFailureSub(rs) { }
+
+            </script>
+            <div class="input-group frm1">
+                @*@Html.TextBoxFor(x=> x.Email, new { @placeholder = "Nhập email của bạn", @type="email", @class= "newsletter-email form-control" })*@
+                <input type="text" name="Email" placeholder="Nhập email của bạn" class="newsletter-email form-control">
+                <button type="submit" class="input-group-addon">Gửi</button>
+                
+            </div>
+        }
+
+    </div>
+</div>

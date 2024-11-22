@@ -8,6 +8,7 @@ using WebJob.Models.EF;
 
 namespace WebJob.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
        private ApplicationDbContext db = new ApplicationDbContext();
@@ -28,6 +29,13 @@ namespace WebJob.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Kiểm tra CategoryType hợp lệ
+                if (model.CategoryType != CategoryType.Candidate && model.CategoryType != CategoryType.Employer && model.CategoryType != CategoryType.Both)
+                {
+                    ModelState.AddModelError("CategoryType", "Loại danh mục không hợp lệ.");
+                    return View(model);
+                }
+
                 model.CreatedDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = WebJob.Models.Common.Filter.FilterChar(model.Title);
@@ -57,6 +65,7 @@ namespace WebJob.Areas.Admin.Controllers
                 db.Entry(model).Property(x => x.Title).IsModified = true; // cho phếp cập nhật
                 db.Entry(model).Property(x => x.Description).IsModified = true;
                 db.Entry(model).Property(x => x.Alias).IsModified = true;
+                db.Entry(model).Property(x => x.CategoryType).IsModified = true;
                 db.Entry(model).Property(x => x.Position).IsModified = true;
                 db.Entry(model).Property(x => x.ModifiedDate).IsModified = true;
                 db.Entry(model).Property(x => x.ModifiedBy).IsModified = true;               

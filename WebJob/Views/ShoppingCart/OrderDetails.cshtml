@@ -1,0 +1,113 @@
+﻿@model WebJob.Models.EF.Order
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="order-details">
+        <h2 class="text-center mb-4">Chi tiết đơn hàng: <span class="text-primary">@Model.Code</span></h2>
+
+        <div class="customer-info mb-4 p-3 border rounded shadow-sm bg-light">
+            <h4>Thông tin khách hàng</h4>
+            <p>
+                <strong>Khách hàng:</strong> @Model.CustomerName <br />
+                <strong>Số điện thoại:</strong> @Model.Phone <br />
+                <strong>Địa chỉ:</strong> @Model.Address <br />
+                <strong>Ngày tạo:</strong> @Model.CreatedDate.ToString("dd/MM/yyyy HH:mm") <br />
+                <strong>Tổng tiền:</strong> <span class="text-danger">@Model.TotalAmount.ToString("C0")</span>
+            </p>
+        </div>
+
+        <div class="product-details">
+            <h4 class="mb-3">Sản phẩm trong đơn hàng</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>#</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Tổng cộng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.OrderDetails != null && Model.OrderDetails.Any())
+                        {
+                            int index = 1;
+                            foreach (var item in Model.OrderDetails)
+                            {
+                                <tr>
+                                    <td>@index</td>
+                                    <td>@item.Product.Title</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Price.ToString("#,###")</td>
+                                    <td>@(item.Quantity * item.Price)</td>
+                                </tr>
+                                index++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center">Không có sản phẩm nào trong đơn hàng này.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .order-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.customer-info h4 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.table {
+    margin-top: 15px;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+@@media (max-width: 768px) {
+    .order-details {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .table th, .table td {
+        font-size: 0.9rem;
+    }
+}
+
+</style>

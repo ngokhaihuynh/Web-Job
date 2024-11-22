@@ -1,0 +1,30 @@
+﻿@model IEnumerable<WebJob.Models.EF.News>
+
+
+
+<div class="side-bar mb-3">
+    <h2 class="widget-title">
+        <span>Tin tức mới nhất</span>
+    </h2>
+
+    <div class="job-tt-contain">
+        @foreach (var item in Model)
+        {
+            <div class="job-tt-item">
+                <a href="/@item.Alias-n@(item.NewsID)" class="thumb">
+                    <div style="background-image: url(@item.ImageURL);"></div>
+                </a>
+                <div class="info">
+                    <a href="/@item.Alias-n@(item.NewsID)" class="jobname">
+                        @item.Title
+                    </a>
+                    <a href="#" class="company">
+                        @item.Tag
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

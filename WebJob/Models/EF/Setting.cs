@@ -8,7 +8,7 @@ using System.Web;
 namespace WebJob.Models.EF
 {
     [Table("tb_Setting")]
-    public class Setting:CommonAbstract
+    public class Setting
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -45,11 +46,12 @@ namespace WebJob.Controllers
             return View(items);
         }
 
-        public ActionResult View_itemsByCatePdId()
+        public ActionResult View_itemsByCatePdId(int page = 1, int pageSize = 5)
         {
-            var items = db.products.Where(x => x.IsActive).Take(10).ToList();
+            var items = db.products.Where(x => x.IsActive).OrderBy(x => x.ProductID).ToPagedList(page, pageSize);
             return PartialView(items);
         }
+
 
     }
 }

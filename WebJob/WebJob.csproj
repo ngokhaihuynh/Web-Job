@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="CKFinder, Version=2.4.0.2631, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\drive-download-20240717T080442Z-001\ckfinder\bin\Debug\CKFinder.dll</HintPath>
@@ -59,7 +62,55 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -75,6 +126,27 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -84,95 +156,17 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="WebGrease">
-      <Private>True</Private>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime">
-      <Private>True</Private>
-      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Owin">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Owin">
-      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
-      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -182,27 +176,48 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\CompanyController.cs" />
     <Compile Include="Areas\Admin\Controllers\CompanyImagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ExperienceController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\JobCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\JobsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticelsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductImagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SalaryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SettingSystemController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VerifyAccountController.cs" />
+    <Compile Include="Areas\Employer\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Employer\Controllers\ApplicantController.cs" />
+    <Compile Include="Areas\Employer\Controllers\EmployerController.cs" />
+    <Compile Include="Areas\Employer\Controllers\HomeEmController.cs" />
+    <Compile Include="Areas\Employer\Controllers\JobsController.cs" />
+    <Compile Include="Areas\Employer\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Employer\EmployerAreaRegistration.cs" />
+    <Compile Include="Common\SettingHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Applicationdbcontext.cs" />
+    <Compile Include="Controllers\ArticelController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\MyApplicantController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SaveJobController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SkillController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,69 +225,25 @@
     <Compile Include="Migrations\202408081101446_createdatebase.designer.cs">
       <DependentUpon>202408081101446_createdatebase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202408081117493_Updatedb.cs" />
-    <Compile Include="Migrations\202408081117493_Updatedb.designer.cs">
-      <DependentUpon>202408081117493_Updatedb.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202408081134419_updateTime.cs" />
     <Compile Include="Migrations\202408081134419_updateTime.designer.cs">
       <DependentUpon>202408081134419_updateTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202408081144063_UpdateFull.cs" />
-    <Compile Include="Migrations\202408081144063_UpdateFull.designer.cs">
-      <DependentUpon>202408081144063_UpdateFull.cs</DependentUpon>
+    <Compile Include="Migrations\202411220759115_addIduser1.cs" />
+    <Compile Include="Migrations\202411220759115_addIduser1.designer.cs">
+      <DependentUpon>202411220759115_addIduser1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202408101004439_UpdateJobNơ.cs" />
-    <Compile Include="Migrations\202408101004439_UpdateJobNơ.designer.cs">
-      <DependentUpon>202408101004439_UpdateJobNơ.cs</DependentUpon>
+    <Compile Include="Migrations\202411220850156_adduserid.cs" />
+    <Compile Include="Migrations\202411220850156_adduserid.designer.cs">
+      <DependentUpon>202411220850156_adduserid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202408171725078_updateSalary.cs" />
-    <Compile Include="Migrations\202408171725078_updateSalary.designer.cs">
-      <DependentUpon>202408171725078_updateSalary.cs</DependentUpon>
+    <Compile Include="Migrations\202411220900145_deletequantityu.cs" />
+    <Compile Include="Migrations\202411220900145_deletequantityu.designer.cs">
+      <DependentUpon>202411220900145_deletequantityu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202408171734071_updateTypeSalary.cs" />
-    <Compile Include="Migrations\202408171734071_updateTypeSalary.designer.cs">
-      <DependentUpon>202408171734071_updateTypeSalary.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202408211223518_AddDatabaseProduct.cs" />
-    <Compile Include="Migrations\202408211223518_AddDatabaseProduct.designer.cs">
-      <DependentUpon>202408211223518_AddDatabaseProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411110903376_UpdateNullPriceSale.cs" />
-    <Compile Include="Migrations\202411110903376_UpdateNullPriceSale.designer.cs">
-      <DependentUpon>202411110903376_UpdateNullPriceSale.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411120833587_UpdateOrder.cs" />
-    <Compile Include="Migrations\202411120833587_UpdateOrder.designer.cs">
-      <DependentUpon>202411120833587_UpdateOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411120914323_UpdateTypePaymentOrdet.cs" />
-    <Compile Include="Migrations\202411120914323_UpdateTypePaymentOrdet.designer.cs">
-      <DependentUpon>202411120914323_UpdateTypePaymentOrdet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411120932257_UpdateOrder1.cs" />
-    <Compile Include="Migrations\202411120932257_UpdateOrder1.designer.cs">
-      <DependentUpon>202411120932257_UpdateOrder1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411121040189_updateTotalAmount.cs" />
-    <Compile Include="Migrations\202411121040189_updateTotalAmount.designer.cs">
-      <DependentUpon>202411121040189_updateTotalAmount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411121659422_UpdateApplicant.cs" />
-    <Compile Include="Migrations\202411121659422_UpdateApplicant.designer.cs">
-      <DependentUpon>202411121659422_UpdateApplicant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411121714330_UpdateModifineApplicant.cs" />
-    <Compile Include="Migrations\202411121714330_UpdateModifineApplicant.designer.cs">
-      <DependentUpon>202411121714330_UpdateModifineApplicant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411130818105_UpdateTableThhongke.cs" />
-    <Compile Include="Migrations\202411130818105_UpdateTableThhongke.designer.cs">
-      <DependentUpon>202411130818105_UpdateTableThhongke.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411130831396_UpdateThongke.cs" />
-    <Compile Include="Migrations\202411130831396_UpdateThongke.designer.cs">
-      <DependentUpon>202411130831396_UpdateThongke.cs</DependentUpon>
+    <Compile Include="Migrations\202411221221461_addOriginalprice.cs" />
+    <Compile Include="Migrations\202411221221461_addOriginalprice.designer.cs">
+      <DependentUpon>202411221221461_addOriginalprice.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -291,11 +262,10 @@
     <Compile Include="Models\EF\CompanyImage.cs" />
     <Compile Include="Models\EF\Contact.cs" />
     <Compile Include="Models\EF\EmailSubscription.cs" />
+    <Compile Include="Models\EF\EmployerVerifications.cs" />
     <Compile Include="Models\EF\Experience.cs" />
-    <Compile Include="Models\EF\Industry.cs" />
     <Compile Include="Models\EF\Job.cs" />
     <Compile Include="Models\EF\JobApplication.cs" />
-    <Compile Include="Models\EF\JobApplication_Detail.cs" />
     <Compile Include="Models\EF\JobCategory.cs" />
     <Compile Include="Models\EF\JobSkill.cs" />
     <Compile Include="Models\EF\Level.cs" />
@@ -308,12 +278,15 @@
     <Compile Include="Models\EF\ProductImage.cs" />
     <Compile Include="Models\EF\Salary.cs" />
     <Compile Include="Models\EF\Setting.cs" />
-    <Compile Include="Models\EF\Skill.cs" />
     <Compile Include="Models\EF\ThongKe.cs" />
+    <Compile Include="Models\EmployerVerificationViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MyAppliedJobViewModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
+    <Compile Include="Models\payment\VnPayLibrary.cs" />
     <Compile Include="Models\SaveJob.cs" />
+    <Compile Include="Models\SettingSystemViewModel.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ThongKeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -327,8 +300,10 @@
     <Content Include="Content\assets\css\owlcarousel\owl.theme.default.min.css" />
     <Content Include="Content\assets\css\select2.min.css" />
     <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\css\Style1.css" />
     <Content Include="Content\assets\img\ads1.jpg" />
     <Content Include="Content\assets\img\alipay-logo.png" />
+    <Content Include="Content\assets\img\avata.jpg" />
     <Content Include="Content\assets\img\banner-login.png" />
     <Content Include="Content\assets\img\banner2.jpg" />
     <Content Include="Content\assets\img\fitech-logo.jpg" />
@@ -344,6 +319,8 @@
     <Content Include="Content\assets\img\ic3.png" />
     <Content Include="Content\assets\img\ic4.png" />
     <Content Include="Content\assets\img\icon_avatar.jpg" />
+    <Content Include="Content\assets\img\logojob.png" />
+    <Content Include="Content\assets\img\logojobtran.png" />
     <Content Include="Content\assets\img\luxoft-vietnam-logo.png" />
     <Content Include="Content\assets\img\news1.jpg" />
     <Content Include="Content\assets\img\news2.jpg" />
@@ -3168,8 +3145,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\autoNumeric-1.9.45.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Content\clients\dist\css\adminlte.css.map" />
     <Content Include="Content\clients\dist\css\adminlte.min.css.map" />
@@ -3289,12 +3264,68 @@
     <Content Include="Areas\Admin\Views\Product\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ProductImages\Index.cshtml" />
+    <Content Include="Areas\Employer\Views\web.config" />
+    <Content Include="Areas\Employer\Views\HomeEm\Index.cshtml" />
+    <Content Include="Areas\Employer\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Employer\Views\Menu\_MenuArrivals.cshtml" />
+    <Content Include="Areas\Employer\Views\Menu\_MenuJobCategory.cshtml" />
+    <Content Include="Areas\Employer\Views\Menu\_MenuJobLeft.cshtml" />
+    <Content Include="Areas\Employer\Views\Menu\_MenuProductCategory.cshtml" />
+    <Content Include="Areas\Employer\Views\Menu\_MenuProductLeft.cshtml" />
+    <Content Include="Areas\Employer\Views\Menu\_MenuTop.cshtml" />
+    <Content Include="Areas\Employer\Views\Shared\_LayoutEmpty.cshtml" />
+    <Content Include="Areas\Employer\Views\Jobs\Index.cshtml" />
+    <Content Include="Areas\Employer\Views\Jobs\Add.cshtml" />
+    <Content Include="Areas\Employer\Views\Applicant\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Employer\Views\Applicant\ApplicantsByJob.cshtml" />
+    <Content Include="Areas\Employer\Views\Applicant\View.cshtml" />
+    <Content Include="Areas\Employer\Views\HomeEm\Contact.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\SettingSystem\Partial_Setting.cshtml" />
+    <Content Include="Areas\Admin\Views\SettingSystem\Index.cshtml" />
+    <Content Include="Areas\Employer\Views\Employer\_VerifyEmployerPartial.cshtml" />
+    <Content Include="Areas\Employer\Views\Employer\Confirmation.cshtml" />
+    <Content Include="Areas\Employer\Views\Employer\Index.cshtml" />
+    <Content Include="Areas\Employer\Views\Employer\VerifyEmployer.cshtml" />
+    <Content Include="Areas\Employer\Views\Employer\VerificationDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\VerifyAccount\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VerifyAccount\Details.cshtml" />
+    <Content Include="Areas\Employer\Views\Jobs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Salary\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Salary\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Skill\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Skill\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Skill\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Experience\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Experience\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Experience\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\JobCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -3307,6 +3338,14 @@
     <Content Include="Uploads\images\anhbongda.jpg" />
     <Content Include="Uploads\images\tintuc.jpg" />
     <Content Include="Uploads\images\vulan.jpg" />
+    <Content Include="Uploads\VerificationDocuments\13dc40df-d53b-45f8-8d71-5cc06f3a366a.jpg" />
+    <Content Include="Uploads\VerificationDocuments\23a54d7d-d58f-4d0c-b93b-69ea4685b326.jpg" />
+    <Content Include="Uploads\VerificationDocuments\375e4a44-477d-45f3-800f-1f18a41fedb4.jpg" />
+    <Content Include="Uploads\VerificationDocuments\81ac7e47-4642-4d9c-aa26-51cdef2e7a7c.jpg" />
+    <Content Include="Uploads\VerificationDocuments\9293306d-1303-4018-8d1c-6f0c1b2f274a.jpg" />
+    <Content Include="Uploads\VerificationDocuments\aaea174c-36d3-4a8e-ba67-88194b628736.jpg" />
+    <Content Include="Uploads\VerificationDocuments\b4371dfb-6849-48e0-99d5-8aa4717af0e5.jpg" />
+    <Content Include="Uploads\VerificationDocuments\c7165ce2-e667-4c0c-8fbb-8e1a3bcb0332.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -3347,7 +3386,6 @@
     <Content Include="Views\Shared\_LayoutEmpty.cshtml" />
     <Content Include="Views\Jobs\Partial_JobNow.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Menu\_MenuJobLeft.cshtml" />
     <Content Include="Views\Jobs\JobCategory.cshtml" />
     <Content Include="Views\Jobs\Detail.cshtml" />
@@ -3368,79 +3406,61 @@
     <Content Include="Views\ShoppingCart\Partial_CheckOut.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
     <Content Include="Views\Home\Refresh.cshtml" />
+    <Content Include="Views\Shared\_layoutLogin.cshtml" />
+    <Content Include="Views\News\Partial_News_Home.cshtml" />
+    <Content Include="Views\Home\Partial_Subcrice.cshtml" />
+    <Content Include="Views\MyApplicant\MyAppliedJobs.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Detail.cshtml" />
+    <Content Include="Views\News\Partial_LatestNews.cshtml" />
+    <Content Include="Views\Jobs\Partial_JobLatest.cshtml" />
+    <Content Include="Views\Jobs\Partial_CompanyLogos.cshtml" />
+    <Content Include="Views\Jobs\Partial_HighSalaryJobs.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
+    <Content Include="Views\Search\_SearchFormPartial.cshtml" />
+    <Content Include="Views\Search\_JobListPartial.cshtml" />
+    <Content Include="Views\Search\SearchResults.cshtml" />
+    <Content Include="Views\Jobs\_RelatedJobs.cshtml" />
+    <Content Include="Views\Articel\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
+    <Content Include="Views\ShoppingCart\MyOrders.cshtml" />
+    <Content Include="Views\ShoppingCart\OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Posts\" />
+    <Folder Include="Areas\Employer\Data\" />
+    <Folder Include="Areas\Employer\Views\AuthentAccount\" />
     <Folder Include="Content\ckfinder\userfiles\" />
+    <Folder Include="Content\employer\" />
     <Folder Include="Uploads\files\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Folder Include="Views\Applicationdbcontext\" />
+    <Folder Include="Views\Skill\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202408081101446_createdatebase.resx">
       <DependentUpon>202408081101446_createdatebase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408081117493_Updatedb.resx">
-      <DependentUpon>202408081117493_Updatedb.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408081134419_updateTime.resx">
       <DependentUpon>202408081134419_updateTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408081144063_UpdateFull.resx">
-      <DependentUpon>202408081144063_UpdateFull.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411220759115_addIduser1.resx">
+      <DependentUpon>202411220759115_addIduser1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408101004439_UpdateJobNơ.resx">
-      <DependentUpon>202408101004439_UpdateJobNơ.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411220850156_adduserid.resx">
+      <DependentUpon>202411220850156_adduserid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408171725078_updateSalary.resx">
-      <DependentUpon>202408171725078_updateSalary.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411220900145_deletequantityu.resx">
+      <DependentUpon>202411220900145_deletequantityu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408171734071_updateTypeSalary.resx">
-      <DependentUpon>202408171734071_updateTypeSalary.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411221221461_addOriginalprice.resx">
+      <DependentUpon>202411221221461_addOriginalprice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408211223518_AddDatabaseProduct.resx">
-      <DependentUpon>202408211223518_AddDatabaseProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411110903376_UpdateNullPriceSale.resx">
-      <DependentUpon>202411110903376_UpdateNullPriceSale.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411120833587_UpdateOrder.resx">
-      <DependentUpon>202411120833587_UpdateOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411120914323_UpdateTypePaymentOrdet.resx">
-      <DependentUpon>202411120914323_UpdateTypePaymentOrdet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411120932257_UpdateOrder1.resx">
-      <DependentUpon>202411120932257_UpdateOrder1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411121040189_updateTotalAmount.resx">
-      <DependentUpon>202411121040189_updateTotalAmount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411121659422_UpdateApplicant.resx">
-      <DependentUpon>202411121659422_UpdateApplicant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411121714330_UpdateModifineApplicant.resx">
-      <DependentUpon>202411121714330_UpdateModifineApplicant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411130818105_UpdateTableThhongke.resx">
-      <DependentUpon>202411130818105_UpdateTableThhongke.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411130831396_UpdateThongke.resx">
-      <DependentUpon>202411130831396_UpdateThongke.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -3474,9 +3494,9 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

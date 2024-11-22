@@ -1,0 +1,101 @@
+﻿<div class="tab-pane stab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    @* <form class="bn-search-form" method="get" action="@Url.Action("Search", "Search")">*@
+    <form class="bn-search-form" method="get" action="@Url.Action("Search", "Search")">
+        <div class="row">
+            <div class="col-md-10 col-sm-12">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="input-group s-input-group">
+                            <!-- Thêm name="keyword" để gửi từ khóa -->
+                            <input type="text" class="form-control sinput" name="keyword" placeholder="Nhập kỹ năng, công việc,...">
+                            <span><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Thêm name="category" để gửi ngành nghề -->
+                        <select id="computer-languages" name="category">
+                            <option value="" selected hidden>Tất cả ngành nghề</option>
+                            @foreach (var category in ViewBag.Categories)
+                            {
+                                <option value="@category">@category</option>
+                            }
+                        </select>
+                        <i class="fa fa-code sfa" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- Thêm name="location" để gửi địa điểm -->
+                        <select id="s-provinces" name="location">
+                            <option value="" selected hidden>Tất cả địa điểm</option>
+                            @foreach (var location in ViewBag.Locations)
+                            {
+                                <option value="@location">@location</option>
+                            }
+                        </select>
+                        <i class="fa fa-map-marker sfa" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="col-md-5">
+                        <!-- Phần Lương: thêm name="salaryRange" -->
+                        <div class="salary-wrapper">
+                            <select class="select-salary" name="salaryRange">
+                                <option value="" selected hidden>Tất cả mức lương</option>
+                                @foreach (var salary in ViewBag.Salaries)
+                                {
+                                    <option value="@salary">@salary</option>
+                                }
+                            </select>
+                            <i class="fa fa-money salary-icon" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- Phần Kinh Nghiệm: thêm name="experience" -->
+                        <div class="experience-wrapper">
+                            <select class="select-experience" name="experience">
+                                <option value="" selected hidden>Tất cả kinh nghiệm</option>
+                                @foreach (var experience in ViewBag.Experiences)
+                                {
+                                    <option value="@experience">@experience</option>
+                                }
+                            </select>
+                            <i class="fa fa-briefcase experience-icon" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <!-- Phần Kỹ năng: thêm name="skill" -->
+                        <div class="skills-wrapper">
+                            <select class="select-skills" name="skill">
+                                <option value="" selected hidden>Tất cả kỹ năng</option>
+                                @foreach (var skill in ViewBag.Skills)
+                                {
+                                    <option value="@skill">@skill</option>
+                                }
+                            </select>
+                            <i class="fa fa-cogs skills-icon" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12">
+                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="tab-pane stab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <form class="bn-search-form" method="get" action="@Url.Action("Search", "Search")">
+        <div class="row">
+            <div class="col-md-10 col-sm-12">
+                <div class="input-group s-input-group w-100">
+                    <!-- Thêm name="companyName" để gửi giá trị tìm kiếm -->
+                    <input type="text" class="form-control sinput" name="companyName" placeholder="Nhập tên công ty">
+                    <span><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12">
+                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
+            </div>
+        </div>
+    </form>
+</div>

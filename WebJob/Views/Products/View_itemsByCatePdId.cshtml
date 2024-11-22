@@ -1,4 +1,6 @@
-﻿@model  IEnumerable<WebJob.Models.EF.Product>
+﻿@*@model  IEnumerable<WebJob.Models.EF.Product>*@
+@model PagedList.IPagedList<WebJob.Models.EF.Product>
+@using PagedList.Mvc;
 @if (Model != null && Model.Any())
 {
     foreach (var item in Model)
@@ -32,7 +34,7 @@
 
 
                     <div class="job-inf">
-                       
+
                         <div class="job-salary">
                             <i class="fa fa-money" aria-hidden="true"></i>
 
@@ -46,34 +48,38 @@
                             else
                             {
                                 <span class="salary-min">@item.Price.ToString("N0")</span>
-                                
+
                             }
 
 
                             @*<span class="salary-max">35 <em class="salary-unit">triệu</em></span>*@
                         </div>
-                        @*<div class="job-deadline">
-                                <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
-                            </div>*@
+                        <div class="job-deadline">
+                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> <strong>@item.CategoryProduct.Title</strong></span>
+                        </div>
                     </div>
                 </div>
                 <div class="wrap-btn-appl">
                     <a href="#" data-id="@item.ProductID" class="btn btn-appl btnBuyNow">Mua ngay</a>
-                    <a href="#" data-id="@item.ProductID" class="btn btn-danger btnAddToCart">Thêm vào giỏ hàng</a>
+                    <a href="#" data-id="@item.ProductID" class="btn btn-danger btnAddToCart"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </div>
         </div>
 
-        <div></div>
+
     }
+   @* <div class="pagination-wrapper">
+        @Html.PagedListPager(Model, page => Url.Action("View_itemsByCatePdId", new { page }))
+    </div>*@
 }
+
 
 <style>
     span.salary-min::after {
         content: "-";
         padding: 0 2px 0 6px;
         color: #555;
-        display:none;
+        display: none;
     }
 </style>
 <script>

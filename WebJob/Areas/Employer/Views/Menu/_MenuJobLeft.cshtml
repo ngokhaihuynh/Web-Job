@@ -1,0 +1,55 @@
+﻿@model  IEnumerable<WebJob.Models.EF.JobCategory>
+
+@if (Model != null && Model.Any())
+    {
+        
+    <div class="collapse show" id="filter-topic">
+        <div class="card o-card card-body">
+            <div class="filter-panel">
+                <div class="panel-content">
+                    <div class="filter-topic cotain-common-filter">
+                        <a href="@Url.RouteUrl("AllJob")" class="filter-action">Tất cả ngành nghề</a>
+                        <span class="filter-count">@ViewBag.All</span>
+                    </div>
+
+
+
+                    @foreach (var item in Model)
+                    {
+                        var activeJobCount = item.Jobs.Count(j => j.IsActive);
+                        if (ViewBag.CateId == item.JobCategoryID)
+                        {
+                            <div class="filter-topic cotain-common-filter">
+                                <a href="/@item.Alias-@item.JobCategoryID" class="filter-action active-one">@item.CategoryName</a>
+                                <span class="filter-count">@activeJobCount</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="filter-topic cotain-common-filter">
+                                <a href="/@item.Alias-@item.JobCategoryID" class="filter-action">@item.CategoryName</a>
+                                <span class="filter-count">@activeJobCount</span>
+                            </div>
+                        }
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .active-one {
+            text-decoration: underline;     
+            text-decoration-color: blue;
+        }
+    </style>
+
+
+
+    @*<li>
+            <a href="#" class="readallstyle reads1">Xem tất cả</a>
+        </li>*@
+
+
+}

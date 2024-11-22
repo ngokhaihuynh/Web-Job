@@ -1,0 +1,232 @@
+﻿@model PagedList.PagedList<WebJob.Models.EF.Order>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Danh sách đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản lý đơn hàng</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Quản lý đơn hàng</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Danh sách đơn hàng</h3>
+        </div>
+        <div class="card-body">
+            <!-- Form Lọc và Tìm kiếm -->
+            <div class="row mb-3">
+                <div class="col-md-8">
+                    @using (Html.BeginForm("Index", "Order", FormMethod.Get, new { @class = "form-inline" }))
+                    {
+        <div class="input-group mr-2">
+            <input type="text" name="searchText" class="form-control" placeholder="Tìm mã/khách hàng..."
+                   value="@ViewBag.SearchText" />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Tìm kiếm</button>
+            </div>
+        </div>
+                        <select name="statusFilter" class="form-control mr-2">
+                            <option value="" @(ViewBag.StatusFilter == null ? "selected" : "")>Tất cả</option>
+                            <option value="1" @(ViewBag.StatusFilter == 1 ? "selected" : "")>Chưa thanh toán</option>
+                            <option value="2" @(ViewBag.StatusFilter == 2 ? "selected" : "")>Đã thanh toán</option>
+                        </select>
+                                        <button type="submit" class="btn btn-secondary">Lọc</button>}
+                </div>
+                <div class="col-md-4 text-right">
+                    <a href="#" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</a>
+                </div>
+            </div>
+
+            <!-- Bảng Dữ Liệu -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Tên khách hàng</th>
+                            <th>Số điện thoại</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày tạo</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            var index = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
+                            foreach (var order in Model)
+                            {
+            <tr>
+                <td>@index</td>
+                <td>@order.Code</td>
+                <td>@order.CustomerName</td>
+                <td>@order.Phone</td>
+                <td>@order.TotalAmount.ToString("N0")</td>
+                <td>
+                    @if (order.Status == 1)
+                    {
+<span class="badge badge-warning">Chưa thanh toán</span> }
+                    else if (order.Status == 2)
+                    {
+<span class="badge badge-success">Đã thanh toán</span>}
+                </td>
+                <td>@order.CreatedDate.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a href="/admin/order/details/@order.OrderID" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Xem</a>
+                    <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Xóa</a>
+                </td>
+            </tr> index++;
+                            }
+                        }
+                        else
+                        {
+            <tr>
+                <td colspan="8" class="text-center">Không có đơn hàng nào</td>
+            </tr>}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Phân Trang -->
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchText = ViewBag.SearchText, statusFilter = ViewBag.StatusFilter }))
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // Xóa tất cả
+            $('body').on('click', '#btnDeleteAll', function (e) {
+                e.preventDefault();
+                var str = "";
+                var checkbox = $(this).parents('.card').find('tr td input:checkbox');
+                var i = 0;
+                checkbox.each(function () {
+
+                    if (this.checked) {
+                        checkbox.attr('selected', 'checked');
+                        var _id = $(this).val();
+                        if (i === 0) {
+                            str += _id;
+                        } else {
+                            str += "," + _id;
+                        }
+                        i++;
+                    } else {
+                        checkbox.attr('selected', '');
+
+                    }
+                });
+                if (str.length > 0) {
+                    var conf = confirm('Bạn có muốn xóa các bản ghi được chọn?');
+                    if (conf == true) {
+                        $.ajax({
+                            url: '/admin/news/DeleteAll',
+                            type: 'POST',
+                            data: { ids: str },
+                            success: function (rs) {
+                                if (rs.success) {
+                                    location.reload();
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+
+
+            // check tất cả
+            $('body').on('change', '#SelectAll', function () {
+                var checkStatus = this.checked;
+                var checkbox = $(this).parents('.card-body').find('tr td input:checkbox');
+                checkbox.each(function () {
+                    this.checked = checkStatus;
+                    if (this.checked) {
+                        checkbox.attr('selected', 'checked');
+                    } else {
+                        checkbox.attr('selected', '');
+                    }
+                });
+            });
+
+            // xóa 1 đối tượng
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/admin/news/delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                                location.reload();
+                            } else {
+                                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                            }
+                        },
+                        error: function () {
+                            alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                        }
+                    });
+                }
+            });
+
+            // thay đổi trạng thái hiển thị
+            $('body').on('click', '.btnActive', function (e) {
+                e.preventDefault();
+                var btn = $(this);
+                var id = btn.data("id");
+                $.ajax({
+                    url: '/admin/news/isActive',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (rs) {
+
+                        if (rs.success) {
+                            if (rs.isActive) {
+                                btn.html("<i class='fa fa-check text-success'></i>");
+
+                            } else {
+                                btn.html("<i class='fas fa-times text-danger'></i>");
+
+                            }
+                        }
+                    },
+
+                    error: function () {
+                        alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                    }
+                });
+
+            });
+        });
+    </script>
+
+}
+
+

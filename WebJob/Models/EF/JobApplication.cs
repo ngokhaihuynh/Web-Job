@@ -23,7 +23,7 @@ namespace WebJob.Models.EF
 
         public virtual Job Job { get; set; }
         public virtual Applicant Applicant { get; set; }
-        public virtual ICollection<JobApplication_Detail> JobApplication_Details { get; set; } = new HashSet<JobApplication_Detail>();
+        
     }
 
 }

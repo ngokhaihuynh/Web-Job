@@ -56,33 +56,41 @@
                     @Html.ValidationSummary(true)
                     @Html.HiddenFor(x=> x.Id)
                     <!-- your steps content here -->
-                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tên danh mục</label>
-                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Tên danh mục" })
-                            @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Mô tả</label>
-                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Thứ tự</label>
-                            @Html.TextBoxFor(x => x.Position, new { @class = "form-control", @Value = "1" })
-
-                        </div>
-                        @*<div class="form-group">
-                                <label for="exampleInputPassword1">Mô tả</label>
-                                @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
-                            </div>*@
-
-                        <div class="form-group">
-                            <a href="/admin/category" class="btn btn-danger">Quay lại</a>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-
+                <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tên danh mục</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Tên danh mục" })
+                        @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Mô tả</label>
+                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Thứ tự</label>
+                        @Html.TextBoxFor(x => x.Position, new { @class = "form-control", @Value = "1" })
 
                     </div>
+
+
+                    <!-- Thêm lựa chọn cho CategoryType -->
+                    <div class="form-group">
+                        <label for="CategoryType">Loại danh mục</label>
+                        @Html.EnumDropDownListFor(x => x.CategoryType, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.CategoryType, null, new { @class = "text-danger" })
+                    </div>
+                    @*<div class="form-group">
+            <label for="exampleInputPassword1">Mô tả</label>
+            @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
+        </div>*@
+
+                    <div class="form-group">
+                        <a href="/admin/category" class="btn btn-danger">Quay lại</a>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+
+                </div>
 
                 }
 

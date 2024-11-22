@@ -1,0 +1,63 @@
+﻿@model WebJob.Models.EF.EmployerVerification
+@{
+    ViewBag.Title = "Chi tiết tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center">Thông tin chi tiết tài khoản</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Tên công ty:</strong> @Model.CompanyName</p>
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Số điện thoại:</strong> @Model.PhoneNumber</p>
+            <p><strong>Số giấy phép kinh doanh:</strong> @Model.BusinessLicenseNumber</p>
+
+            <p>
+                <strong>Trạng thái:</strong>
+                @if (Model.IsVerified)
+                {
+                    <span class="badge badge-success">Đã xác thực</span>
+                    <!-- Thêm nút thay đổi trạng thái -->
+                    <form action="@Url.Action("ChangeStatus", "VerifyAccount", new { id = Model.Id })" method="post" style="display:inline;">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-warning btn-sm">Thay đổi trạng thái</button>
+                    </form>
+                }
+                else
+                {
+                    <span class="badge badge-warning">Chưa xác thực</span>
+                    <!-- Thêm nút xác thực -->
+                    <form action="@Url.Action("Verify", "VerifyAccount", new { id = Model.Id })" method="post" style="display:inline;">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-success btn-sm">Xác thực</button>
+                    </form>
+                }
+            </p>
+            <p>
+                <strong>Tài liệu xác minh:</strong>
+                @if (!string.IsNullOrEmpty(Model.VerificationDocumentPath))
+                {
+                    <!-- Nút Xem tài liệu -->
+                    <a href="@Url.Content(Model.VerificationDocumentPath)" target="_blank" class="btn btn-primary btn-sm">
+                        Xem tài liệu
+                    </a>
+
+                    <!-- Nút Tải xuống -->
+                    <a href="@Url.Content(Model.VerificationDocumentPath)" download class="btn btn-success btn-sm">
+                        Tải xuống
+                    </a>
+                }
+                else
+                {
+                    <span>Không có tài liệu xác minh</span>
+                }
+            </p>
+
+
+        </div>
+    </div>
+
+    <a href="@Url.Action("Index", "VerifyAccount")" class="btn btn-secondary mt-4">Quay lại danh sách</a>
+</div>

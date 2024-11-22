@@ -1,0 +1,17 @@
+﻿@* _JobListPartial.cshtml *@
+<div>
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (var job in Model)
+            {
+                <li>@job.JobTitle - @job.Location.LocationName</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Không có công việc phù hợp với yêu cầu của bạn.</p>
+    }
+</div>
+

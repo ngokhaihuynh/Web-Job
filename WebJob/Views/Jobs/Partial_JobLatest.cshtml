@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebJob.Models.EF.Job>
+<div class="owl-carousel owl-theme job-board2-contain">
+
+    @foreach (var job in Model)
+    {
+        var strImge = "";
+        var img = job.CompanyImages.FirstOrDefault(x => x.IsDefault);
+        if (img != null)
+        {
+            strImge = img.ImageURL;
+        }
+        <div class="item job-latest-item">
+            <a href="/chi-tiet/@job.Alias-p@(job.JobID)" class="job-latest-group">
+                <div class="job-lt-logo">
+                    <img src="@strImge">
+                </div>
+                <div class="job-lt-info">
+                    <h3 style="padding-right: 5px">@job.JobTitle</h3>
+                    <a class="company" href="#"><i class="fa-solid fa-building"></i> @job.Company.CompanyName</a>
+                    <p class="address"><i class="fa fa-map-marker pr-1" aria-hidden="true"></i> @job.Location.LocationName</p>
+                </div>
+            </a>
+        </div>
+    }
+    
+    </div>
+
+<style>
+    .job-lt-info h3 {
+        display: -webkit-box; /* Sử dụng định dạng flex để hỗ trợ giới hạn dòng */
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; /* Hiển thị tối đa 2 dòng */
+        overflow: hidden; /* Ẩn phần nội dung vượt quá */
+        text-overflow: ellipsis; /* Hiển thị dấu ba chấm */
+        white-space: normal; /* Không ép nội dung thành một dòng */
+    }
+
+    .job-lt-info a.company {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+
+
+</style>

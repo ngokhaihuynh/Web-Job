@@ -57,6 +57,49 @@
                                         </select>
                                         <i class="fa fa-map-marker sfa" aria-hidden="true"></i>
                                     </div>
+
+                                    <div class="col-md-5">
+                                        <!-- Phần Lương -->
+                                        <div class="salary-wrapper">
+                                            <select class="select-salary">
+                                                <option value="" selected hidden>Tất cả mức lương</option>
+                                                <option>10-15 triệu</option>
+                                                <option>15-20 triệu</option>
+                                            </select>
+                                            <i class="fa fa-money salary-icon" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <!-- Phần Kinh Nghiệm -->
+                                        <div class="experience-wrapper">
+                                            <select class="select-experience">
+                                                <option value="" selected hidden>Tất cả kinh nghiệm</option>
+                                                <option>Không yêu cầu kinh nghiệm</option>
+                                                <option>Dưới 1 năm</option>
+                                                <option>1 năm</option>
+                                            </select>
+                                            <i class="fa fa-briefcase experience-icon" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <!-- Phần Kỹ năng -->
+                                        <div class="skills-wrapper">
+                                            <select class="select-skills">
+                                                <option value="" selected hidden>Tất cả kỹ năng</option>
+                                                <option>Java</option>
+                                                <option>Python</option>
+                                                <option>JavaScript</option>
+                                                <option>C++</option>
+                                                <option>SQL</option>
+                                            </select>
+                                            <i class="fa fa-cogs skills-icon" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+
+
+
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-12">
@@ -305,16 +348,17 @@
                                                     </div>*@
                                                 <div class="job-salary">
                                                     <i class="fa fa-money" aria-hidden="true"></i>
-                                                    <span class="salary-min">@item.Salary.SalaryMin<em class="salary-unit"></em></span>
-                                                    <span class="salary-max">@item.Salary.SalaryMax <em class="salary-unit">triệu</em></span>
+                                                    <span>@item.Salary.SalaryRange</span>
+                                                    @*<span class="salary-min">@item.Salary.SalaryMin<em class="salary-unit"></em></span>
+                                                    <span class="salary-max">@item.Salary.SalaryMax <em class="salary-unit">triệu</em></span>*@
                                                 </div>
                                                 <div class="job-deadline">
-                                                    <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
+                                                    <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>@item.EndDate.ToString("dd/MM/yyyy")</strong></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="wrap-btn-appl">
-                                            <a href="#" class="btn btn-appl">Ứng tuyển ngay</a>
+                                            <a href="/ung-tuyen?jobId=@item.JobID" class="btn btn-appl">Ứng tuyển ngay</a>
                                             <a href="#" data-id="@item.JobID" class="btn btn-danger btnAddSave">lưu</a>
 
                                         </div>

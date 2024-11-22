@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebJob.Models;
+using WebJob.Models.EF;
 
 namespace WebJob.Controllers
 {
@@ -15,11 +16,25 @@ namespace WebJob.Controllers
         {
             return View();
         }
-        public ActionResult MenuTop()
-        {
-            var items = db.Categories.OrderBy(x => x.Position).ToList();
-            return PartialView("_MenuTop", items);
-        }
+        //public ActionResult MenuTop()
+        //{
+        //    var items = db.Categories.OrderBy(x => x.Position).ToList();
+        //    return PartialView("_MenuTop", items);
+        //}
+
+            public ActionResult MenuTop()
+            {
+                // Lấy danh mục dành cho Ứng viên và danh mục cho cả 2, sắp xếp theo Position
+                var items = db.Categories
+                              .Where(x => x.CategoryType == CategoryType.Candidate || x.CategoryType == CategoryType.Both)
+                              .OrderBy(x => x.Position)
+                              .ToList();
+
+                return PartialView("_MenuTop", items);
+            }
+
+
+
         public ActionResult MenuJobCategory()
         {
             var items = db.JobCategories.ToList();

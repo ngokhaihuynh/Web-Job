@@ -4,14 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebJob.Models;
+using WebJob.Models.EF;
 
 namespace WebJob.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Partial_Subcrice()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult Subscribe(EmailSubscription req)
+        {
+            if (ModelState.IsValid)
+            {
+                db.EmailSubscriptions.Add(new EmailSubscription { Email = req.Email, CreatedDate = DateTime.Now });
+                db.SaveChanges();
+                return Json(new { Success = true });
+            }
+            return View("Partial_Subcrice", req);
         }
 
         public ActionResult About()
@@ -38,12 +57,7 @@ namespace WebJob.Controllers
             return PartialView(item);
         }
 
+      
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

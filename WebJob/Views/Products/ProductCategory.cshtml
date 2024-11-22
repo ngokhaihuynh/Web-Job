@@ -6,91 +6,6 @@
     ViewBag.Title = "Các gói";
     Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
 }
-<!-- search section -->
-<div class="container-fluid search-fluid">
-    <div class="container">
-        <div class="search-wrapper">
-
-            <ul class="nav nav-tabs search-nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item search-nav-item">
-                    <a class="nav-link snav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tìm việc làm</a>
-                </li>
-                <li class="nav-item search-nav-item">
-                    <a class="nav-link snav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tìm công ty</a>
-                </li>
-            </ul>
-            <div class="tab-content search-tab-content" id="myTabContent">
-                <!-- content tab 1 -->
-                <div class="tab-pane stab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <form class="bn-search-form">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-12">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="input-group s-input-group">
-                                            <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select id="computer-languages">
-                                            <option value="" selected hidden>Tất cả ngôn ngữ</option>
-                                            <option>Java</option>
-                                            <option>.NET</option>
-                                            <option>Javascript</option>
-                                            <option>Php</option>
-                                            <option>Python</option>
-                                            <option>QC QC</option>
-                                            <option>Business Analyst</option>
-                                            <option>Tester</option>
-                                            <option>Ruby</option>
-                                        </select>
-                                        <i class="fa fa-code sfa" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select id="s-provinces">
-                                            <option value="" selected hidden>Tất cả địa điểm</option>
-                                            <option>Đà Nẵng</option>
-                                            <option>Hà Nội</option>
-                                            <option>Hồ Chí Minh</option>
-                                            <option>Buôn Ma Thuột</option>
-                                            <option>Quy Nhơn</option>
-                                            <option>Nha Trang</option>
-                                        </select>
-                                        <i class="fa fa-map-marker sfa" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- (end) content tab 1 -->
-                <!-- content tab 2 -->
-                <div class="tab-pane stab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <form class="bn-search-form">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-12">
-                                <div class="input-group s-input-group w-100">
-                                    <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                    <span><i class="fa fa-search"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- (end) content tab 2 -->
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- (end) search section -->
 
 
 
@@ -115,38 +30,9 @@
                                     </p>
 
                                     @* danh muc *@
-                                    @Html.Action("MenuProductLeft", "Menu", new {id=ViewBag.CateId })
+                                    @Html.Action("MenuProductLeft", "Menu", new { id = ViewBag.CateId })
 
-                                    @*<p>
-                                        <a id="clickc2_advance" class="btnf btn-filter" data-toggle="collapse" href="#filter-price" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            Mức Lương
-                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
-                                        </a>
-                                    </p>
-                                    <div class="collapse show" id="filter-price">
-                                        <div class="card o-card card-body">
-                                            <div class="filter-panel">
-                                                <div class="panel-content">
-                                                    <div class="filter-topic filter-input-price">
-                                                        <form class="al-price-filter">
-                                                            <span class="_fpblock">
-                                                                <input type="number" class="if-price" id="" placeholder="50,000">
-                                                            </span>
-                                                            <span class="_fpblock _line">
-                                                                <p>-</p>
-                                                            </span>
-                                                            <span class="_fpblock">
-                                                                <input type="number" class="if-price" id="" placeholder="1,000,000">
-                                                            </span>
-                                                            <span class="_fpblock">
-                                                                <button type="submit" class="sb-fprice"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                                                            </span>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
+                                   
                                 </div>
 
                             </div>
@@ -210,9 +96,9 @@
                                                     <i class="fa fa-money" aria-hidden="true"></i>
 
 
-                                                    @if (item.PriceSale > 0)
+                                                    @if (item.PriceSale.HasValue && item.PriceSale > 0)
                                                     {
-                                                        <span style="color:red" class="salary-min">@item.PriceSale.ToString("N0")</span> <span style="text-decoration:line-through" class="salary">@item.Price.ToString("N0")</span>
+                                                        <span style="color:red" class="salary-min">@item.PriceSale.Value.ToString("N0")</span> <span style="text-decoration:line-through" class="salary">@item.Price.ToString("N0")</span>
                                                     }
                                                     else
                                                     {

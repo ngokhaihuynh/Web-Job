@@ -35,39 +35,26 @@
                             <div class="job-detail-header-de">
                                 <ul>
                                     <li><i class="fa fa-map-marker icn-jd"></i><span>@Model.Location.LocationName</span></li>
-                                    <li><i class="fa fa-usd icn-jd"></i><span>@Model.Salary.SalaryMin - @Model.Salary.SalaryMax triệu</span></li>
-                                    <li><i class="fa fa-calendar icn-jd"></i><span>15/01/2019</span></li>
+                                    @*<li><i class="fa fa-usd icn-jd"></i><span>@Model.Salary.SalaryMin - @Model.Salary.SalaryMax triệu</span></li>*@
+                                    <li><i class="fa fa-usd icn-jd"></i><span>@Model.Salary.SalaryRange</span></li>
+                                    <li><i class="fa fa-calendar icn-jd"></i><span>@Model.EndDate.ToString("dd/MM/yyyy")</span></li>
                                 </ul>
                             </div>
-                            
-                            <div class="job-detail-header-tag">
-                                <ul>
-                                    <li>
-                                        <a href="#">Java</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">.NET</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">SQL</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">C#</a>
-                                    </li>
-                                </ul>
-                            </div>
+
+                           
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-12">
                         <div class="jd-header-wrap-right">
                             <div class="jd-center">
-                                <a href="/ung-tuyen?jobId=@Model.JobID" class="btn btn-primary btn-apply">Nộp đơn</a>
-                               
+                                <a href="/ung-tuyen?jobId=@Model.JobID" class="btn btn-primary btn-apply">Ứng tuyển</a>
 
-                                <a href="#" data-id="@Model.JobID" class="btn btn-danger btnAddSave">lưu</a>
+
+                                <a href="#" style="height: 46px; margin-bottom: 6px;" data-id="@Model.JobID" class="btn btn-danger btnAddSave"><i class="fas fa-bookmark"></i></a>
 
                                 <p class="jd-view">Lượt xem: <span>@Model.ViewCount</span></p>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -76,6 +63,16 @@
     </div>
     <!-- (end) job detail header -->
 
+<style>
+    
+    .btnAddSave {
+        height: 50px;
+        background-color: #dc3545;
+        color: #fff;
+        font-weight: bold;
+    }
+
+</style>
     <div class="clearfix"></div>
 
     <!-- Phần thân -->
@@ -85,26 +82,13 @@
                 <!-- Main wrapper -->
                 <div class="col-md-8 col-sm-12 col-12 clear-left">
                     <div class="main-wrapper">
+                      
+
                         <h2 class="widget-title">
-                            <span>Quyền lợi</span>
+                            <span>Phúc lợi</span>
                         </h2>
-                        <!-- content -->
-                        <div class="welfare-wrap">
-                            <div class="row">
-                                <div class="welfare-list">
-                                    <ul>
-                                        <li>
-                                            <p><i class="fa fa-usd icn-welfare"></i>Have opponunity for growth.</p>
-                                        </li>
-                                        <li>
-                                            <p><i class="fa fa-user icn-welfare"></i>Working under energisitic, innovative, friendly environment.</p>
-                                        </li>
-                                        <li>
-                                            <p><i class="fa fa-check-circle icn-welfare"></i>Competitive salary and attractive benefits packages.</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="jd-content">
+                            @Html.Raw(Model.JobBenefits)
                         </div>
                         <h2 class="widget-title">
                             <span>Mô tả công việc</span>
@@ -164,7 +148,8 @@
                                         <span class="ji-title">Lương:</span>
                                     </div>
                                     <div class="col-sm-8">
-                                        <span class="ji-main">@Model.Salary.SalaryMin - @Model.Salary.SalaryMax triệu</span>
+                                        @*<span class="ji-main">@Model.Salary.SalaryMin - @Model.Salary.SalaryMax triệu</span>*@
+                                        <span class="ji-main">@Model.Salary.SalaryRange</span>
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +160,7 @@
                                         <span class="ji-title">Hạn nộp:</span>
                                     </div>
                                     <div class="col-sm-8">
-                                        <span class="ji-main">31/12/2019</span>
+                                        <span class="ji-main">@Model.EndDate.ToString("dd/MM/yyyy")</span>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +182,7 @@
                                         <span class="ji-title">Kỹ năng:</span>
                                     </div>
                                     <div class="col-sm-8">
-                                        <span class="ji-main">PR Activity</span>
+                                        <span class="ji-main">@Model.JobSkill.JobSkillName</span>
                                     </div>
                                 </div>
                             </div>
@@ -232,56 +217,22 @@
                                 <i class="fa fa-map-marker ja-icn"></i>
                                 <span>@Model.Company.CompanyAddress </span>
                             </li>
-                            <li>
+                            @*<li>
                                 <i class="fa fa-bar-chart ja-icn"></i>
                                 <span>Quy mô công ty: 50-100 người</span>
+                            </li>*@ <li>
+                                <i class="fa fa-bar-chart ja-icn"></i>
+                                <span>@Model.Company.CompanyEmail</span>
                             </li>
                         </ul>
 
                         <div class="wrap-comp-info mb-2">
-                            <a href="#" class="btn btn-primary btn-company">Xem thêm</a>
+                            @*<a href="#" class="btn btn-primary btn-company">Xem thêm</a>*@
                         </div>
                     </div>
 
                     <div class="side-bar mb-3">
-                        <h2 class="widget-title">
-                            <span>Việc làm tương tự</span>
-                        </h2>
-
-                        <div class="job-tt-contain">
-                            <div class="job-tt-item">
-
-                                <a href="#" class="thumb">
-                                    <div style="background-image: url(img/alipay-logo.png);"></div>
-                                </a>
-
-                                <div class="info">
-                                    <a href="#" class="jobname">
-                                        Fullstack .NET Developer (Angular/React)
-                                    </a>
-                                    <a href="#" class="company">
-                                        Alipay Software
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="job-tt-item">
-
-                                <a href="#" class="thumb">
-                                    <div style="background-image: url(img/fpt-logo.png);"></div>
-                                </a>
-
-                                <div class="info">
-                                    <a href="#" class="jobname">
-                                        [HCM] 02 Solution Architects–Up to $2000
-                                    </a>
-                                    <a href="#" class="company">
-                                        FPT Software
-                                    </a>
-                                </div>
-                            </div>
-                          
-                        </div>
+                        @Html.Action("RelatedJobs", "Jobs", new { categoryName = Model.JobCategory.CategoryName, excludeJobId = Model.JobID })
                     </div>
 
                     <div class="side-bar mb-3">

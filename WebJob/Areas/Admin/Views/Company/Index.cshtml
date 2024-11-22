@@ -3,7 +3,7 @@
 @using PagedList;
 
 @{
-    ViewBag.Title = "Thông tin công ty";
+    ViewBag.Title = "Danh Sách Công Ty";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -75,11 +75,9 @@
                         <th>STT</th>
                         <th>Hình ảnh</th>
                         <th>Tên công ty</th>
-                        <th>Danh mục</th>
-                        <th>Kinh nghiệm</th>
-                        <th>Mô tả</th>
-                        <th>Ngày tạo</th>
+
                         <th>Hiển thị</th>
+                        <th colspan="4"></th>
                         <th style="width:150px;"></th>
                     </tr>
                 </thead>
@@ -102,20 +100,15 @@
                                 </td>
 
                                 <td>@item.CompanyName</td>
-                                <td>@item.CompanyEmail</td>
-                                <td>@item.CompanyDescription</td>
-                                <td>@item.CompanyAddress</td>
-                                <td>
-                                    @(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("dd/MM/yyyy") : "N/A")
-
-                                </td>
+                               
+                                
                                 <td class="text-center">
                                     <a href='#' data-id="@item.CompanyID" class="btnActive"> @Html.Raw(strCheck) </a>
 
                                 </td>
                                 <td>
-                                    <a href="/admin/companies/edit/@item.CompanyID" class="btn btn-sm btn-primary">Sửa</a>
-                                    <a href="#" data-id="@item.CompanyID" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                    @*<a href="/admin/companies/edit/@item.CompanyID" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a href="#" data-id="@item.CompanyID" class="btn btn-sm btn-danger btnDelete">Xóa</a>*@
                                 </td>
                             </tr>
                             i++;

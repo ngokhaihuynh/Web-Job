@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebJob.Models.EF.Category>
+@using WebJob.Models.EF
+
+@if (Model != null && Model.Any())
+{
+    <ul class="navbar-nav mr-auto tnav-left tn-nav">
+        @foreach (var item in Model)
+        {
+            // Chỉ hiển thị danh mục cho Ứng viên và cho cả hai (ứng viên và nhà tuyển dụng)
+            if (item.CategoryType == CategoryType.Employer || item.CategoryType == CategoryType.Both)
+            {
+                if (item.Alias.Equals("trang-chu"))
+                {
+                    item.Alias = "";
+                }
+
+                // Kiểm tra nếu đường dẫn hiện tại trùng với Alias
+                bool isActive = Request.Url.AbsolutePath.Equals("/" + item.Alias, StringComparison.OrdinalIgnoreCase);
+
+                <li class="nav-item @(isActive ? "active" : "")">
+                    <a class="nav-link" href="/@item.Alias">@item.Title</a>
+                </li>
+            }
+        }
+    </ul>
+}
+
+<style>
+    .nav-item.active .nav-link {
+        color: #007bff;
+        font-weight: bold;
+        border-bottom: 2px solid blue;
+        padding-bottom: 5px;
+    }
+
+    ul.tn-nav li a:hover {
+        font-weight: bold;
+        border-bottom: 0px solid;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        var currentPath = window.location.pathname;
+
+        // Duyệt qua tất cả các liên kết trong menu và kiểm tra nếu href của nó giống với đường dẫn hiện tại
+        $('.nav-item a').each(function () {
+            if ($(this).attr('href') === currentPath) {
+                $(this).parent().addClass('active'); // Thêm lớp active vào <li> tương ứng
+            }
+        });
+    });
+</script>

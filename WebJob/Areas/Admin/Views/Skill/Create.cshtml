@@ -1,0 +1,47 @@
+﻿@model WebJob.Models.EF.JobSkill
+
+@{
+    ViewBag.Title = "Thêm mới mức lương";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Thêm mới mức lương</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index", "Skill", new { area = "Admin" })">Mức lương</a></li>
+                    <li class="breadcrumb-item active">Thêm mới</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Nhập thông tin mức lương</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "Skill", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label>Tên kỹ năng:</label>
+                    @Html.TextBoxFor(m => m.JobSkillName, new { @class = "form-control", placeholder = "Nhập tên mức lương" })
+                    @Html.ValidationMessageFor(m => m.JobSkillName, "", new { @class = "text-danger" })
+                </div>
+
+               
+
+                <button type="submit" class="btn btn-success">Thêm mới</button>
+                <a href="@Url.Action("Index", "Skill", new { area = "Admin" })" class="btn btn-secondary">Quay lại</a>
+            }
+        </div>
+    </div>
+</section>

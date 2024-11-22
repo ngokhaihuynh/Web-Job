@@ -28,6 +28,7 @@ namespace WebJob.Models.EF
         [AllowHtml]
         public string Detail { get; set; }
         public decimal Price { get; set; }
+        public decimal OriginalPrice { get; set; }
         public decimal? PriceSale { get; set; }
         public int Quantity { get; set; }
         public bool IsActive { get; set; }

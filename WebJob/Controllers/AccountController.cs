@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebJob.Models;
+using WebJob.Models.EF;
 
 namespace WebJob.Controllers
 {
@@ -17,15 +18,16 @@ namespace WebJob.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private readonly ApplicationDbContext _context;
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationDbContext context)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _context = context;
         }
 
         public ApplicationSignInManager SignInManager
@@ -34,9 +36,9 @@ namespace WebJob.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -61,6 +63,48 @@ namespace WebJob.Controllers
             return View();
         }
 
+        /* [HttpPost]
+         [AllowAnonymous]
+         [ValidateAntiForgeryToken]
+         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+         {
+             if (!ModelState.IsValid)
+             {
+                 return View(model);
+             }
+
+             var user = await UserManager.FindByNameAsync(model.UserName);
+             if (user != null && await UserManager.CheckPasswordAsync(user, model.Password))
+             {
+                 // Kiểm tra trạng thái xác thực
+                 if (!user.IsVerified)
+                 {
+                     // Nếu tài khoản chưa xác thực, chuyển hướng người dùng đến trang xác minh
+                     return RedirectToAction("VerifyEmployerForm", "Employer");
+                 }
+
+                 var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+                 switch (result)
+                 {
+                     case SignInStatus.Success:
+                         return RedirectToLocal(returnUrl);
+                     case SignInStatus.LockedOut:
+                         return View("Lockout");
+                     case SignInStatus.RequiresVerification:
+                         return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                     case SignInStatus.Failure:
+                     default:
+                         ModelState.AddModelError("", "Invalid login attempt.");
+                         return View(model);
+                 }
+             }
+
+             // Nếu không tìm thấy người dùng hoặc mật khẩu sai
+             ModelState.AddModelError("", "Invalid login attempt.");
+             return View(model);
+         }
+ */
+
         //
         // POST: /Account/Login
         [HttpPost]
@@ -75,7 +119,7 @@ namespace WebJob.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -120,7 +164,7 @@ namespace WebJob.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -143,7 +187,7 @@ namespace WebJob.Controllers
         }
 
         //
-        // POST: /Account/Register
+        //POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -151,12 +195,13 @@ namespace WebJob.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -174,6 +219,49 @@ namespace WebJob.Controllers
 
         //
         // GET: /Account/ConfirmEmail
+
+        // POST: /Account/Register
+        /* [HttpPost]
+         [AllowAnonymous]
+         [ValidateAntiForgeryToken]
+         public async Task<ActionResult> Register(RegisterViewModel model)
+         {
+             if (ModelState.IsValid)
+             {
+                 // Tạo tài khoản người dùng
+                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                 if (result.Succeeded)
+                 {
+                     // Đăng nhập người dùng ngay sau khi tạo tài khoản thành công
+                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                     // Tạo bản ghi EmployerVerification với IsVerified = false
+                     var employerVerification = new EmployerVerification
+                     {
+                         AccountId = user.Id,    // Liên kết với tài khoản người dùng
+                         IsVerified = false,     // Trạng thái chưa xác thực
+                         CreatedDate = DateTime.Now
+                     };
+
+                     // Lưu thông tin vào cơ sở dữ liệu
+                     _context.employerVerifications.Add(employerVerification);
+                     await _context.SaveChangesAsync();
+
+                     // Chuyển hướng đến trang chủ hoặc yêu cầu người dùng xác thực tài khoản
+                     return RedirectToAction("Index", "Home");
+                 }
+
+                 // Nếu đăng ký không thành công, thêm lỗi vào ModelState
+                 AddErrors(result);
+             }
+
+             // Nếu có lỗi, hiển thị lại form đăng ký
+             return View(model);
+         }*/
+
+
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {

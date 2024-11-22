@@ -17,5 +17,6 @@ namespace WebJob.Models
         //[Required(ErrorMessage = "Không được để trống!")]
         public string Email { get; set; }
         public int TypePayment { get; set; }
+        public int TypePaymentVN { get; set; }
     }
 }

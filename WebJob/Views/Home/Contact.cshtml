@@ -1,17 +1,45 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@model WebJob.Models.EF.Contact
+
+@{
+    ViewBag.Title = "Liên hệ";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<h2>@ViewBag.Title</h2>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Website)
+        @Html.TextBoxFor(model => model.Website, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Website)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Message)
+        @Html.TextAreaFor(model => model.Message, new { @class = "form-control", rows = 4 })
+        @Html.ValidationMessageFor(model => model.Message)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gửi</button>
+}

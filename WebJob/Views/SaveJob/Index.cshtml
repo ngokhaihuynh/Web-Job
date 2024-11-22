@@ -81,7 +81,7 @@
 
 <script>
     $(document).ready(function () {
-        $('body').on('click', '.btnDeleteAllJob', function (e) {
+        $('.btnDeleteAllJob').off('click').on('click', function (e) { // Dùng off trước khi on
             e.preventDefault();
             var confirmDelete = confirm('Bạn có chắc chắn muốn xóa tất cả công việc đã lưu?');
             if (confirmDelete) {
@@ -103,4 +103,5 @@
             }
         });
     });
+
 </script>

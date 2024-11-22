@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +12,8 @@ namespace WebJob.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Jobs
-        public ActionResult Index(int? id)
+        
+        public ActionResult Index(int? id, int? page)
         {
             // Bắt đầu với danh sách công việc đang hoạt động
             var query = db.Jobs.Where(x => x.IsActive);
@@ -23,14 +24,28 @@ namespace WebJob.Controllers
                 query = query.Where(x => x.JobCategoryID == id);
             }
 
-            // Chuyển đổi query thành danh sách
-            var items = query.ToList();
+            // Kiểm tra nếu không có công việc nào trong query
+            if (!query.Any())
+            {
+                ViewBag.NoJobs = "Không có công việc nào được lưu bởi tài khoản này.";
+            }
+
+            // Thiết lập phân trang
+            var pageNumber = page ?? 1; // Trang hiện tại
+            var pageSize = 5;           // Số mục trên mỗi trang
+            ViewBag.PageSize = pageSize;
+            ViewBag.Page = pageNumber;
+
+            // Chuyển danh sách query thành dạng phân trang
+            var pagedList = query.OrderBy(x => x.JobID).ToPagedList(pageNumber, pageSize);
 
             // Cung cấp thông tin danh mục cho view
             ViewBag.CateId = id;
 
-            return View(items);
+            return View(pagedList);
         }
+
+
 
         public ActionResult Detail(string alias, int id)
         {
@@ -78,7 +93,7 @@ namespace WebJob.Controllers
             var category = db.JobCategories.FirstOrDefault(c => c.Alias == alias);
             if (category == null)
             {
-                return HttpNotFound(); // Trả về 404 nếu không tìm thấy danh mục công việc
+                return HttpNotFound(); 
             }
 
             // Nếu id không phải null và khớp với danh mục công việc, tìm kiếm các công việc
@@ -86,18 +101,67 @@ namespace WebJob.Controllers
             {
                 var items = db.Jobs.Where(x => x.JobCategoryID == category.JobCategoryID && x.IsActive).ToList();
                 ViewBag.JobCount = items.Count;
-                return View(items); // Trả về view với danh sách công việc
+                return View(items); 
             }
 
-            return HttpNotFound(); // Trả về 404 nếu không có id khớp
+            return HttpNotFound(); 
         }
 
 
         // load Việc tuyển gấp
         public ActionResult Partial_JobNow()
         {
-            var items = db.Jobs.Where(x => x.IsActive && x.IsNow).Take(10).ToList();
+            var items = db.Jobs
+                .Where(x => x.IsActive && x.IsNow)
+                .GroupBy(x => x.Company.CompanyName) // Nhóm theo tên công ty
+                .Select(g => g.FirstOrDefault())    // Lấy công việc đầu tiên trong mỗi nhóm
+                .Take(10)                           // Lấy tối đa 10 công việc
+                .ToList();
+
             return PartialView(items);
         }
+
+
+        // load việc làm mới nhất
+        public ActionResult Partial_JobLatest()
+        {
+            // Lấy danh sách 10 công việc mới nhất dựa trên ngày tạo (CreatedDate)
+            var items = db.Jobs
+                          .Where(x => x.IsActive)
+                          .OrderByDescending(x => x.CreatedDate) // Sắp xếp theo ngày tạo mới nhất
+                          .Take(10) // Giới hạn 10 công việc
+                          .ToList();
+
+            return PartialView(items); // Trả về PartialView với danh sách công việc
+        }
+        public ActionResult Partial_CompanyLogos()
+        {
+            var companies = db.Companies
+                              .GroupBy(c => c.CompanyName) // Nhóm theo tên công ty
+                              .Select(g => g.FirstOrDefault())// Lấy công ty đầu tiên trong nhóm
+                              .Take(8)
+                              .ToList();
+            return PartialView(companies);
+        }
+        public ActionResult Partial_HighSalaryJobs()
+        {
+            // Lọc các công việc có mức lương > 10 triệu (10,000,000)
+            var highSalaryJobs = db.Jobs.Where(x =>x.Salary.SalaryMax > 10000000 && x.IsActive).ToList();
+
+            return PartialView(highSalaryJobs);
+        }
+        public PartialViewResult RelatedJobs(string categoryName, int excludeJobId)
+        {
+            // Lấy danh sách việc làm tương tự từ database
+            var relatedJobs = db.Jobs
+                                .Where(x => x.JobCategory.CategoryName == categoryName && x.JobID != excludeJobId)
+                                .OrderByDescending(x => x.CreatedDate)
+                                .Take(5) // Lấy 5 việc làm mới nhất
+                                .ToList();
+
+            return PartialView("_RelatedJobs", relatedJobs);
+        }
+
+
     }
 }

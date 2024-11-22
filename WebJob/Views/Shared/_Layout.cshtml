@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using WebJob.Common
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -23,12 +24,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Owl Stylesheets -->
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <link rel="stylesheet" href="~/Content/assets/css/owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="~/Content/assets/css/owlcarousel/owl.theme.default.min.css">
     <!-- main css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/main.css">
     <link href="/Content/assets/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/Style1.css" rel="stylesheet" />
     <link href="/Content/assets/site.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Content/assets/js/jquery-3.4.1.slim.min.js"></script>
@@ -36,6 +39,22 @@
     @*@Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")*@
     <style>
+        .job-title a {
+            display: block; /* Đảm bảo là khối */
+            white-space: nowrap; /* Không xuống dòng */
+            overflow: hidden; /* Ẩn phần dư thừa */
+            text-overflow: ellipsis; /* Hiển thị dấu ba chấm */
+            max-width: 200px; /* Đặt chiều rộng tối đa phù hợp */
+            font-size: 16px; /* Kích thước chữ tùy chỉnh */
+            color: #333; /* Màu chữ */
+            text-decoration: none; /* Bỏ gạch chân mặc định */
+        }
+
+            .job-title a:hover {
+                text-decoration: underline; /* Hiệu ứng khi rê chuột */
+            }
+
+
         .nav-item {
             position: relative; /* Để định vị tooltip */
         }
@@ -123,6 +142,11 @@
             .btn-remove:hover {
                 background-color: #c62828; /* Thay đổi màu nền khi di chuột vào nút xóa */
             }
+
+@**@
+
+
+
     </style>
 </head>
 
@@ -132,8 +156,8 @@
         <div class="container cnt-tnar">
             <nav class="navbar navbar-expand-lg navbar-light bg-light tjnav-bar">
                 <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-                <a href="#" class="nav-logo">
-                    <img src="~/Content/assets/img/techjobs_bgb.png">
+                <a href="/trang-chu" class="nav-logo">
+                    <img src="~/Content/assets/img/logojobtran.png">
                 </a>
                 <button class="navbar-toggler tnavbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <!-- <span class="navbar-toggler-icon"></span> -->
@@ -182,23 +206,49 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/gio-hang">
-                                @*<i class="fa fa-shopping-cart" aria-hidden="true"></i>*@
-                                <i class="fa-solid fa-cart-shopping"></i>
+                        <!--<li class="nav-item">
+                            <a class="nav-link" href="/gio-hang">-->
+                        @*<i class="fa fa-shopping-cart" aria-hidden="true"></i>*@
+                        <!--<i class="fa-solid fa-cart-shopping"></i>
                                 <span id="checkout_cart" class="notification-badge">0</span>
                                 <span class="hidden-text">Giỏ hàng</span>
 
                             </a>
-                        </li>
+                        </li>-->
 
+                        <ul class="navbar-nav ml-auto">
+                            @if (Request.IsAuthenticated)
+                            {
+                                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffDForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                }
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng Ký</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng Nhập</a>
-                        </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                        @User.Identity.Name
+                                    </a>
+                                    <div class="dropdown-menu tdropdown" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="@Url.Action("MyAppliedJobs", "MyApplicant")">Xem danh sách đã ứng tuyển</a>
+                                        <a class="dropdown-item" href="/gio-hang">Gói dịch vụ</a>
+                                        <a class="dropdown-item" href="/goi-da-mua">Gói dịch vụ đã mua</a>
+                                        <a class="dropdown-item" href="/cong-viec-da-luu">Công việc dã lưu</a>
+                                        <a class="dropdown-item" href="javascript:document.getElementById('logOffDForm').submit()">Đăng xuất</a>
+                                    </div>
+                                </li>
+
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/account/register">Đăng Ký</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/account/login">Đăng Nhập</a>
+                                </li>
+                            }
+                        </ul>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 VI
@@ -208,8 +258,14 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-employers" href="#" tabindex="-1" aria-disabled="true">Nhà Tuyển Dụng</a>
+                            <a class="nav-link btn-employers"
+                               href="/Account/Login?returnUrl=/Employer/HomeEm"
+                               tabindex="-1"
+                               aria-disabled="true">
+                                Nhà Tuyển Dụng
+                            </a>
                         </li>
+
                     </ul>
                 </div>
             </nav>
@@ -226,21 +282,10 @@
                 <img src="~/Content/assets/img/banner2.jpg" alt="banner-image">
             </div>
         </div>
-        <div class="banner-content">
-            <h3>Hơn 1000+ dành cho bạn</h3>
-            <div class="banner-tags">
-                <!-- <ul>
-                  <li><a href="#">Java</a></li>
-                  <li><a href="#">Python</a></li>
-                  <li><a href="#">Tester</a></li>
-                  <li><a href="#">QA QC</a></li>
-                  <li><a href="#">.NET</a></li>
-                  <li><a href="#">Javascript</a></li>
-                  <li><a href="#">Business Analyst</a></li>
-                  <li><a href="#">Designer</a></li>
-                </ul> -->
-            </div>
-        </div>
+        @*<div class="banner-content">
+                <h3>Hơn 1000+ dành cho bạn</h3>
+
+            </div>*@
     </div>
     <!-- (end) main banner -->
     <!-- search section -->
@@ -258,69 +303,25 @@
                 </ul>
                 <div class="tab-content search-tab-content" id="myTabContent">
                     <!-- content tab 1 -->
-                    <div class="tab-pane stab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <form class="bn-search-form">
-                            <div class="row">
-                                <div class="col-md-10 col-sm-12">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="input-group s-input-group">
-                                                <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                                <span><i class="fa fa-search"></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <select id="computer-languages">
-                                                <option value="" selected hidden>Tất cả ngôn ngữ</option>
-                                                <option>Java</option>
-                                                <option>.NET</option>
-                                                <option>Javascript</option>
-                                                <option>Php</option>
-                                                <option>Python</option>
-                                                <option>QC QC</option>
-                                                <option>Business Analyst</option>
-                                                <option>Tester</option>
-                                                <option>Ruby</option>
-                                            </select>
-                                            <i class="fa fa-code sfa" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <select id="s-provinces">
-                                                <option value="" selected hidden>Tất cả địa điểm</option>
-                                                <option>Đà Nẵng</option>
-                                                <option>Hà Nội</option>
-                                                <option>Hồ Chí Minh</option>
-                                                <option>Buôn Ma Thuột</option>
-                                                <option>Quy Nhơn</option>
-                                                <option>Nha Trang</option>
-                                            </select>
-                                            <i class="fa fa-map-marker sfa" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-12">
-                                    <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    @*Search*@
+                    @Html.Action("SearchView", "Search")
                     <!-- (end) content tab 1 -->
                     <!-- content tab 2 -->
-                    <div class="tab-pane stab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <form class="bn-search-form">
-                            <div class="row">
-                                <div class="col-md-10 col-sm-12">
-                                    <div class="input-group s-input-group w-100">
-                                        <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                        <span><i class="fa fa-search"></i></span>
+                    @*<div class="tab-pane stab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <form class="bn-search-form">
+                                <div class="row">
+                                    <div class="col-md-10 col-sm-12">
+                                        <div class="input-group s-input-group w-100">
+                                            <input type="text" class="form-control sinput" placeholder="Nhập tên công ty">
+                                            <span><i class="fa fa-search"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-12">
+                                        <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
                                     </div>
                                 </div>
-                                <div class="col-md-2 col-sm-12">
-                                    <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>*@
                     <!-- (end) content tab 2 -->
                 </div>
 
@@ -334,33 +335,73 @@
 
 
     <!-- job support -->
-    <div class="container-fluid job-support-wrapper">
-        <div class="container-fluid job-support-wrap">
-            <div class="container job-support">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-12">
-                        <ul class="spp-list">
-                            <li>
-                                <span><i class="fa fa-question-circle pr-2 icsp"></i>Hỗ trợ nhà tuyển dụng:</span>
-                            </li>
-                            <li>
-                                <span><i class="fa fa-phone pr-2 icsp"></i>0123.456.789</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-12">
-                        <div class="newsletter">
-                            <span class="txt6">Đăng ký nhận bản tin việc làm</span>
-                            <div class="input-group frm1">
-                                <input type="text" placeholder="Nhập email của bạn" class="newsletter-email form-control">
-                                <a href="#" class="input-group-addon"><i class="fa fa-lg fa-envelope-o colorb"></i></a>
-                            </div>
-                        </div>
-                    </div>
+<div class="container-fluid job-support-wrapper">
+    <div class="container-fluid job-support-wrap">
+        <div class="container job-support">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-12">
+                    <ul class="spp-list">
+                        <li>
+                            <span><i class="fa fa-question-circle pr-2 icsp"></i>Hỗ trợ nhà tuyển dụng:</span>
+                        </li>
+                        <li>
+                            <span><i class="fa fa-phone pr-2 icsp"></i>@SettingHelper.GetValue("SettingHotline")</span>
+                        </li>
+                    </ul>
                 </div>
+
+                @* nhận mail đăng ký *@
+                @Html.Action("Partial_Subcrice", "Home")
             </div>
         </div>
     </div>
+    <button id="backToTop" class="back-to-top" title="Quay lại đầu trang">↑</button>
+</div>
+
+    
+    <style>
+        /* CSS cho nút quay lại lên đầu trang */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+            .back-to-top:hover {
+                background-color: #0056b3;
+            }
+    </style>
+    <script>
+        // Khi cuộn xuống một khoảng nhất định, hiển thị nút
+        window.onscroll = function () {
+            var backToTopBtn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        // Khi bấm vào nút, cuộn lại lên đầu trang
+        document.getElementById("backToTop").onclick = function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Cuộn mượt
+            });
+        };
+    </script>
+
     <!-- (end) job support -->
     <!-- footer -->
     <div class="container-fluid footer-wrap  clear-left clear-right">
@@ -368,10 +409,10 @@
             <div class="row">
                 <div class="col-md-4 col-sm-8 col-12">
                     <h2 class="footer-heading">
-                        <span>About</span>
+                        <span>Về chúng tôi</span>
                     </h2>
                     <p class="footer-content">
-                        Discover the best way to find houses, condominiums, apartments and HDBs for sale and rent in Singapore with JobsOnline, Singapore's Fastest Growing Jobs Portal.
+                        Nền tảng kết nối nhà tuyển dụng và ứng viên nhanh chóng, hiệu quả và tối ưu chi phí.
                     </p>
                     <ul class="footer-contact">
                         <li>
@@ -388,35 +429,35 @@
                         <li>
                             <a href="#">
                                 <i class="fa fa-map-marker fticn"></i>
-                                33 Xô Viết Nghệ Tĩnh, Đà Nẵng
+                                Ninh kiều, TP.Cần Thơ
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-2 col-sm-4 col-12">
-                    <h2 class="footer-heading">
-                        <span>Ngôn ngữ nổi bật</span>
-                    </h2>
-                    <ul class="footer-list">
-                        <li><a href="#">Javascript</a></li>
-                        <li><a href="#">Java</a></li>
-                        <li><a href="#">Frontend</a></li>
-                        <li><a href="#">SQL Server</a></li>
-                        <li><a href="#">.NET</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 col-sm-6 col-12">
-                    <h2 class="footer-heading">
-                        <span>Tất cả ngành nghề</span>
-                    </h2>
-                    <ul class="footer-list">
-                        <li><a href="#">Lập trình viên</a></li>
-                        <li><a href="#">Kiểm thử phần mềm</a></li>
-                        <li><a href="#">Kỹ sư cầu nối</a></li>
-                        <li><a href="#">Quản lý dự án</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 col-sm-6 col-12">
+                @*<div class="col-md-2 col-sm-4 col-12">
+                        <h2 class="footer-heading">
+                            <span>Ngôn ngữ nổi bật</span>
+                        </h2>
+                        <ul class="footer-list">
+                            <li><a href="#">Javascript</a></li>
+                            <li><a href="#">Java</a></li>
+                            <li><a href="#">Frontend</a></li>
+                            <li><a href="#">SQL Server</a></li>
+                            <li><a href="#">.NET</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-6 col-12">
+                        <h2 class="footer-heading">
+                            <span>Tất cả ngành nghề</span>
+                        </h2>
+                        <ul class="footer-list">
+                            <li><a href="#">Lập trình viên</a></li>
+                            <li><a href="#">Kiểm thử phần mềm</a></li>
+                            <li><a href="#">Kỹ sư cầu nối</a></li>
+                            <li><a href="#">Quản lý dự án</a></li>
+                        </ul>
+                    </div>*@
+                <div class="col-md-4 col-sm-6 col-12">
                     <h2 class="footer-heading">
                         <span>Tất cả hình thức</span>
                     </h2>
@@ -426,7 +467,7 @@
                         <li><a href="#">Freelancer</a></li>
                     </ul>
                 </div>
-                <div class="col-md-2 col-sm-12 col-12">
+                <div class="col-md-4 col-sm-12 col-12">
                     <h2 class="footer-heading">
                         <span>Tất cả tỉnh thành</span>
                     </h2>
@@ -446,7 +487,7 @@
     <footer class="container-fluid copyright-wrap">
         <div class="container copyright">
             <p class="copyright-content">
-                Copyright © 2020 <a href="#"> Tech<b>Job</b></a>. All Right Reserved.
+                Copyright © 2024 <a href="#"> Now<b>Jobs</b></a>. All Right Reserved.
             </p>
         </div>
     </footer>
@@ -455,7 +496,7 @@
     <!-- (end) footer -->
     @*@Scripts.Render("~/bundles/jquery")*@
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>*@
     <script type="text/javascript" src="~/Content/assets/js/readmore.js"></script>
     <script type="text/javascript">
         $('.catelog-list').readmore({
@@ -467,10 +508,10 @@
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- Optional JavaScript -->
-  
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/jsSaveJob.js"></script>
     <script src="~/Scripts/JsShopping.js"></script>
     <script src="~/Content/assets/js/popper.min.js"></script>

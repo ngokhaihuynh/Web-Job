@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+ @*Hiên thị thông tin đã xác thực*@
+<div>
+    @Html.Action("VerifyEmployerForm", "Employer")
+</div>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}

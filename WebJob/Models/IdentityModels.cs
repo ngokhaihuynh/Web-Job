@@ -13,6 +13,8 @@ namespace WebJob.Models
     {
         public string FullName { get; set; }
         public string Phone { get; set; }
+
+        public bool IsVerified { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -37,9 +39,7 @@ namespace WebJob.Models
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Experience> Experiences { get; set; }
-        public DbSet<Location> Locations { get; set; }
-        public DbSet<Skill> Skills { get; set; }
-        public DbSet<Industry> Industries { get; set; }
+        public DbSet<Location> Locations { get; set; }  
         public DbSet<Level> Levels { get; set; }
         public DbSet<JobCategory> JobCategories { get; set; }
         public DbSet<Job> Jobs { get; set; }
@@ -50,13 +50,13 @@ namespace WebJob.Models
         public DbSet<JobApplication> JobApplications { get; set; }
         public DbSet<EmailSubscription> EmailSubscriptions { get; set; }
         public DbSet<Setting> Settings { get; set; }
-        public DbSet<JobApplication_Detail> JobApplication_Details { get; set; }
         public DbSet<CategoryProduct> categoryProducts { get; set; }
         public DbSet<Product> products { get; set; }
         public DbSet<Order> orders { get; set; }
         public DbSet<OrderDetail> orderDetails { get; set; }
         public DbSet<ProductImage> productImages { get; set; }
         public DbSet<ThongKe> thongKes { get; set; }
+        public DbSet<EmployerVerification> employerVerifications { get; set; }
 
         
         public static ApplicationDbContext Create()

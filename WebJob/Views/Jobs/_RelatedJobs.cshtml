@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebJob.Models.EF.Job>
+
+<h2 class="widget-title">
+    <span>Việc làm tương tự</span>
+</h2>
+
+<div class="job-tt-contain">
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            var strImge = "";
+            var img = item.CompanyImages.FirstOrDefault(x => x.IsDefault);
+            if (img != null)
+            {
+                strImge = img.ImageURL;
+            }
+            <div class="job-tt-item">
+
+                <a href="/chi-tiet/@item.Alias-p@(item.JobID)" class="thumb">
+                    <div style="background-image: url(@strImge);"></div>
+                </a>
+
+                <div class="info">
+                    <a href="/chi-tiet/@item.Alias-p@(item.JobID)" class="jobname">
+                       @item.JobTitle
+                    </a>
+                    <a href="#" class="company">
+                        @item.Company.CompanyName
+                    </a>
+                </div>
+            </div>
+
+        }
+    }
+    else
+    {
+        <li>Không có việc làm tương tự nào.</li>
+
+    }
+
+
+</div>

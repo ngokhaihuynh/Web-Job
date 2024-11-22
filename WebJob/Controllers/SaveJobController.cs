@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace WebJob.Controllers
         public ActionResult Index()
         {
             SaveJob save = (SaveJob)Session["Save"];
-            if(save != null)
+            if (save != null)
             {
                 return View(save.Items);
             }
@@ -110,12 +111,26 @@ namespace WebJob.Controllers
         //    // Trường hợp dữ liệu không hợp lệ hoặc thiếu file
         //    return Json(new { success = false, message = "Thông tin ứng tuyển không hợp lệ hoặc không có file đính kèm." });
         //}
-
+        //public ActionResult DownloadFile(string fileName)
+        //{
+        //    var filePath = Server.MapPath("~/Uploads/files/" + fileName);
+        //    if (System.IO.File.Exists(filePath))
+        //    {
+        //        return File(filePath, "application/octet-stream", fileName);
+        //    }
+        //    return HttpNotFound("Tệp không tồn tại.");
+        //}
 
         [HttpPost]
         public ActionResult AppllyJob(ApplicantViewModel model, int jobId, HttpPostedFileBase CVFilePath)
         {
-            // Kiểm tra nếu ModelState hợp lệ và có file đính kèm
+            // Lấy ID của tài khoản từ thông tin đăng nhập
+            var userId = User.Identity.GetUserId(); // Đảm bảo bạn đã cấu hình ASP.NET Identity
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Json(new { success = false, message = "Bạn cần đăng nhập để ứng tuyển." });
+            }
+
             if (ModelState.IsValid && CVFilePath != null)
             {
                 // Kiểm tra định dạng file
@@ -126,39 +141,48 @@ namespace WebJob.Controllers
                     return Json(new { success = false, message = "Chỉ chấp nhận file PDF, JPG, PNG, hoặc DOCX." });
                 }
 
-                // Kiểm tra kích thước file (giới hạn 10 MB)
+                // Kiểm tra kích thước file
                 const int maxFileSize = 10 * 1024 * 1024; // 10 MB
                 if (CVFilePath.ContentLength > maxFileSize)
                 {
                     return Json(new { success = false, message = "Kích thước file không được vượt quá 10 MB." });
                 }
 
-                // Tạo tên file và đường dẫn để lưu file
+                // Tạo tên file và đường dẫn để lưu
                 string fileName = Path.GetFileName(CVFilePath.FileName);
                 string filePath = Path.Combine(Server.MapPath("~/Uploads/files"), fileName);
 
                 try
                 {
-                    // Lưu file vào thư mục
+                    // Lưu file
                     CVFilePath.SaveAs(filePath);
 
-                    // Tạo và lưu đối tượng Applicant
+                    // Kiểm tra xem ứng viên đã ứng tuyển công việc này chưa
+                    bool alreadyApplied = db.JobApplications.Any(a => a.JobID == jobId && a.Applicant.UserId == userId);
+                    if (alreadyApplied)
+                    {
+                        return Json(new { success = false, message = "Bạn đã ứng tuyển công việc này trước đó." });
+                    }
+
+                    // Tạo đối tượng Applicant
                     var applicant = new Applicant
                     {
+                        UserId = userId, // Lưu ID tài khoản
                         FullName = model.FullName,
                         PhoneNumber = model.PhoneNumber,
                         Email = model.Email,
                         CoverLetter = model.CoverLetter,
-                        CVFilePath = "/Uploads/files/" + fileName, // Đường dẫn tương đối
+                        CVFilePath = "/Uploads/files/" + fileName,
                         CreatedBy = model.FullName,
                         CreatedDate = DateTime.Now,
-                        ModifiedDate = DateTime.Now
+                        ModifiedDate = DateTime.Now,
+                        ViewStatus = 0
                     };
 
                     db.Applicants.Add(applicant);
                     db.SaveChanges();
 
-                    // Tạo và lưu đối tượng JobApplication
+                    // Tạo đối tượng JobApplication
                     var jobApplication = new JobApplication
                     {
                         JobID = jobId,
@@ -171,32 +195,31 @@ namespace WebJob.Controllers
                     db.JobApplications.Add(jobApplication);
                     db.SaveChanges();
 
-                    // Lấy email nhà tuyển dụng từ bảng Jobs và Company
-                    //var job = db.Jobs.Include(j => j.Company).FirstOrDefault(j => j.JobID == jobId);
+                    // Lấy email nhà tuyển dụng
                     var job = db.Jobs.Include("Company").FirstOrDefault(j => j.JobID == jobId);
                     var recruiterEmail = job?.Company?.CompanyEmail;
-                    string jobname = job.JobTitle;
+                    string jobname = job?.JobTitle;
+
                     if (string.IsNullOrEmpty(recruiterEmail))
                     {
                         return Json(new { success = false, message = "Không tìm thấy email nhà tuyển dụng." });
                     }
 
-                    // Đọc nội dung file HTML và thay thế các chỗ placeholder
+                    // Đọc template email và gửi mail
                     string emailContent = System.IO.File.ReadAllText(Server.MapPath("~/Content/template/send3.html"));
                     emailContent = emailContent.Replace("{{FullName}}", model.FullName)
                                                .Replace("{{PhoneNumber}}", model.PhoneNumber)
-                                               .Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"))
                                                .Replace("{{CoverLetter}}", model.CoverLetter)
+                                               .Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"))
                                                .Replace("{{CVLink}}", "/Uploads/files/" + fileName)
                                                .Replace("{{CVFileName}}", fileName)
                                                .Replace("{{JobName}}", jobname);
 
-                    // Gửi email cho nhà tuyển dụng
-                    bool mailSent = WebJob.Models.Common.common.SendMail("Thông Tin Ứng Viên", "Ứng tuyển vị trí Lập Trình Viên", emailContent, recruiterEmail);
+                    bool mailSent = WebJob.Models.Common.common.SendMail("Thông Tin Ứng Viên", "Ứng tuyển vị trí " + jobname, emailContent, recruiterEmail);
 
                     if (mailSent)
                     {
-                        return Json(new { success = true, message = "Ứng tuyển thành công và email đã được gửi!" , redirectUrl = Url.Action("Index", "viec-lam") });
+                        return Json(new { success = true, message = "Ứng tuyển thành công và email đã được gửi!", redirectUrl = Url.Action("Index", "viec-lam") });
                     }
                     else
                     {
@@ -205,36 +228,34 @@ namespace WebJob.Controllers
                 }
                 catch (Exception ex)
                 {
-                    // Xử lý lỗi lưu file hoặc lưu vào cơ sở dữ liệu
                     return Json(new { success = false, message = "Đã xảy ra lỗi trong quá trình ứng tuyển. Vui lòng thử lại sau." });
                 }
             }
 
-            // Trường hợp dữ liệu không hợp lệ hoặc thiếu file
             return Json(new { success = false, message = "Thông tin ứng tuyển không hợp lệ hoặc không có file đính kèm." });
         }
 
         public ActionResult ShowCount()
         {
             SaveJob save = (SaveJob)Session["Save"];
-            if(save != null)
+            if (save != null)
             {
                 return Json(new { Count = save.Items.Count }, JsonRequestBehavior.AllowGet);
 
             }
-            return Json(new { Count = 0}, JsonRequestBehavior.AllowGet );
+            return Json(new { Count = 0 }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         public ActionResult AddSaveJob(int id)
         {
-            var code = new { success = false, msg="", code = -1, Count = 0 };
+            var code = new { success = false, msg = "", code = -1, Count = 0 };
             var db = new ApplicationDbContext();
             var checkJob = db.Jobs.FirstOrDefault(x => x.JobID == id);
-            if(checkJob != null)
+            if (checkJob != null)
             {
                 SaveJob save = (SaveJob)Session["Save"];
-                if(save == null)
+                if (save == null)
                 {
                     save = new SaveJob();
                 }
@@ -269,7 +290,7 @@ namespace WebJob.Controllers
             if (save != null)
             {
                 var checkJob = save.Items.FirstOrDefault(x => x.SaveJobId == id);
-                if(checkJob != null)
+                if (checkJob != null)
                 {
                     save.Remove(id);
                     code = new { success = true, msg = "", code = 1, Count = save.Items.Count };
@@ -298,7 +319,7 @@ namespace WebJob.Controllers
                 save.ClearSave();
                 return Json(new { success = true, message = "Đã xóa tất cả công việc đã lưu" });
             }
-            return Json(new { success = false, message = "Có lỗi xảy ra: " });
+            return Json(new { success = false });
         }
 
     }
