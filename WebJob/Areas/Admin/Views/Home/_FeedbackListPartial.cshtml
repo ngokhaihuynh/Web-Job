@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebJob.Models.EF.Contact>
+<a class="nav-link" data-toggle="dropdown" href="#">
+    <i class="far fa-comments"></i>
+    <span class="badge badge-danger navbar-badge">@Model.Count()</span>
+</a>
+
+<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+    @foreach (var item in Model)
+    {
+<a href="@Url.Action("Details", "Contactt", new { id = item.Id })" class="dropdown-item">
+    <!-- Message Start -->
+    <div class="media">
+        <img src="~/Content/assets/img/avata.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+        <div style="width: 200px;" class="media-body">
+            <h3 class="dropdown-item-title">
+                
+                <span class="float-right text-sm text-success"><i class="fas fa-star"></i></span>
+            </h3>
+            <p class="text-sm text-truncate">@item.Message</p>
+            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> @item.CreatedDate</p>
+        </div>
+    </div>
+    <!-- Message End -->
+</a>
+                <div class="dropdown-divider"></div>}
+
+
+    <a href="/admin/contactt" class="dropdown-item dropdown-footer">Xem tất cả</a>
+</div>
+
+<style>
+    .text-truncate {
+        white-space: nowrap; /* Ngừng dòng khi nội dung quá dài */
+        overflow: hidden; /* Ẩn phần nội dung thừa */
+        text-overflow: ellipsis; /* Thêm dấu ba chấm "..." khi nội dung vượt quá chiều rộng */
+    }
+</style>

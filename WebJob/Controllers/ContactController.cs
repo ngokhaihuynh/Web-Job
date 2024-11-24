@@ -30,6 +30,8 @@ namespace WebJob.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.Website = "NowJobs";
+                model.IsRead = false;
                 model.CreatedDate = DateTime.Now; // Ngày hiện tại
                 model.CreatedBy = model.Name;
                 db.Contacts.Add(model);

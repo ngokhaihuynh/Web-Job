@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Quản lý danh mục</h1>
+                <h1>Quản lý Tài khoản</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -56,7 +56,7 @@
                         <th>Tên đăng nhập</th>
                         <th>Họ tên</th>
                         <th>Email</th>
-                     
+                        <th>Hành động</th>                     
                     </tr>
                 </thead>
 
@@ -72,7 +72,7 @@
                                 <td>@item.FullName</td>
                                 <td>@item.Email</td>
                                 <td>
-                                    <a href="admin/account/edit/@item.UserName" class="btn btn-sm btn-primary">Sửa</a>
+                                    @*<a href="admin/account/edit/@item.UserName" class="btn btn-sm btn-primary">Sửa</a>*@
                                     <a href="#" data-user="@item.Id" class="btn btn-sm btn-danger btnDelete">Xoá</a>
 
                                 </td>

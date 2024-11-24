@@ -1,49 +1,111 @@
-﻿@model IEnumerable<WebJob.Models.EF.JobSkill>
+﻿@*@model IEnumerable<WebJob.Models.EF.JobSkill>*@
+@model PagedList.PagedList<WebJob.Models.EF.JobSkill>
+@using PagedList.Mvc;
+@using PagedList;
 @{
     ViewBag.Title = "Danh sách kỹ năng công việc";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/skill" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>}
+<!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1>Quản lý kỹ năng công việc</h1>
-    <a href="@Url.Action("Create", "Skill")" class="btn btn-primary">Thêm mới</a>
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Trang chủ NowJobs</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    @*<li class="breadcrumb-item active">Advanced Form</li>*@
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
 </section>
 
 <section class="content">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Tên kỹ năng</th>
-               
-                <th>Thao tác</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model.Any())
-            {
-                foreach (var item in Model)
-                {
-                    <tr id="row_@item.JobSkillID">
-                        <td>@item.JobSkillID</td>
-                        <td>@item.JobSkillName</td>
-                        <td>@item.JobID</td>
-                        <td>
-                            <a href="@Url.Action("Edit", "Skill", new { id = item.JobSkillID })" class="btn btn-primary btn-sm">Sửa</a>
-                            <a href="#" data-id="@item.JobSkillID" class="btn btn-danger btn-sm btnDelete">Xóa</a>
-                        </td>
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Danh sách kĩ năng</h3>
+
+            <div class="card-tools">
+                <a href="@Url.Action("Create", "Skill")" class="btn btn-primary">Thêm mới</a>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tên kỹ năng</th>
+
+                        <th>Thao tác</th>
                     </tr>
-                }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="4">Không có dữ liệu</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+
+                        foreach (var item in Model)
+                        {
+                            <tr id="row_@item.JobSkillID">
+                                <td>@item.JobSkillID</td>
+                                <td>@item.JobSkillName</td>
+                                @*<td>@item.JobID</td>*@
+                                <td>
+                                    <a href="@Url.Action("Edit", "Skill", new { id = item.JobSkillID })" class="btn btn-primary btn-sm">Sửa</a>
+                                    <a href="#" data-id="@item.JobSkillID" class="btn btn-danger btn-sm btnDelete">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4">Không có dữ liệu</td>
+                        </tr>
+                    }
+                </tbody>
+                <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-6" style="text-align:right">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+                    </div>
+                </div>
+            </table>
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
 </section>
+
+
 
 @section scripts {
     <script>

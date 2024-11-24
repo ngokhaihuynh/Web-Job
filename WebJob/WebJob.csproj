@@ -181,6 +181,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoryProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\CompanyController.cs" />
     <Compile Include="Areas\Admin\Controllers\CompanyImagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContacttController.cs" />
     <Compile Include="Areas\Admin\Controllers\ExperienceController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\JobCategoryController.cs" />
@@ -245,6 +246,10 @@
     <Compile Include="Migrations\202411221221461_addOriginalprice.designer.cs">
       <DependentUpon>202411221221461_addOriginalprice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411241509556_adđcreadateUser.cs" />
+    <Compile Include="Migrations\202411241509556_adđcreadateUser.designer.cs">
+      <DependentUpon>202411241509556_adđcreadateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicantViewModel.cs" />
@@ -253,6 +258,7 @@
     <Compile Include="Models\Common\Filter.cs" />
     <Compile Include="Models\Common\ThongKeTruyCap.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\DashboardStatsViewModel.cs" />
     <Compile Include="Models\EF\Adv.cs" />
     <Compile Include="Models\EF\Applicant.cs" />
     <Compile Include="Models\EF\Article.cs" />
@@ -327,6 +333,7 @@
     <Content Include="Content\assets\img\news3.png" />
     <Content Include="Content\assets\img\nexon-networks-logo.png" />
     <Content Include="Content\assets\img\novaon-digital-group-logo.png" />
+    <Content Include="Content\assets\img\Now jobs.png" />
     <Content Include="Content\assets\img\nvg-logo.png" />
     <Content Include="Content\assets\img\Pasona-Tech-logo.jpg" />
     <Content Include="Content\assets\img\SCS_Logo_original.png" />
@@ -3316,6 +3323,9 @@
     <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contactt\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contactt\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\_FeedbackListPartial.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -3455,6 +3465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411221221461_addOriginalprice.resx">
       <DependentUpon>202411221221461_addOriginalprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411241509556_adđcreadateUser.resx">
+      <DependentUpon>202411241509556_adđcreadateUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,16 +14,24 @@ namespace WebJob.Areas.Admin.Controllers
         private  ApplicationDbContext db = new ApplicationDbContext();
 
         // Danh sách JobSkill
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            // Số lượng bản ghi trên mỗi trang
+            int pageSize = 8;
+
+            // Trang hiện tại (mặc định là 1)
+            int pageNumber = page ?? 1;
+
             // Lấy danh sách kỹ năng không trùng nhau theo JobSkillName
             var jobSkills = db.JobSkills
-                              .GroupBy(js => js.JobSkillName) // Nhóm theo tên kỹ năng
-                              .Select(g => g.FirstOrDefault()) // Lấy kỹ năng đầu tiên trong nhóm
-                              .ToList();
+                              .GroupBy(js => js.JobSkillName)
+                              .Select(g => g.FirstOrDefault())
+                              .OrderBy(js => js.JobSkillName) // Sắp xếp theo tên kỹ năng
+                              .ToPagedList(pageNumber, pageSize);
 
             return View(jobSkills);
         }
+
 
 
         // Thêm mới JobSkill (GET)

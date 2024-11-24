@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebJob.Models
@@ -118,6 +119,8 @@ namespace WebJob.Models
         [Display(Name = "Nhập lại mật khẩu")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public DateTime? CreatedDate { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -108,7 +108,7 @@
                                                     @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Giá khuyến mãi </label>
@@ -117,7 +117,15 @@
                                                     @Html.ValidationMessageFor(x => x.PriceSale, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
-                                            
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Giá gốc </label>
+                                                    <input type="text" name="demoOriginalPrice" id="demoOriginalPrice" value="0" class="form-control auto" data-a-dec="," data-a-sep=".">
+                                                    @Html.HiddenFor(x => x.OriginalPrice, new { @class = "", @placeholder = "Giá gốc" })
+                                                    @Html.ValidationMessageFor(x => x.OriginalPrice, null, new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                         <div class="row">
@@ -205,6 +213,13 @@
                 $('#PriceSale').val(demoGet);
                 $('#PriceSale').autoNumeric('set', demoGet);
             });
+
+            $('#demoOriginalPrice').bind('blur focusout keypress keyup', function () {
+                var demoGet = $('#demoOriginalPrice').autoNumeric('get');
+                $('#OriginalPrice').val(demoGet);
+                $('#OriginalPrice').autoNumeric('set', demoGet);
+            });
+
             CKEDITOR.replace('txtContent', {
                 customConfig: '/content/ckeditor/config.js',
                 extraAllowedContent: 'span',

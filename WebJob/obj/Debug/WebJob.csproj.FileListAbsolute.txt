@@ -772,3 +772,4 @@ D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
 D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.adduserid.resources
 D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.deletequantityu.resources
 D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.addOriginalprice.resources
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.Migrations.adđcreadateUser.resources

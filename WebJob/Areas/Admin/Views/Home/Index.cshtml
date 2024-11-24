@@ -4,17 +4,30 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>}
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Advanced Form</h1>
+                <h1>Trang chủ NowJobs</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Advanced Form</li>
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    @*<li class="breadcrumb-item active">Advanced Form</li>*@
                 </ol>
             </div>
         </div>
@@ -26,13 +39,49 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Danh sách kinh nghiệm</h3>
+            @*<h3 class="card-title">Danh sách kinh nghiệm</h3>
 
             <div class="card-tools">
                 <a href="/admin/experience/create" class="btn btn-primary">Thêm mới</a>
-            </div>
+            </div>*@
         </div>
         <div class="card-body">
+
+            <div class="dashboard-motivation">
+                <div class="header-section">
+                    <h1>Chào mừng bạn trở lại, Quản trị viên!</h1>
+                    <p class="subtitle">Hôm nay là một ngày tuyệt vời để tạo ra sự khác biệt!</p>
+                </div>
+                <div class="stats-section">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>@Model.NewUsers</h3>
+                            <p>Người dùng mới</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-briefcase"></i>
+                        <div class="stat-info">
+                            <h3>@Model.NewJobs</h3>
+                            <p>Việc làm mới</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-envelope"></i>
+                        <div class="stat-info">
+                            <h3>@Model.NewContacts</h3>
+                            <p>Phản hồi mới</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote-section">
+                    <blockquote>
+                        “Thành công không phải là đích đến, mà là hành trình bạn đang đi.”
+                    </blockquote>
+                    <p class="quote-author">- Zig Ziglar</p>
+                </div>
+            </div>
 
 
 
@@ -46,3 +95,108 @@
     <!-- /.card -->
 
 </section>
+
+<style>
+    .dashboard-motivation {
+        background: #f3f4f6;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        color: #333;
+        font-family: Arial, sans-serif;
+    }
+
+    .header-section {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+        .header-section h1 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header-section .subtitle {
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+
+    .stats-section {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+    }
+
+    .stat-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 30%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card i {
+            font-size: 36px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+    .stat-info h3 {
+        font-size: 24px;
+        color: #2c3e50;
+        margin: 0;
+    }
+
+    .stat-info p {
+        font-size: 16px;
+        color: #7f8c8d;
+        margin: 5px 0 0 0;
+    }
+
+    .quote-section {
+        text-align: center;
+        margin-top: 30px;
+        background: #eaf2f8;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+        .quote-section blockquote {
+            font-size: 20px;
+            font-style: italic;
+            color: #34495e;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .quote-section .quote-author {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        @@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stats-section .stat-card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+</style>

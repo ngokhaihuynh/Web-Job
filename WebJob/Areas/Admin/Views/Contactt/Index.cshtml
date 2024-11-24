@@ -1,0 +1,134 @@
+﻿@model IEnumerable<WebJob.Models.EF.Contact>
+@{
+    ViewBag.Title = "Danh sách phản hồi";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader {
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>
+}
+
+<!-- Content Header -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Danh sách phản hồi</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">@ViewBag.Title</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Danh sách phản hồi từ người dùng</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Email</th>
+                        <th>Nội dung</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var contact in Model)
+                    {
+                        <tr id="row_@contact.Id">
+                            <td>@contact.Id</td>
+                            <td>@contact.Name</td>
+                            <td>@contact.Email</td>
+                            <td>@contact.Message</td>
+                            <td>@(contact.IsRead == true ? "Đã đọc" : "Chưa đọc")</td>
+                            <td>
+
+                                @if (contact.IsRead == false)
+                                {
+                                    <button data-id="@contact.Id" class="btn btn-warning btn-sm btnMarkAsRead">Đánh dấu đã đọc</button>
+                                }
+                                <a href="@Url.Action("Details", "Contactt", new { id = contact.Id })" class="btn btn-info btn-sm">Xem chi tiết</a>
+                                <button data-id="@contact.Id" class="btn btn-danger btn-sm btnDelete">Xóa</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+            // Đánh dấu đã đọc
+            $('body').on('click', '.btnMarkAsRead', function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    url: '/admin/contactt/markasread',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (rs) {
+                        if (rs.success) {
+                            alert('Trạng thái đã được cập nhật thành "Đã đọc".');
+                            $('#row_' + id).find('td:nth-child(5)').text("Đã đọc"); // Cập nhật trạng thái trong bảng
+                            $('#row_' + id).find('.btnMarkAsRead').remove(); // Xóa nút "Đánh dấu đã đọc"
+                        } else {
+                            alert(rs.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+                        }
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra, vui lòng thử lại.');
+                    }
+                });
+            });
+
+            // Xóa liên hệ
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có chắc muốn xóa phản hồi này?');
+                if (conf) {
+                    $.ajax({
+                        url: '/admin/contactt/delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                alert('Đã xóa thành công.');
+                                $('#row_' + id).remove(); // Xóa dòng khỏi bảng
+                            } else {
+                                alert(rs.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+                            }
+                        },
+                        error: function () {
+                            alert('Có lỗi xảy ra, vui lòng thử lại.');
+                        }
+                    });
+                }
+            });
+
+        });
+    </script>
+}
