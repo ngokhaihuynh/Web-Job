@@ -31,13 +31,12 @@
 
                     <div class="job-inf">
                         @*<div class="job-main-skill">
-                            <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> Java</a>
-                        </div>*@
+                                <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> Java</a>
+                            </div>*@
                         <div class="job-salary">
                             <i class="fa fa-money" aria-hidden="true"></i>
                             <span>@item.Salary.SalaryRange</span>
-                            @*<span class="salary-min">@item.Salary.SalaryMin<em class="salary-unit"></em></span>
-                            <span class="salary-max">@item.Salary.SalaryMax <em class="salary-unit">triệu</em></span>*@
+
                         </div>
                         <div class="job-deadline">
                             <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>@item.EndDate.ToString("dd/MM/yyyy")</strong></span>
@@ -53,4 +52,25 @@
         </div>
 
     }
+}
+@section scripts {
+    <script>
+        function loadUrgentJobs() {
+            $.ajax({
+                url: '/employer/jobs/Partial_JobNow', 
+                type: 'GET',
+                success: function (data) {
+                    $('#urgent-jobs-container').html(data); // Cập nhật nội dung danh sách công việc
+                },
+                error: function () {
+                    console.error("Không thể tải danh sách công việc.");
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            loadUrgentJobs(); // Gọi lần đầu tiên khi trang được tải
+            setInterval(loadUrgentJobs, 12000); // Cập nhật mỗi 2 phút 
+        });
+    </script>
 }

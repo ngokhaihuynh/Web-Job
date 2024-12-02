@@ -1,22 +1,18 @@
-﻿@model IEnumerable<WebJob.Models.EF.Company>
+﻿@model IEnumerable<WebJob.Models.EF.CompanyImage>
+
 <div class="row">
-    @foreach (var company in Model)
+    @foreach (var image in Model)
     {
-        var strImge = "";
-        var img = company.CompanyImages.FirstOrDefault(x => x.IsDefault);
-        if (img != null)
-        {
-            strImge = img.ImageURL;
-        }
         <div class="col-md-3 col-sm-6 col-12 top-employer-wrap">
             <div class="top-employer-item">
                 <a href="#">
                     <div class="emp-img-thumb">
-                        <img src="@strImge">
+                        <img src="@image.ImageURL" alt="Logo của @image.Company.CompanyName">
                     </div>
-                    <h3 class="company">@company.CompanyName</h3>
+                    <h3 class="company">@image.Company.CompanyName</h3>
                 </a>
             </div>
         </div>
     }
+    
 </div>

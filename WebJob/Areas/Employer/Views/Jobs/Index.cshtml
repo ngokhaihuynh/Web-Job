@@ -11,7 +11,7 @@
     <div class="container search-wrapper">
         <div class="row">
 
-          
+
 
             <!-- Content Header (Page header) -->
             <section class="content-header">
@@ -44,12 +44,12 @@
                                 {
                                     strImge = img.ImageURL;
                                 }
-                                <div class="job pagi">
-                                    <div class="job-content">
+                                <div class="job pagi" >
+                                    <div class="job-content" id="trow_@item.JobID">
                                         <div class="job-logo">
                                             @*<a href="#">
-                                            <span>@i</span>
-                                        </a>*@
+                                                    <span>@i</span>
+                                                </a>*@
                                             <a href="/chi-tiet/@item.Alias-p@(item.JobID)">
                                                 <img src="@strImge" class="job-logo-ima" alt="job-logo">
                                             </a>
@@ -57,7 +57,7 @@
 
                                         <div class="job-desc">
                                             <div class="job-title">
-                                                <a href="#">@item.JobTitle</a>
+                                                <a href="/chi-tiet/@item.Alias-p@(item.JobID)">@item.JobTitle</a>
                                             </div>
                                             <div class="job-company">
                                                 <!-- Kiểm tra EndDate trước khi gọi ToString -->
@@ -71,11 +71,12 @@
                                         </div>
                                         <div class="wrap-btn-appl">
                                             <a href="/Employer/Jobs/Edit/@item.JobID" class="btn btn-appl">Chỉnh sửa</a>
-                                            <a href="#" class="btn btn-danger">Xóa</a>
+                                            <a href="#" data-id="@item.JobID" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                                         </div>
                                     </div>
                                 </div>
                                 @*  i++;*@ <!-- Tăng giá trị của i sau mỗi vòng lặp -->
+                    
                             }
                         }
 
@@ -94,6 +95,47 @@
         </div>
     </div>
 </div>
+
+
+@section scripts {
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+
+        
+
+
+           
+            // xóa 1 đối tượng
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id"); // Lấy ID của công việc cần xóa
+                var conf = confirm('Bạn có chắc chắn muốn xóa công việc này?'); 
+                if (conf === true) {
+                    $.ajax({
+                        url: '/employer/jobs/delete',
+                        type: 'POST',                 
+                        data: { id: id },             
+                        success: function (rs) {
+
+                            if (rs.success) {
+                                //// Nếu xóa thành công
+                                //alert(rs.message);
+                                $('#trow_' + id).remove();
+                                location.reload();
+                            }
+                        }
+                    });
+                }
+            });
+
+
+            
+            
+        });
+    </script>
+
+}
+
 
 <style>
     span.salary-min::after {

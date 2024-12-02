@@ -109,13 +109,26 @@ namespace WebJob.Controllers
 
 
         // load Việc tuyển gấp
+        /*  public ActionResult Partial_JobNow()
+          {
+              var items = db.Jobs
+                  .Where(x => x.IsActive && x.IsNow)
+                  .GroupBy(x => x.Company.CompanyName) // Nhóm theo tên công ty
+                  .Select(g => g.FirstOrDefault())    // Lấy công việc đầu tiên trong mỗi nhóm
+                  .Take(7)                           // Lấy tối đa 10 công việc
+                  .ToList();
+
+              return PartialView(items);
+          }
+  */
         public ActionResult Partial_JobNow()
         {
             var items = db.Jobs
                 .Where(x => x.IsActive && x.IsNow)
                 .GroupBy(x => x.Company.CompanyName) // Nhóm theo tên công ty
-                .Select(g => g.FirstOrDefault())    // Lấy công việc đầu tiên trong mỗi nhóm
-                .Take(10)                           // Lấy tối đa 10 công việc
+                .Select(g => g.OrderBy(_ => Guid.NewGuid()).FirstOrDefault()) // Lấy công việc ngẫu nhiên trong nhóm
+                .OrderBy(_ => Guid.NewGuid()) // Sắp xếp ngẫu nhiên các nhóm
+                .Take(7) // Lấy tối đa 7 công việc
                 .ToList();
 
             return PartialView(items);
@@ -134,7 +147,7 @@ namespace WebJob.Controllers
 
             return PartialView(items); // Trả về PartialView với danh sách công việc
         }
-        public ActionResult Partial_CompanyLogos()
+    /*    public ActionResult Partial_CompanyLogos()
         {
             var companies = db.Companies
                               .GroupBy(c => c.CompanyName) // Nhóm theo tên công ty
@@ -142,7 +155,35 @@ namespace WebJob.Controllers
                               .Take(8)
                               .ToList();
             return PartialView(companies);
+        }*/
+
+        public ActionResult Partial_CompanyLogos()
+        {
+            var companies = db.CompanyImages
+                              .Where(x => x.IsDefault)
+                              .GroupBy(c => c.Company.CompanyName) // Nhóm theo tên công ty
+                              .Select(g => g.FirstOrDefault())// Lấy công ty đầu tiên trong nhóm
+                              .Take(8)
+                              .ToList();
+            return PartialView(companies);
         }
+
+
+        /* public ActionResult Partial_CompanyLogos()
+         {
+             // Lấy danh sách các ảnh theo công ty
+             var companies = db.CompanyImages
+                                   .Where(img => img.IsDefault) // Chỉ lấy ảnh mặc định
+                                   .GroupBy(img => img.Company.CompanyName) // Nhóm theo tên công ty
+                                   .Select(g => g.FirstOrDefault()) // Chọn ảnh đầu tiên trong mỗi nhóm
+                                   .Take(8) // Giới hạn 8 kết quả
+                                   .ToList();
+
+
+             return PartialView(companies);
+         }*/
+
+
         public ActionResult Partial_HighSalaryJobs()
         {
             // Lọc các công việc có mức lương > 10 triệu (10,000,000)
