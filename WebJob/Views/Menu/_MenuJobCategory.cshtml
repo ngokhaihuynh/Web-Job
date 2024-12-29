@@ -3,21 +3,22 @@
 @if (Model != null && Model.Any())
 {
 
-<ul>
-    @foreach (var item in Model)
-    {
-        var activeJobCount = item.Jobs.Count(j => j.IsActive);
-        <li>
-            <a href="@item.Alias-@item.JobCategoryID">
-                <span class="cate-img">
-                    <em>@item.CategoryName</em>
-                </span>
-                <span class="cate-count">@activeJobCount</span>
-            </a>
-        </li>
-    
-    }
+    <ul>
+        @foreach (var item in Model)
+        {
+            var activeJobCount = item.Jobs.Count(j => j.IsActive);
+            <li>
+                <a href="@item.Alias-@item.JobCategoryID">
+                    <span class="cate-img">
+                        <em>@item.CategoryName</em>
+                    </span>
+                    <span class="cate-count">@activeJobCount</span>
+                </a>
+            </li>
+            
+        }
 
-
-</ul>
+        
+    </ul>
 }
+

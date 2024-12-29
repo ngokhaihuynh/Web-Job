@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 using System.Web.Mvc;
+using Microsoft.AspNet.SignalR;
 
 [assembly: OwinStartupAttribute(typeof(WebJob.Startup))]
 namespace WebJob
@@ -10,9 +11,7 @@ namespace WebJob
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            app.MapSignalR();
         }
-
     }
-
-
 }

@@ -97,7 +97,7 @@ namespace WebJob.Areas.Employer.Controllers
             // Lấy công việc theo JobID và UserId (nếu cần)
             var job = db.Jobs
                         .Include("JobApplications.Applicant")
-                        .FirstOrDefault(j => j.JobID == jobId && j.UserId == userId); // Kiểm tra UserId
+                        .FirstOrDefault(j => j.JobID == jobId && j.UserId == userId); 
 
             if (job == null || job.EndDate < DateTime.Now) // Kiểm tra nếu công việc đã hết hạn hoặc không tồn tại
             {
@@ -109,13 +109,13 @@ namespace WebJob.Areas.Employer.Controllers
                                                 .OrderByDescending(a => a.CreatedDate)
                                                 .ToList();
 
-            // Phân trang cho danh sách ứng viên
+            // Phân trang
             var pageNumber = page ?? 1;
             var pageSize = 8;
             ViewBag.PageSize = pageSize;
             ViewBag.Page = pageNumber;
 
-            // Truyền danh sách công việc vào ViewBag
+            
             ViewBag.UniqueJobs = db.Jobs.Where(j => j.UserId == userId && j.EndDate >= DateTime.Now).ToList();
 
             // Truyền thông tin công việc hiện tại vào ViewBag
@@ -153,7 +153,7 @@ namespace WebJob.Areas.Employer.Controllers
 
             if (applicant != null)
             {
-                // Cập nhật nhận xét
+                
                 applicant.FeebBack = feedback;
                 db.SaveChanges();
             }

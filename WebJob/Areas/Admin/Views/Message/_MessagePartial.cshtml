@@ -1,0 +1,6 @@
+﻿@using WebJob.Helpers
+<p class="message @((Model.SenderID == User.GetUserId()) ? "sent" : "received")">
+    <span style="font-weight:bold">@Model.Content</span> <br />
+    <small>@Model.Timestamp</small>
+</p>
+

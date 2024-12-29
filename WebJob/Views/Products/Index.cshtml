@@ -1,14 +1,11 @@
-﻿@model IEnumerable<WebJob.Models.EF.Product>
-@using WebJob.Models.EF
-@using System.Collections.Generic
-
+﻿@using PagedList.Mvc
+@using PagedList
+@model IPagedList<WebJob.Models.EF.Product>
 
 @{
     ViewBag.Title = "Các gói";
     Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
 }
-
-
 
 <div class="container-fluid">
     <div class="container search-wrapper">
@@ -17,8 +14,7 @@
                 <a id="click_advance" class="btn btn-c-filter" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
                     <i class="pr-2 fa fa-times" id="icon-s-sw" aria-hidden="true"></i>Filter &amp; Refind
                 </a>
-
-                <div class="collapse show" id="collapseExample" style="">
+                <div class="collapse show" id="collapseExample">
                     <div class="card card-body bg-card-body-filter">
                         <div class="filter-bar">
                             <div class="filter-form">
@@ -29,76 +25,82 @@
                                             <i class="fa fa-angle-up" aria-hidden="true"></i>
                                         </a>
                                     </p>
-
-                                    @* danh muc *@
+                                    @* Hiển thị menu danh mục sản phẩm *@
                                     @Html.Action("MenuProductLeft", "Menu")
-
-
                                 </div>
-
                             </div>
                         </div> <!-- filter bar -->
-                        <script type="text/javascript">
-                            window.onload = function () { screenCollapse() };
-
-                            let ele = document.getElementsByClassName("collapse");
-
-                            function screenCollapse() {
-                                if (window.innerWidth < 720) {
-                                    $(".collapse").removeClass("show");
-                                    $(".collapse").addClass("hide");
-                                }
-                            }
-                        </script>
                     </div>
                 </div> <!-- ./ collapse -->
             </div>
+
             <div class="col-md-9 col-sm-12 col-12">
                 <h4 class="search-find">Tìm thấy các gói</h4>
                 <div class="job-board-wrap">
                     <div class="job-group">
-                        @*SAN PHAM 1*@
-                        @Html.Action("View_itemsByCatePdId", "Products")
-        
-                       
+                        @* Hiển thị sản phẩm *@
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                var strImage = "";
+                                var img = item.ProductImages.FirstOrDefault(x => x.IsDefault);
+                                if (img != null)
+                                {
+                                    strImage = img.Image;
+                                }
+
+                                <div class="job pagi @item.CategoryProduct.Alias">
+                                    <div class="job-content">
+                                        <div class="job-logo">
+                                            <a href="#">
+                                                <img src="@strImage" class="job-logo-ima" alt="job-logo">
+                                            </a>
+                                        </div>
+                                        <div class="job-desc">
+                                            <div class="job-title">
+                                                <a href="/chi-tiet-goi/@item.Alias-p@(item.ProductID)">@item.Title</a>
+                                            </div>
+                                            <div class="job-inf">
+                                                <div class="job-salary">
+                                                    <i class="fa fa-money" aria-hidden="true"></i>
+                                                    @if (item.PriceSale.HasValue && item.PriceSale > 0)
+                                                    {
+                                                        <span style="color:red" class="salary-min">@item.PriceSale.Value.ToString("N0")</span>
+                                                        <span>-</span>
+                                                        <span style="text-decoration:line-through" class="salary">@item.Price.ToString("N0")</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="salary-min">@item.Price.ToString("N0")</span>
+                                                    }
+                                                </div>
+                                                <div class="job-deadline">
+                                                    <span><i class="fa fa-clock-o" aria-hidden="true"></i> <strong>@item.CategoryProduct.Title</strong></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrap-btn-appl">
+                                            <a href="#" data-id="@item.ProductID" class="btn btn-appl btnBuyNow">Mua ngay</a>
+                                            <a href="#" data-id="@item.ProductID" class="btn btn-danger btnAddToCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            <!-- Phân trang -->
+                            <div class="pagination-wrapper">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { id = ViewBag.CategoryId, page }))
+                            </div>
+                        }
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
 </div>
+
 <style>
-    .product-item {
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 10px;
-        text-align: center;
-        transition: transform 0.3s ease;
-    }
-
-        .product-item img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 10px;
-        }
-
-        .product-item h5 {
-            font-size: 1.2rem;
-            margin: 10px 0;
-            color: #333;
-        }
-
-        .product-item p {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .product-item:hover {
-            transform: scale(1.05);
-        }
-
     .pagination-wrapper {
         margin-top: 20px;
     }
@@ -114,8 +116,7 @@
             margin: 0 5px;
         }
 
-            .pagination li a,
-            .pagination li span {
+            .pagination li a, .pagination li span {
                 color: #007bff;
                 text-decoration: none;
                 padding: 8px 12px;
@@ -124,10 +125,31 @@
                 transition: all 0.3s ease;
             }
 
-                .pagination li a:hover,
-                .pagination li.active span {
+                .pagination li a:hover, .pagination li.active span {
                     background-color: #007bff;
                     color: white;
                     border-color: #007bff;
                 }
 </style>
+<script>
+    $(document).ready(function () {
+        $('.btnBuyNow').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+
+            $.ajax({
+                url: '/ShoppingCart/BuyNow',
+                type: 'POST',
+                data: { id: id },
+                success: function () {
+                    window.location.href = '/ShoppingCart/CheckOut';  // Chuyển sang trang thanh toán
+                },
+                error: function () {
+                    alert("Không thể kết nối với server");
+                }
+            });
+        });
+    });
+
+
+</script>

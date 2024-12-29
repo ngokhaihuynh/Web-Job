@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,11 +55,23 @@ namespace WebJob.Areas.Admin.Controllers
 
 
         // GET: Admin/Account
-        public ActionResult Index()
+        public ActionResult Index(int? page, string searchTerm)
         {
-            var items = db.Users.ToList();
+            int pageSize = 5; // Số bản ghi mỗi trang
+            int pageNumber = (page ?? 1); // Trang hiện tại, mặc định là 1
+
+            // Lọc các tài khoản theo tên người dùng
+            var items = db.Users.OrderBy(u => u.UserName)
+                                .Where(u => string.IsNullOrEmpty(searchTerm) || u.UserName.Contains(searchTerm))
+                                .ToPagedList(pageNumber, pageSize);
+
+            ViewBag.SearchTerm = searchTerm; // Đưa từ khoá tìm kiếm vào ViewBag để giữ lại trong form
+
             return View(items);
         }
+
+
+
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)

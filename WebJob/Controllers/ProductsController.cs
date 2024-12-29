@@ -14,17 +14,26 @@ namespace WebJob.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Jobs
-        public ActionResult Index(int? id)
+        // Phương thức Index để hiển thị danh sách sản phẩm
+        public ActionResult Index(int? id, int page = 1)
         {
-            var items = db.products.ToList();
+            var products = db.products.AsQueryable();
+
+            // Lọc sản phẩm theo danh mục nếu có id
             if (id != null)
             {
-                items = items.Where(x => x.CateProId == id).ToList();
+                products = products.Where(x => x.CateProId == id);
             }
-            return View(items);
+
+            // Chuyển đổi thành IPagedList với số lượng sản phẩm trên mỗi trang (3 sản phẩm/trang)
+            var pagedProducts = products.OrderBy(x => x.ProductID).ToPagedList(page, 3);
+
+            // Truyền dữ liệu vào View
+            ViewBag.CategoryId = id;  // Để giữ lại giá trị danh mục đã chọn khi phân trang
+            return View(pagedProducts);
         }
 
-    
+
         public ActionResult DetailProduct(string alias, int id)
         {
 

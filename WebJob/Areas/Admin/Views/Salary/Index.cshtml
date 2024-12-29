@@ -1,4 +1,6 @@
-﻿@model  IEnumerable<WebJob.Models.EF.Salary>
+﻿@model IPagedList<WebJob.Models.EF.Salary>
+@using PagedList.Mvc;
+@using PagedList;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -71,7 +73,7 @@
                                 <td>@item.SalaryMax</td>
                                 <td>
                                 <td>
-                                    <a href="/admin/salary/edit/@item.SalaryID" class="btn btn-sm btn-primary">Sửa</a>
+                                    @*<a href="/admin/salary/edit/@item.SalaryID" class="btn btn-sm btn-primary">Sửa</a>*@
                                     <a href="#" data-id="@item.SalaryID" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                                 </td>
                             </tr>
@@ -87,7 +89,12 @@
                     }
                 </tbody>
             </table>
-
+            <!-- Phân trang -->
+            <div class="row">
+                <div class="col-12">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

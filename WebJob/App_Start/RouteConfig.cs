@@ -80,6 +80,8 @@ namespace WebJob
                 namespaces: new[] { "WebJob.Controllers" }
             );
 
+           
+
             routes.MapRoute(
              name: "vnpay_return",
              url: "vnpay_return",

@@ -1,0 +1,12 @@
+﻿@model string
+
+<div class="feedback-item">
+    @if (Model != null && !string.IsNullOrEmpty(Model))
+    {
+        <p><strong><i class="fa-solid fa-comments"></i> Nhận xét:</strong> @Model</p>
+    }
+    else
+    {
+        <p>Chưa có nhận xét nào cho công việc này.</p>
+    }
+</div>

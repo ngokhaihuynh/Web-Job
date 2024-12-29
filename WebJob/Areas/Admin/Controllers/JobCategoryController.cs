@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -14,9 +15,11 @@ namespace WebJob.Areas.Admin.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Admin/JobCategory
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
-            var items = db.JobCategories;
+            var items = db.JobCategories.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            ViewBag.Page = page;
+            ViewBag.PageSize = pageSize;
             return View(items);
         }
 

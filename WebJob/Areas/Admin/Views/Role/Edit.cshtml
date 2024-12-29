@@ -1,10 +1,9 @@
 ﻿@using Microsoft.AspNet.Identity.EntityFramework
 @model IdentityRole
 @{
-    ViewBag.Title = "Thêm mới quyền";
+    ViewBag.Title = "Chỉnh sửa quyền";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 
 @section naviheader{
     <!-- Left navbar links -->
@@ -16,21 +15,22 @@
             <a href="/admin/home" class="nav-link">Trang chủ</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/category" class="nav-link">@ViewBag.Title</a>
+            <a href="/admin/role" class="nav-link">@ViewBag.Title</a>
         </li>
-    </ul>}
+    </ul>
+}
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Quản lý danh mục</h1>
+                <h1>Chỉnh sửa quyền</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Danh mục</li>
+                    <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
+                    <li class="breadcrumb-item active">Chỉnh sửa quyền</li>
                 </ol>
             </div>
         </div>
@@ -39,37 +39,28 @@
 
 <!-- Main content -->
 <section class="content">
-
-    <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Thêm mới quyền</h3>
+            <h3 class="card-title">Chỉnh sửa quyền</h3>
         </div>
         <div class="card-body">
 
-            @using (Html.BeginForm("Create", "Role", FormMethod.Post))
+            @using (Html.BeginForm("Edit", "Role", FormMethod.Post))
             {
                 @Html.ValidationSummary(false)
                 @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(x => x.Id) <!-- Hidden field để giữ giá trị Id -->
 
                 <div class="form-group">
                     <label>Tên quyền</label>
                     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Thêm mới</button>
+                    <button type="submit" class="btn btn-success">Lưu thay đổi</button>
                 </div>
             }
 
         </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-
-        </div>
-        <!-- /.card-footer-->
     </div>
-    <!-- /.card -->
-
 </section>
-<!-- /.content -->
-

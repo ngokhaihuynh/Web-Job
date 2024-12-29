@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -12,11 +13,17 @@ namespace WebJob.Areas.Admin.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Salary/Index
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var salaries = db.Salaries.ToList();
+            int pageSize = 5; // Số bản ghi mỗi trang
+            int pageNumber = (page ?? 1); // Trang hiện tại, mặc định là 1
+
+            // Lấy dữ liệu từ cơ sở dữ liệu và phân trang
+            var salaries = db.Salaries.OrderBy(s => s.SalaryID).ToPagedList(pageNumber, pageSize);
+
             return View(salaries);
         }
+
 
         // GET: Salary/Create
         public ActionResult Create()

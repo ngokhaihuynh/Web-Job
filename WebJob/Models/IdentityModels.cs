@@ -58,6 +58,8 @@ namespace WebJob.Models
         public DbSet<OrderDetail> orderDetails { get; set; }
         public DbSet<ProductImage> productImages { get; set; }
         public DbSet<ThongKe> thongKes { get; set; }
+        public DbSet<Message> message { get; set; }
+        public DbSet<Conversation> conversations { get; set; }
         public DbSet<EmployerVerification> employerVerifications { get; set; }
 
         

@@ -772,3 +772,533 @@ D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.cache
 D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.CopyComplete
 D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.dll
 D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.pdb
+D:\Jobs\WebJobcp2\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
+D:\Jobs\WebJobcp2update\WebJob\bin\WebJob.dll.config
+D:\Jobs\WebJobcp2update\WebJob\bin\WebJob.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\WebJob.pdb
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\csc.exe
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\csc.exe.config
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\csc.rsp
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\csi.exe
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\csi.exe.config
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\csi.rsp
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.AppContext.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Collections.Immutable.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Console.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Globalization.Calendars.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.IO.Compression.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.IO.FileSystem.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Net.Http.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Net.Sockets.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Reflection.Metadata.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.ValueTuple.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Xml.XPath.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\vbc.exe
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\vbc.exe.config
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\vbc.rsp
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\VBCSCompiler.exe
+D:\Jobs\WebJobcp2update\WebJob\bin\roslyn\VBCSCompiler.exe.config
+D:\Jobs\WebJobcp2update\WebJob\bin\Antlr3.Runtime.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\CKFinder.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Dapper.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\EntityFramework.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\EntityFramework.SqlServer.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.Google.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Web.Infrastructure.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Newtonsoft.Json.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Owin.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\PagedList.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\PagedList.Mvc.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.Helpers.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.Mvc.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.Optimization.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.Razor.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.WebPages.Deployment.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.WebPages.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.WebPages.Razor.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\WebGrease.dll
+D:\Jobs\WebJobcp2update\WebJob\bin\Antlr3.Runtime.pdb
+D:\Jobs\WebJobcp2update\WebJob\bin\CKFinder.pdb
+D:\Jobs\WebJobcp2update\WebJob\bin\Dapper.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\EntityFramework.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\EntityFramework.SqlServer.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.Google.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\Newtonsoft.Json.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\PagedList.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\PagedList.Mvc.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.Helpers.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.Mvc.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.Optimization.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.Razor.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.WebPages.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.WebPages.Deployment.xml
+D:\Jobs\WebJobcp2update\WebJob\bin\System.Web.WebPages.Razor.xml
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.Migrations.createdatebase.resources
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.Migrations.updateTime.resources
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.Migrations.addIduser1.resources
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.Migrations.adduserid.resources
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.Migrations.deletequantityu.resources
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.Migrations.addOriginalprice.resources
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.Migrations.adđcreadateUser.resources
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.csproj.GenerateResource.cache
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.cache
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.csproj.Up2Date
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.dll
+D:\Jobs\WebJobcp2update\WebJob\obj\Debug\WebJob.pdb
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\WebJob.dll.config
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\WebJob.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\WebJob.pdb
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\csc.exe
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\csc.exe.config
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\csc.rsp
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\csi.exe
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\csi.exe.config
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\csi.rsp
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.Managed.Core.targets
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\Microsoft.Win32.Primitives.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.AppContext.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Collections.Immutable.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Console.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Globalization.Calendars.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.IO.Compression.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.IO.Compression.ZipFile.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.IO.FileSystem.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Net.Http.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Net.Sockets.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Reflection.Metadata.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.ValueTuple.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Xml.XmlDocument.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Xml.XPath.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\vbc.exe
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\vbc.exe.config
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\vbc.rsp
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\VBCSCompiler.exe
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\roslyn\VBCSCompiler.exe.config
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Antlr3.Runtime.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\CKFinder.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Dapper.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\EntityFramework.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\EntityFramework.SqlServer.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.Identity.Core.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.Cookies.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.Facebook.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.Google.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.OAuth.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.Twitter.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Web.Infrastructure.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Newtonsoft.Json.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Owin.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\PagedList.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\PagedList.Mvc.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.Helpers.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.Mvc.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.Optimization.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.Razor.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.WebPages.Deployment.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.WebPages.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.WebPages.Razor.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\WebGrease.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Antlr3.Runtime.pdb
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\CKFinder.pdb
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Dapper.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\EntityFramework.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\EntityFramework.SqlServer.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.Identity.Core.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.Cookies.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.Facebook.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.Google.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.OAuth.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.Owin.Security.Twitter.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Newtonsoft.Json.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\PagedList.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\PagedList.Mvc.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.Helpers.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.Mvc.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.Optimization.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.Razor.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.WebPages.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.WebPages.Deployment.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\System.Web.WebPages.Razor.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.createdatebase.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.updateTime.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.addIduser1.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.adduserid.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.deletequantityu.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.addOriginalprice.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.adđcreadateUser.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.csproj.GenerateResource.cache
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.cache
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.csproj.CopyComplete
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.pdb
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.SignalR.Core.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.SignalR.Core.pdb
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.SignalR.Core.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+G:\Jobs\WebJobcp2update - Copy\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.mess.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.messcon.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateDatabase.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.UpdateDatabase1.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.Migrations.updateAdminId.resources
+G:\Jobs\WebJobcp2update - Copy\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
+G:\WebJobcp2Willdemo\WebJob\bin\WebJob.dll.config
+G:\WebJobcp2Willdemo\WebJob\bin\WebJob.dll
+G:\WebJobcp2Willdemo\WebJob\bin\WebJob.pdb
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\csc.exe
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\csc.exe.config
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\csc.rsp
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\csi.exe
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\csi.exe.config
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\csi.rsp
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.Managed.Core.targets
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\Microsoft.Win32.Primitives.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.AppContext.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Collections.Immutable.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Console.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Globalization.Calendars.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.IO.Compression.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.IO.Compression.ZipFile.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.IO.FileSystem.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Net.Http.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Net.Sockets.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Reflection.Metadata.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.ValueTuple.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Xml.XmlDocument.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Xml.XPath.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\vbc.exe
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\vbc.exe.config
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\vbc.rsp
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\VBCSCompiler.exe
+G:\WebJobcp2Willdemo\WebJob\bin\roslyn\VBCSCompiler.exe.config
+G:\WebJobcp2Willdemo\WebJob\bin\Antlr3.Runtime.dll
+G:\WebJobcp2Willdemo\WebJob\bin\CKFinder.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Dapper.dll
+G:\WebJobcp2Willdemo\WebJob\bin\EntityFramework.dll
+G:\WebJobcp2Willdemo\WebJob\bin\EntityFramework.SqlServer.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.Identity.Core.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.SignalR.Core.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.Cookies.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.Facebook.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.Google.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.OAuth.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.Twitter.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Web.Infrastructure.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Newtonsoft.Json.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Owin.dll
+G:\WebJobcp2Willdemo\WebJob\bin\PagedList.dll
+G:\WebJobcp2Willdemo\WebJob\bin\PagedList.Mvc.dll
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.Helpers.dll
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.Mvc.dll
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.Optimization.dll
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.Razor.dll
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.WebPages.Deployment.dll
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.WebPages.dll
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.WebPages.Razor.dll
+G:\WebJobcp2Willdemo\WebJob\bin\WebGrease.dll
+G:\WebJobcp2Willdemo\WebJob\bin\Antlr3.Runtime.pdb
+G:\WebJobcp2Willdemo\WebJob\bin\CKFinder.pdb
+G:\WebJobcp2Willdemo\WebJob\bin\Dapper.xml
+G:\WebJobcp2Willdemo\WebJob\bin\EntityFramework.xml
+G:\WebJobcp2Willdemo\WebJob\bin\EntityFramework.SqlServer.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.Identity.Core.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.SignalR.Core.pdb
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.SignalR.Core.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.Cookies.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.Facebook.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.Google.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.OAuth.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Microsoft.Owin.Security.Twitter.xml
+G:\WebJobcp2Willdemo\WebJob\bin\Newtonsoft.Json.xml
+G:\WebJobcp2Willdemo\WebJob\bin\PagedList.xml
+G:\WebJobcp2Willdemo\WebJob\bin\PagedList.Mvc.xml
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.Helpers.xml
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.Mvc.xml
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.Optimization.xml
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.Razor.xml
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.WebPages.xml
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.WebPages.Deployment.xml
+G:\WebJobcp2Willdemo\WebJob\bin\System.Web.WebPages.Razor.xml
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.createdatebase.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.updateTime.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.addIduser1.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.adduserid.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.deletequantityu.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.addOriginalprice.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.adđcreadateUser.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.mess.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.messcon.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.UpdateDatabase.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.UpdateDatabase1.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.Migrations.updateAdminId.resources
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.csproj.GenerateResource.cache
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.cache
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.csproj.CopyComplete
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.dll
+G:\WebJobcp2Willdemo\WebJob\obj\Debug\WebJob.pdb
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\WebJob.dll.config
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\WebJob.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\WebJob.pdb
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\csc.exe
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\csc.exe.config
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\csc.rsp
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\csi.exe
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\csi.exe.config
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\csi.rsp
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.Managed.Core.targets
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\Microsoft.Win32.Primitives.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.AppContext.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Collections.Immutable.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Console.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Globalization.Calendars.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.IO.Compression.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.IO.Compression.ZipFile.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.IO.FileSystem.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Net.Http.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Net.Sockets.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Reflection.Metadata.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.ValueTuple.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Xml.XmlDocument.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Xml.XPath.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\vbc.exe
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\vbc.exe.config
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\vbc.rsp
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\VBCSCompiler.exe
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\roslyn\VBCSCompiler.exe.config
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Antlr3.Runtime.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\CKFinder.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Dapper.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\EntityFramework.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\EntityFramework.SqlServer.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.Identity.Core.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.SignalR.Core.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.Cookies.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.Facebook.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.Google.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.OAuth.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.Twitter.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Web.Infrastructure.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Newtonsoft.Json.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Owin.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\PagedList.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\PagedList.Mvc.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.Helpers.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.Mvc.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.Optimization.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.Razor.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.WebPages.Deployment.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.WebPages.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.WebPages.Razor.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\WebGrease.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Antlr3.Runtime.pdb
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\CKFinder.pdb
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Dapper.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\EntityFramework.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\EntityFramework.SqlServer.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.Identity.Core.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.SignalR.Core.pdb
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.SignalR.Core.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.Cookies.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.Facebook.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.Google.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.OAuth.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Microsoft.Owin.Security.Twitter.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\Newtonsoft.Json.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\PagedList.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\PagedList.Mvc.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.Helpers.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.Mvc.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.Optimization.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.Razor.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.WebPages.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.WebPages.Deployment.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\bin\System.Web.WebPages.Razor.xml
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.createdatebase.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.updateTime.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.addIduser1.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.adduserid.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.deletequantityu.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.addOriginalprice.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.adđcreadateUser.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.mess.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.messcon.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.UpdateDatabase.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.UpdateDatabase1.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.Migrations.updateAdminId.resources
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.csproj.GenerateResource.cache
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.csproj.CoreCompileInputs.cache
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.csproj.CopyComplete
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.dll
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.pdb
+G:\WebJobcp2Willdemo-chuan\WebJob\obj\Debug\WebJob.csproj.AssemblyReference.cache

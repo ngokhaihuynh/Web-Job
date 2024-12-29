@@ -65,7 +65,7 @@
                         var i = 1;
                         foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="trow_@item.Id">
                                 <td>@i</td>
                                 <td>@item.Name</td>
                                 <td>
@@ -73,6 +73,7 @@
                                     <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                                 </td>
                             </tr>
+
                         }
 
                     }

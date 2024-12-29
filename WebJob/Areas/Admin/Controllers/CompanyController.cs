@@ -15,7 +15,7 @@ namespace WebJob.Areas.Admin.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Admin/Company
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, string search = null)
         {
             var pageSize = 10;
             if (page == null)
@@ -24,17 +24,34 @@ namespace WebJob.Areas.Admin.Controllers
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
 
-            // Load công ty và kèm theo hình ảnh
-            var items = db.Companies
-                          .OrderByDescending(x => x.CompanyID)
-                          .Include(c => c.CompanyImages) // Kết nối bảng hình ảnh công ty
-                          .ToPagedList(pageIndex, pageSize);
+            // Truy vấn dữ liệu
+            var companiesQuery = db.Companies
+                                   .Include(c => c.CompanyImages) // Kết nối bảng hình ảnh công ty
+                                   .AsQueryable();
+
+            // Lọc theo từ khóa tìm kiếm nếu có
+            if (!string.IsNullOrEmpty(search))
+            {
+                companiesQuery = companiesQuery.Where(c => c.CompanyName.Contains(search));
+            }
+
+            // Loại bỏ tên công ty trùng lặp
+            var filteredCompanies = companiesQuery
+                                    .GroupBy(c => c.CompanyName)
+                                    .Select(g => g.FirstOrDefault())
+                                    .OrderByDescending(c => c.CompanyID);
+
+            // Phân trang
+            var items = filteredCompanies.ToPagedList(pageIndex, pageSize);
 
             ViewBag.PageSize = pageSize;
             ViewBag.Page = page;
+            ViewBag.Search = search; // Lưu từ khóa tìm kiếm để hiển thị lại trong form
 
             return View(items);
         }
+
+
 
         public ActionResult Add()
         {

@@ -17,7 +17,7 @@ namespace WebJob.Areas.Admin.Controllers
         public ActionResult Index(int? page)
         {
             // Số lượng bản ghi trên mỗi trang
-            int pageSize = 8;
+            int pageSize = 5;
 
             // Trang hiện tại (mặc định là 1)
             int pageNumber = page ?? 1;

@@ -20,69 +20,14 @@
             </ul>
             <div class="tab-content search-tab-content" id="myTabContent">
                 <!-- content tab 1 -->
-                <div class="tab-pane stab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <form class="bn-search-form">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-12">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="input-group s-input-group">
-                                            <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                            <span><i class="fa fa-search"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select id="computer-languages">
-                                            <option value="" selected hidden>Tất cả ngôn ngữ</option>
-                                            <option>Java</option>
-                                            <option>.NET</option>
-                                            <option>Javascript</option>
-                                            <option>Php</option>
-                                            <option>Python</option>
-                                            <option>QC QC</option>
-                                            <option>Business Analyst</option>
-                                            <option>Tester</option>
-                                            <option>Ruby</option>
-                                        </select>
-                                        <i class="fa fa-code sfa" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select id="s-provinces">
-                                            <option value="" selected hidden>Tất cả địa điểm</option>
-                                            <option>Đà Nẵng</option>
-                                            <option>Hà Nội</option>
-                                            <option>Hồ Chí Minh</option>
-                                            <option>Buôn Ma Thuột</option>
-                                            <option>Quy Nhơn</option>
-                                            <option>Nha Trang</option>
-                                        </select>
-                                        <i class="fa fa-map-marker sfa" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="tab-content search-tab-content" id="myTabContent">
+                    <!-- content tab 1 -->
+                    @*Search*@
+                    @Html.Action("SearchView", "Search")
+
+                    <!-- (end) content tab 2 -->
                 </div>
                 <!-- (end) content tab 1 -->
-                <!-- content tab 2 -->
-                <div class="tab-pane stab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <form class="bn-search-form">
-                        <div class="row">
-                            <div class="col-md-10 col-sm-12">
-                                <div class="input-group s-input-group w-100">
-                                    <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
-                                    <span><i class="fa fa-search"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-search col-sm-12">Tìm kiếm</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 <!-- (end) content tab 2 -->
             </div>
 
@@ -115,142 +60,17 @@
                                     @* Danh sach nganh nghe *@
                                     @Html.Action("MenuJobLeft", "Menu", new { id = ViewBag.CateId })
 
-                                    <p>
-                                        <a id="clickc2_advance" class="btnf btn-filter" data-toggle="collapse" href="#filter-price" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            Mức Lương
-                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
-                                        </a>
-                                    </p>
-                                    <div class="collapse show" id="filter-price">
-                                        <div class="card o-card card-body">
-                                            <div class="filter-panel">
-                                                <div class="panel-content">
-                                                    <div class="filter-topic filter-input-price">
-                                                        <form class="al-price-filter">
-                                                            <span class="_fpblock">
-                                                                <input type="number" class="if-price" id="" placeholder="50,000">
-                                                            </span>
-                                                            <span class="_fpblock _line">
-                                                                <p>-</p>
-                                                            </span>
-                                                            <span class="_fpblock">
-                                                                <input type="number" class="if-price" id="" placeholder="1,000,000">
-                                                            </span>
-                                                            <span class="_fpblock">
-                                                                <button type="submit" class="sb-fprice"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                                                            </span>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
+                                @* luọt online *@
                                 <div class="filter-form-item">
                                     <p>
                                         <a id="clickc3_advance" class="btnf btn-filter" data-toggle="collapse" href="#filter-video-duration" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            Đánh giá
-                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                            Lượt Online
+
                                         </a>
                                     </p>
-                                    <div class="collapse show" id="filter-video-duration">
-                                        <div class="card o-card card-body">
-                                            <div class="filter-panel">
-                                                <div class="panel-content">
-                                                    <div class="filter-rating">
-                                                        <a href="#">
-                                                            <span class="rating-wrapper">
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                            </span>
-                                                            <span>(từ 5 sao)</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="filter-rating">
-                                                        <a href="#">
-                                                            <span class="rating-wrapper">
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                            </span>
-                                                            <span>(từ 4 sao)</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="filter-rating">
-                                                        <a href="#">
-                                                            <span class="rating-wrapper">
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                            </span>
-                                                            <span>(từ 3 sao)</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        <a id="clickc4_advance" class="btnf btn-filter" data-toggle="collapse" href="#filter-provider" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            Cấp bậc
-                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
-                                        </a>
-                                    </p>
-                                    <div class="collapse show" id="filter-provider">
-                                        <div class="card o-card card-body">
-                                            <div class="filter-panel">
-                                                <div class="panel-content">
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Tất cả cấp bậc</a>
-                                                        <span class="filter-count">2,450</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Thực tập sinh</a>
-                                                        <span class="filter-count">555</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Nhân viên</a>
-                                                        <span class="filter-count">233</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Trưởng nhóm</a>
-                                                        <span class="filter-count">100</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Trưởng phòng</a>
-                                                        <span class="filter-count">99</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Phó giám đốc</a>
-                                                        <span class="filter-count">95</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Giám đốc</a>
-                                                        <span class="filter-count">77</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Tổng giám đốc điều hành</a>
-                                                        <span class="filter-count">50</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Thư kí</a>
-                                                        <span class="filter-count">50</span>
-                                                    </div>
-                                                    <div class="filter-topic cotain-common-filter">
-                                                        <a href="#" class="filter-action">Khác</a>
-                                                        <span class="filter-count">50</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @Html.Action("Refresh", "Home")
                                 </div>
 
                             </div>

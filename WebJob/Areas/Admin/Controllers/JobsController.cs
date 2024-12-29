@@ -18,7 +18,7 @@ namespace WebJob.Areas.Admin.Controllers
         public ActionResult Index(int? page)
         {
             IEnumerable<Job> items = db.Jobs.OrderByDescending(x => x.JobID);
-            var pageSize = 10;
+            var pageSize = 5;
             if (page == null)
             {
                 page = 1;

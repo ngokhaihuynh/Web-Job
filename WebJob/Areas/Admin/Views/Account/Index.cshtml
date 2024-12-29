@@ -1,4 +1,7 @@
-﻿@model IEnumerable<WebJob.Models.ApplicationUser>
+﻿@model IPagedList<WebJob.Models.ApplicationUser>
+@using PagedList.Mvc;
+@using PagedList;
+
 @{
     ViewBag.Title = "Quản lý tài khoản";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -47,16 +50,23 @@
                 <a href="/admin/account/create" class="btn btn-primary">Thêm mới</a>
             </div>
         </div>
+        
         <div class="card-body">
-
-            <table class="table table-bordered">
+            <!-- Tìm kiếm -->
+            <div class="search-container col-md-12">
+                <form style="display:flex"  method="get" action="@Url.Action("Index")">
+                    <input type="text" name="searchTerm" value="@ViewBag.SearchTerm" placeholder="Tìm kiếm theo tên tài khoản" class="form-control col-md-10" />
+                    <button style="margin-left:10px" type="submit" class="btn btn-primary">Tìm kiếm</button>
+                </form>
+            </div>
+            <table style="margin-top:10px" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Tên đăng nhập</th>
                         <th>Họ tên</th>
                         <th>Email</th>
-                        <th>Hành động</th>                     
+                        <th>Hành động</th>
                     </tr>
                 </thead>
 
@@ -67,23 +77,26 @@
                         foreach (var item in Model)
                         {
                             <tr>
-                                <td>@i</td>
+                                <td>@i</td> <!-- Hiển thị số thứ tự -->
                                 <td>@item.UserName</td>
                                 <td>@item.FullName</td>
                                 <td>@item.Email</td>
                                 <td>
                                     @*<a href="admin/account/edit/@item.UserName" class="btn btn-sm btn-primary">Sửa</a>*@
                                     <a href="#" data-user="@item.Id" class="btn btn-sm btn-danger btnDelete">Xoá</a>
-
                                 </td>
-                                
                             </tr>
+                            i++; <!-- Tăng giá trị của i sau mỗi lần lặp -->
                         }
-
                     }
+
                 </tbody>
             </table>
-
+            <div class="row">
+                <div class="col-12">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

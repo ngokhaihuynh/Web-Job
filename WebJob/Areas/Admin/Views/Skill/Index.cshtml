@@ -63,11 +63,12 @@
                 <tbody>
                     @if (Model.Any())
                     {
-
+                        var index = 1;  // Khởi tạo biến đếm số thứ tự
                         foreach (var item in Model)
                         {
                             <tr id="row_@item.JobSkillID">
-                                <td>@item.JobSkillID</td>
+                                <td>@index</td> <!-- Hiển thị số thứ tự -->
+                                @*<td>@item.JobSkillID</td>*@
                                 <td>@item.JobSkillName</td>
                                 @*<td>@item.JobID</td>*@
                                 <td>
@@ -75,9 +76,8 @@
                                     <a href="#" data-id="@item.JobSkillID" class="btn btn-danger btn-sm btnDelete">Xóa</a>
                                 </td>
                             </tr>
+                            index++;  // Tăng chỉ số cho số thứ tự
                         }
-
-
                     }
                     else
                     {
@@ -85,16 +85,17 @@
                             <td colspan="4">Không có dữ liệu</td>
                         </tr>
                     }
+
                 </tbody>
-                <div class="row">
-                    <div class="col-6"></div>
-                    <div class="col-6" style="text-align:right">
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
-                    </div>
-                </div>
             </table>
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6" style="text-align:right">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
+                </div>
+            </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

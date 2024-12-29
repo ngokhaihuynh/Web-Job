@@ -56,7 +56,7 @@
                 <div class="col-6">
                     @using (Html.BeginForm("Index", "News", FormMethod.Get, new { }))
                     {
-                        <div class="input-group input-group-sm">
+                        <div class="input-group input-group-sm col-sm-8">
                             @Html.TextBox("SearchText")
                             @*<input type="text" name="searchText" class="form-control">*@
                             <span class="input-group-append">
@@ -76,6 +76,7 @@
                         <th>Tiêu đề</th>
                         <th>Ngày tạo</th>
                         <th>Hiển thị</th>
+                        
                         <th style="width:150px;"></th>
                     </tr>
                 </thead>
@@ -248,5 +249,7 @@
     </script>
 
 }
+<style>
 
+</style>
 

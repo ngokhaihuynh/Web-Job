@@ -7,7 +7,16 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-
+<style>
+    .truncate-text {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+       
+    
 @section naviheader{
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -73,16 +82,16 @@
                     <tr>
                         <th><input type="checkbox" id="SelectAll" /></th>
                         <th>STT</th>
-                        <th>Hình ảnh</th>
-                        <th>Tiên công việc</th>
+                        <th>Ảnh</th>
+                        <th>Tên công việc</th>
                         <th>Danh mục</th>
                         <th>Kinh nghiệm</th>
                         <th>Mức lương</th>
-                        <th>Ngày tạo</th>
-                        <th>Ngày hết hạn</th>
-                        <th>Cần tuyển gấp</th>
+                        @*<th>Ngày tạo</th>*@
+                        <th>Hết hạn</th>
+                        <th>Tuyển gấp</th>
                         <th>Hiển thị</th>
-                        <th style="width:150px;"></th>
+                        <th style="width:140px;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -114,16 +123,18 @@
                                     {
                                         <img class="imgcompany" data-id="@item.JobID" src="default-image-url.jpg" width="50" /> <!-- Thay thế bằng URL của ảnh mặc định nếu không có công ty hoặc ảnh -->}
                                 </td>
-                                <td>@item.JobTitle</td>
-                                <td>@item.JobCategory.CategoryName</td>
+                                <td class="truncate-text">@item.JobTitle</td>
+                                <td class="truncate-text">@item.JobCategory.CategoryName</td>
+
+
                                 <td>@item.Experience.ExperienceLevel</td>
                                 <td>
-                                    <span>@item.Salary.SalaryMin</span>-<span>@item.Salary.SalaryMax</span><span> triệu</span>
+                                    <span>@item.Salary.SalaryRange</span>
                                 </td>
-                                <td>
+                                @*<td>
                                     @(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("dd/MM/yyyy") : "N/A")
 
-                                </td>
+                                </td>*@
                                 <td>
                                     @(item.CreatedDate.HasValue ? item.EndDate.ToString("dd/MM/yyyy") : "N/A")
 

@@ -58,11 +58,12 @@ namespace WebJob
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            /*app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "400522239993-f4qb6deok7st09svuguujvmekefqqpj1.apps.googleusercontent.com",
+                ClientSecret = "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",
+                CallbackPath = new PathString("/signin-google")
+            });*/
         }
     }
 }

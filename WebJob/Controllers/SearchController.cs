@@ -92,24 +92,10 @@ namespace WebJob.Controllers
             }
 
             // Lọc theo mức lương
-            // Lọc theo mức lương
             if (!string.IsNullOrEmpty(salaryRange))
             {
-                var salaryParts = salaryRange.Split('-').Select(s => s.Trim()).ToArray();
-                if (salaryParts.Length == 2 &&
-                    int.TryParse(salaryParts[0], out int minSalary) &&
-                    int.TryParse(salaryParts[1], out int maxSalary))
-                {
-                    jobs = jobs.Where(j =>
-                        j.Salary.SalaryMin <= maxSalary && j.Salary.SalaryMax >= minSalary);
-                }
-                else
-                {
-                    // Log lỗi khi không thể parse mức lương
-                    Console.WriteLine($"Invalid salary range format: {salaryRange}");
-                }
+                jobs = jobs.Where(j => j.Salary.SalaryRange == salaryRange);
             }
-
 
             // Lọc theo kinh nghiệm
             if (!string.IsNullOrEmpty(experience))
@@ -128,6 +114,15 @@ namespace WebJob.Controllers
             {
                 jobs = jobs.Where(j => j.Company.CompanyName.Contains(companyName));
             }
+
+            // Truyền lại các giá trị tìm kiếm cho View để giữ lại
+            ViewBag.Keyword = keyword;
+            ViewBag.Category = category;
+            ViewBag.Location = location;
+            ViewBag.SalaryRange = salaryRange;
+            ViewBag.Experience = experience;
+            ViewBag.Skill = skill;
+            ViewBag.CompanyName = companyName;
 
             // Trả về danh sách công việc
             return View("SearchResults", jobs.ToList());

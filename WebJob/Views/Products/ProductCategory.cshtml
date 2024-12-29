@@ -32,7 +32,7 @@
                                     @* danh muc *@
                                     @Html.Action("MenuProductLeft", "Menu", new { id = ViewBag.CateId })
 
-                                   
+
                                 </div>
 
                             </div>
@@ -113,7 +113,7 @@
                                             </div>
                                         </div>
                                         <div class="wrap-btn-appl">
-                                            <a href="#" class="btn btn-appl">Mua ngay</a>
+                                            <a href="#" data-id="@item.ProductID" class="btn btn-primary btn-apply btnBuyNow">Mua ngay</a>
                                             <a href="#" data-id="@item.ProductID" class="btn btn-danger btnAddSave">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
@@ -128,3 +128,33 @@
         </div>
     </div>
 </div>
+<style>
+    span.salary-min::after {
+        content: "-";
+        padding: 0 2px 0 6px;
+        color: #555;
+        display: none;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.btnBuyNow').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+
+            $.ajax({
+                url: '/ShoppingCart/BuyNow',
+                type: 'POST',
+                data: { id: id },
+                success: function () {
+                    window.location.href = '/ShoppingCart/CheckOut';  // Chuyển sang trang thanh toán
+                },
+                error: function () {
+                    alert("Không thể kết nối với server");
+                }
+            });
+        });
+    });
+
+
+</script>

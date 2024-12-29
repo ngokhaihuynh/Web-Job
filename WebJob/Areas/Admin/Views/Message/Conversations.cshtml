@@ -1,0 +1,135 @@
+﻿@model List<WebJob.Models.ConversationViewModel>
+
+@section naviheader {
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/news" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>
+}
+
+<section style="margin: 20px;">
+    <h2>Danh sách hội thoại</h2>
+
+    <table class="conversation-table">
+        <thead>
+            <tr>
+                <th>Người dùng</th>
+                <th>Thời gian tin nhắn cuối</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td data-label="Người dùng">@item.UserName</td>
+                    <td data-label="Thời gian">@item.Conversation.LastMessageTime.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td data-label="Thao tác">
+                        <a href="@Url.Action("ConversationDetails", "Message", new { id = item.Conversation.ConversationID })" class="view-link">
+                            Xem chi tiết
+                            @if (item.HasNewMessage)
+                            {
+                                <span class="new-message">New</span>
+                            }
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
+<style>
+    /* Tạo hiệu ứng cho toàn bộ bảng */
+    .conversation-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Định dạng tiêu đề bảng */
+    .conversation-table th {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* Định dạng hàng dữ liệu */
+    .conversation-table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Hiệu ứng hover */
+    .conversation-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    /* Link xem chi tiết */
+    .view-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .view-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Định dạng chữ "New" */
+    .new-message {
+        color: red;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+
+    /* Responsive */
+    @@media screen and (max-width: 768px) {
+        .conversation-table {
+            font-size: 14px;
+        }
+
+        .conversation-table thead {
+            display: none;
+        }
+
+        .conversation-table, .conversation-table tbody, .conversation-table tr, .conversation-table td {
+            display: block;
+            width: 100%;
+        }
+
+        .conversation-table tr {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .conversation-table td {
+            text-align: left;
+            padding-left: 50%;
+            position: relative;
+            border: none;
+        }
+
+        .conversation-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-weight: bold;
+            color: #007bff;
+        }
+    }
+</style>
+

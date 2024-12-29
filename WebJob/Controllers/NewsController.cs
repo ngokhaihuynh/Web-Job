@@ -13,7 +13,8 @@ namespace WebJob.Controllers
         // GET: News
         public ActionResult Index()
         {
-            var items = db.News.ToList(); 
+            var items = db.News.OrderByDescending(x => x.CreatedDate)
+                .ToList(); 
             return View(items);
         }
 
@@ -35,7 +36,7 @@ namespace WebJob.Controllers
 
         public ActionResult Partial_News_Home()
         {
-            var items = db.News.Take(3).ToList();
+            var items = db.News.OrderByDescending(n => n.CreatedDate).Take(3).ToList();
             return PartialView(items);
         }
     }

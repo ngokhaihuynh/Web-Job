@@ -37,10 +37,33 @@ namespace WebJob.Areas.Admin.Controllers
             }
             return View(model);
         }
-        public ActionResult Edit(int id)
+        /*  public ActionResult Edit(int id)
+          {
+              var item = db.Roles.Find(id);
+              return View();
+          }*/
+
+        /*   [HttpPost]
+           [ValidateAntiForgeryToken]
+           public ActionResult Edit(IdentityRole model)
+           {
+               if (ModelState.IsValid)
+               {
+                   var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+                   roleManager.Update(model);
+                   return RedirectToAction("Index");
+               }
+               return View(model);
+           }*/
+
+        public ActionResult Edit(string id)
         {
             var item = db.Roles.Find(id);
-            return View();
+            if (item == null)
+            {
+                return HttpNotFound();
+            }
+            return View(item);
         }
 
         [HttpPost]
@@ -49,18 +72,37 @@ namespace WebJob.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
-                roleManager.Update(model);
-                return RedirectToAction("Index");
+                var role = db.Roles.Find(model.Id);
+                if (role != null)
+                {
+                    role.Name = model.Name;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             return View(model);
         }
 
-        public ActionResult Delete(int id)
+
+        [HttpPost]
+        public JsonResult Delete(string id)
         {
-            var item = db.Roles.Find(id);
-            return View();
+            var role = db.Roles.Find(id);
+            if (role != null)
+            {
+                db.Roles.Remove(role);
+                db.SaveChanges();
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
         }
+
+
+        //public ActionResult Delete(int id)
+        //{
+        //    var item = db.Roles.Find(id);
+        //    return View();
+        //}
         public ActionResult Delete(IdentityRole model)
         {
             if (ModelState.IsValid)

@@ -71,6 +71,12 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.3\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -120,6 +126,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -186,6 +193,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\JobCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\JobsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MessageController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticelsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
@@ -212,6 +220,7 @@
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\MyApplicantController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -222,6 +231,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\IdentityExtensions.cs" />
+    <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Migrations\202408081101446_createdatebase.cs" />
     <Compile Include="Migrations\202408081101446_createdatebase.designer.cs">
       <DependentUpon>202408081101446_createdatebase.cs</DependentUpon>
@@ -250,6 +261,26 @@
     <Compile Include="Migrations\202411241509556_adđcreadateUser.designer.cs">
       <DependentUpon>202411241509556_adđcreadateUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412161544038_mess.cs" />
+    <Compile Include="Migrations\202412161544038_mess.designer.cs">
+      <DependentUpon>202412161544038_mess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412161711254_messcon.cs" />
+    <Compile Include="Migrations\202412161711254_messcon.designer.cs">
+      <DependentUpon>202412161711254_messcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412161737207_UpdateDatabase.cs" />
+    <Compile Include="Migrations\202412161737207_UpdateDatabase.designer.cs">
+      <DependentUpon>202412161737207_UpdateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412161741292_UpdateDatabase1.cs" />
+    <Compile Include="Migrations\202412161741292_UpdateDatabase1.designer.cs">
+      <DependentUpon>202412161741292_UpdateDatabase1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412170232563_updateAdminId.cs" />
+    <Compile Include="Migrations\202412170232563_updateAdminId.designer.cs">
+      <DependentUpon>202412170232563_updateAdminId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicantViewModel.cs" />
@@ -257,6 +288,7 @@
     <Compile Include="Models\Common\common.cs" />
     <Compile Include="Models\Common\Filter.cs" />
     <Compile Include="Models\Common\ThongKeTruyCap.cs" />
+    <Compile Include="Models\ConversationViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\DashboardStatsViewModel.cs" />
     <Compile Include="Models\EF\Adv.cs" />
@@ -267,6 +299,7 @@
     <Compile Include="Models\EF\Company.cs" />
     <Compile Include="Models\EF\CompanyImage.cs" />
     <Compile Include="Models\EF\Contact.cs" />
+    <Compile Include="Models\EF\Conversation.cs" />
     <Compile Include="Models\EF\EmailSubscription.cs" />
     <Compile Include="Models\EF\EmployerVerifications.cs" />
     <Compile Include="Models\EF\Experience.cs" />
@@ -276,6 +309,7 @@
     <Compile Include="Models\EF\JobSkill.cs" />
     <Compile Include="Models\EF\Level.cs" />
     <Compile Include="Models\EF\Location.cs" />
+    <Compile Include="Models\EF\Message.cs" />
     <Compile Include="Models\EF\News.cs" />
     <Compile Include="Models\EF\Order.cs" />
     <Compile Include="Models\EF\OrderDetail.cs" />
@@ -295,6 +329,7 @@
     <Compile Include="Models\SettingSystemViewModel.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ThongKeViewModel.cs" />
+    <Compile Include="MyHub1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -353,6 +388,7 @@
     <Content Include="Content\assets\js\popper.min.js" />
     <Content Include="Content\assets\js\readmore.js" />
     <Content Include="Content\assets\js\select2.min.js" />
+    <Content Include="Content\assets\video\video.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -3326,6 +3362,12 @@
     <Content Include="Areas\Admin\Views\Contactt\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Contactt\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Home\_FeedbackListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\ChatWithUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\ManageMessages.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\Conversations.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\ConversationDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\_MessagePartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Message\_SendMessagePartial.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -3334,6 +3376,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -3435,6 +3479,10 @@
     <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
     <Content Include="Views\ShoppingCart\MyOrders.cshtml" />
     <Content Include="Views\ShoppingCart\OrderDetails.cshtml" />
+    <Content Include="Views\MyApplicant\_Feedback.cshtml" />
+    <Content Include="Views\Message\Chat.cshtml" />
+    <Content Include="Views\Message\ChatWithAdmin.cshtml" />
+    <Content Include="Views\Message\_Messages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3468,6 +3516,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411241509556_adđcreadateUser.resx">
       <DependentUpon>202411241509556_adđcreadateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412161544038_mess.resx">
+      <DependentUpon>202412161544038_mess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412161711254_messcon.resx">
+      <DependentUpon>202412161711254_messcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412161737207_UpdateDatabase.resx">
+      <DependentUpon>202412161737207_UpdateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412161741292_UpdateDatabase1.resx">
+      <DependentUpon>202412161741292_UpdateDatabase1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412170232563_updateAdminId.resx">
+      <DependentUpon>202412170232563_updateAdminId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

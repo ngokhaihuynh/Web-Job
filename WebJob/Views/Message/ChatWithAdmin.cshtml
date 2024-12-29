@@ -1,0 +1,46 @@
+﻿@model WebJob.Models.EF.Conversation
+@using WebJob.Helpers
+<h2>Hội thoại với Admin</h2>
+<div>
+    <div id="messagesContainer" style="height: 300px; overflow-y: auto; border-bottom: 1px solid #ccc;">
+        <!-- Lặp qua các tin nhắn trong cuộc trò chuyện -->
+        @foreach (var message in Model.Messages)
+        {
+            <p>
+                <strong>@(message.SenderID == User.GetUserId() ? "Bạn" : "Admin"):</strong>
+                @message.Content <br />
+                <small>@message.Timestamp</small>
+            </p>
+        }
+    </div>
+</div>
+
+<!-- Form gửi tin nhắn -->
+<form method="post" action="@Url.Action("SendMessage", "Message")" id="sendMessageForm">
+    <textarea name="content" required style="width: 100%;"></textarea>
+    <button type="submit">Gửi</button>
+</form>
+
+<script>
+    // Tự động cuộn xuống cuối khi có tin nhắn mới
+    var messagesContainer = document.getElementById("messagesContainer");
+    messagesContainer.scrollTop = messagesContainer.scrollHeight; // Cuộn xuống cuối khi mở trang
+
+    // Gửi tin nhắn thông qua AJAX và cập nhật giao diện
+    $("form").submit(function(event) {
+        event.preventDefault(); // Ngừng việc tải lại trang
+        var content = $("textarea[name='content']").val();
+
+        $.ajax({
+            url: '@Url.Action("SendMessage", "Message")',
+            type: 'POST',
+            data: { content: content },
+            success: function(response) {
+                // Thêm tin nhắn mới vào container (không cần tải lại trang)
+                $("#messagesContainer").append("<p><strong>Bạn:</strong> " + content + "<br /><small>Vừa xong</small></p>");
+                $("textarea[name='content']").val(""); // Làm sạch textarea sau khi gửi
+                $("#messagesContainer").scrollTop($("#messagesContainer")[0].scrollHeight); // Cuộn xuống cuối
+            }
+        });
+    });
+</script>

@@ -46,6 +46,31 @@ namespace WebJob.Controllers
             return View(appliedJobs.ToPagedList(pageNumber, pageSize));
         }
 
+        public ActionResult Details(int jobId)
+        {
+            // Tìm công việc có ID tương ứng
+            var job = db.Jobs.FirstOrDefault(j => j.JobID == jobId);
+            if (job == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Lấy ID người dùng đang đăng nhập
+            var userId = User.Identity.GetUserId();
+
+            // Lấy nhận xét của người dùng ứng tuyển vào công việc này
+            var jobApplication = db.JobApplications
+                                   .Where(ja => ja.JobID == jobId && ja.Applicant.UserId == userId) // Dùng userId thay vì User.Identity.GetUserId()
+                                   .FirstOrDefault();
+
+            // Lấy nhận xét của ứng viên, nếu không có thì trả về null
+            var feedback = jobApplication != null ? jobApplication.Applicant.FeebBack : null;
+
+            // Trả về Partial View với nhận xét
+            return PartialView("_Feedback", feedback);
+        }
+
+
 
 
     }

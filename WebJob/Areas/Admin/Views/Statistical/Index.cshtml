@@ -71,8 +71,20 @@
 
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="fromDate">Từ ngày:</label>
+                    <input type="text" id="fromDate" class="form-control" placeholder="dd/MM/yyyy">
+                </div>
+                <div class="col-md-3">
+                    <label for="toDate">Đến ngày:</label>
+                    <input type="text" id="toDate" class="form-control" placeholder="dd/MM/yyyy">
+                </div>
+                <div class="col-md-2">
+                    <button id="filter" class="btn btn-primary" style="margin-top: 32px;">Lọc</button>
+                </div>
+            </div>
 
-          
             <div class="col-md-12">
                 <h2 style="margin-top:30px; text-align:center">Bảng thống kê doanh thu</h2>
                 <table class=" table table-bordered">
@@ -92,6 +104,8 @@
             <!-- /.card-body -->
         </div>
 
+        
+
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
@@ -107,7 +121,7 @@
     <script src="~/Content/clients/plugins/chart.js/Chart.min.js"></script>
     <script src="~/Content/clients/plugins/moment/moment.min.js"></script>
     <script>
-        $(function () {
+ @*       $(function () {
             var arrDoanhThu = [];
             var arrLoiNhuan = [];
             var arrDate = [];
@@ -207,9 +221,98 @@
 
             $('#load_data').html(strHtml);
         }
-
+*@
 
     </script>
 
+    <script>
+        $(function () {
+            var arrDoanhThu = [];
+            var arrLoiNhuan = [];
+            var arrDate = [];
+
+            // Hàm load dữ liệu
+            function loadStatistics(fromDate, toDate) {
+                $.ajax({
+                    url: '/Statistical/GetStatiscal',
+                    type: 'GET',
+                    data: { fromDate: fromDate, toDate: toDate },
+                    success: function (rs) {
+                        arrDoanhThu = [];
+                        arrLoiNhuan = [];
+                        arrDate = [];
+
+                        $.each(rs.Data, function (i, item) {
+                            var strDate = moment(item.Date).format('DD/MM/yyyy');
+                            arrDate.push(strDate);
+                            arrDoanhThu.push(item.DoanhThu);
+                            arrLoiNhuan.push(item.LoiNhuan);
+                        });
+
+                        renderChart();
+                        load_data(rs.Data);
+                    }
+                });
+            }
+
+            // Hàm render biểu đồ
+            function renderChart() {
+                var areaChartData = {
+                    labels: arrDate,
+                    datasets: [
+                        {
+                            label: 'Lợi nhuận',
+                            backgroundColor: 'rgba(60,141,188,0.9)',
+                            borderColor: 'rgba(60,141,188,0.8)',
+                            data: arrLoiNhuan
+                        },
+                        {
+                            label: 'Doanh thu',
+                            backgroundColor: 'rgba(210, 214, 222, 1)',
+                            borderColor: 'rgba(210, 214, 222, 1)',
+                            data: arrDoanhThu
+                        }
+                    ]
+                };
+
+                var barChartCanvas = $('#barChart').get(0).getContext('2d');
+                new Chart(barChartCanvas, {
+                    type: 'bar',
+                    data: areaChartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        datasetFill: false
+                    }
+                });
+            }
+
+            // Hàm load dữ liệu bảng
+            function load_data(data) {
+                var strHtml = "";
+                $.each(data, function (i, item) {
+                    var strDate = moment(item.Date).format('DD/MM/yyyy');
+                    strHtml += "<tr>";
+                    strHtml += "<td>" + (i + 1) + "</td>";
+                    strHtml += "<td>" + strDate + "</td>";
+                    strHtml += "<td>" + item.DoanhThu + "</td>";
+                    strHtml += "<td>" + item.LoiNhuan + "</td>";
+                    strHtml += "</tr>";
+                });
+                $('#load_data').html(strHtml);
+            }
+
+            // Sự kiện click vào nút Lọc
+            $('#filter').click(function () {
+                var fromDate = $('#fromDate').val();
+                var toDate = $('#toDate').val();
+                loadStatistics(fromDate, toDate);
+            });
+
+            // Load dữ liệu ban đầu
+            loadStatistics('', '');
+        });
+
+    </script>
 
 }

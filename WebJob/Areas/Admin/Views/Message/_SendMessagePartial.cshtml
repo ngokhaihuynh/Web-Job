@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebJob.Models.EF.Message>
+@using WebJob.Helpers
+@foreach (var message in Model)
+{
+    <p class="message @((message.SenderID == User.GetUserId()) ? "sent" : "received")">
+        <span style="font-weight:bold">@message.Content</span>  <br />
+        <small>@message.Timestamp</small>
+    </p>
+}

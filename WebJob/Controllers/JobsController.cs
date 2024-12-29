@@ -36,8 +36,8 @@ namespace WebJob.Controllers
             ViewBag.PageSize = pageSize;
             ViewBag.Page = pageNumber;
 
-            // Chuyển danh sách query thành dạng phân trang
-            var pagedList = query.OrderBy(x => x.JobID).ToPagedList(pageNumber, pageSize);
+            // Chuyển danh sách query thành dạng phân trang với thứ tự mới nhất
+            var pagedList = query.OrderByDescending(x => x.CreatedDate).ToPagedList(pageNumber, pageSize);
 
             // Cung cấp thông tin danh mục cho view
             ViewBag.CateId = id;
@@ -108,19 +108,7 @@ namespace WebJob.Controllers
         }
 
 
-        // load Việc tuyển gấp
-        /*  public ActionResult Partial_JobNow()
-          {
-              var items = db.Jobs
-                  .Where(x => x.IsActive && x.IsNow)
-                  .GroupBy(x => x.Company.CompanyName) // Nhóm theo tên công ty
-                  .Select(g => g.FirstOrDefault())    // Lấy công việc đầu tiên trong mỗi nhóm
-                  .Take(7)                           // Lấy tối đa 10 công việc
-                  .ToList();
-
-              return PartialView(items);
-          }
-  */
+   
         public ActionResult Partial_JobNow()
         {
             var items = db.Jobs
@@ -147,15 +135,7 @@ namespace WebJob.Controllers
 
             return PartialView(items); // Trả về PartialView với danh sách công việc
         }
-    /*    public ActionResult Partial_CompanyLogos()
-        {
-            var companies = db.Companies
-                              .GroupBy(c => c.CompanyName) // Nhóm theo tên công ty
-                              .Select(g => g.FirstOrDefault())// Lấy công ty đầu tiên trong nhóm
-                              .Take(8)
-                              .ToList();
-            return PartialView(companies);
-        }*/
+  
 
         public ActionResult Partial_CompanyLogos()
         {
@@ -168,20 +148,6 @@ namespace WebJob.Controllers
             return PartialView(companies);
         }
 
-
-        /* public ActionResult Partial_CompanyLogos()
-         {
-             // Lấy danh sách các ảnh theo công ty
-             var companies = db.CompanyImages
-                                   .Where(img => img.IsDefault) // Chỉ lấy ảnh mặc định
-                                   .GroupBy(img => img.Company.CompanyName) // Nhóm theo tên công ty
-                                   .Select(g => g.FirstOrDefault()) // Chọn ảnh đầu tiên trong mỗi nhóm
-                                   .Take(8) // Giới hạn 8 kết quả
-                                   .ToList();
-
-
-             return PartialView(companies);
-         }*/
 
 
         public ActionResult Partial_HighSalaryJobs()

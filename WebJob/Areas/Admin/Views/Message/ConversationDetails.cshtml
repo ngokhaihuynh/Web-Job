@@ -1,0 +1,230 @@
+﻿@model WebJob.Models.EF.Conversation
+@using WebJob.Helpers
+
+@section naviheader {
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/news" class="nav-link">@ViewBag.Title</a>
+        </li>
+    </ul>
+}
+
+<h2 style="text-align:center; padding:10px">Hội thoại với @ViewBag.UserName</h2>
+
+<div class="conversation">
+    @foreach (var message in Model.Messages)
+    {
+        <p class="message @((message.SenderID == User.GetUserId()) ? "sent" : "received")">
+            @*<strong>@message.SenderID:</strong>*@ <span style="font-weight:bold">@message.Content</span> <br />
+            <small>@message.Timestamp</small>
+        </p>
+    }
+</div>
+
+<!-- Form gửi tin nhắn -->
+<form method="post" action="@Url.Action("SendMessage", "Message")" id="messageForm">
+    <textarea name="content" id="content" placeholder="Nhập tin nhắn"></textarea>
+    <button type="submit">Gửi</button>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+    var chatContainer = $('.conversation');
+    var conversationId = '@Model.ConversationID'; // ID cuộc hội thoại
+
+    // Cuộn đến tin nhắn cuối cùng khi trang được tải
+    chatContainer.scrollTop(chatContainer[0].scrollHeight);
+
+// Xử lý gửi tin nhắn bằng Ajax
+$('#messageForm').submit(function (event) {
+    event.preventDefault(); // Ngừng gửi form mặc định
+
+    var content = $('#content').val(); // Lấy nội dung tin nhắn từ textarea
+
+    $.ajax({
+        url: '@Url.Action("SendMessage", "Message")',
+        method: 'POST',
+        data: {
+            content: content,
+            conversationId: conversationId // Thêm conversationId nếu cần
+        },
+        success: function (response) {
+            // Chỉ chèn HTML của tin nhắn mới vào trong khung trò chuyện
+            chatContainer.append(response);
+
+            // Cuộn xuống cuối cùng để hiển thị tin nhắn mới
+            chatContainer.scrollTop(chatContainer[0].scrollHeight);
+
+            // Xóa nội dung trong textarea sau khi gửi thành công
+            $('#content').val('');
+        },
+        error: function (xhr, status, error) {
+            console.error("Lỗi khi gửi tin nhắn: " + error);
+        }
+    });
+});
+
+
+
+
+    setInterval(function () {
+    $.ajax({
+        url: '@Url.Action("GetMessages", "Message")',
+        method: 'GET',
+        data: { conversationId: conversationId },
+        success: function (response) {
+            console.log(response);  // Kiểm tra phản hồi
+            chatContainer.html(response);
+            chatContainer.scrollTop(chatContainer[0].scrollHeight);
+        },
+        error: function () {
+            console.error("Lỗi tải tin nhắn.");
+        }
+    });
+}, 3000); // Tải lại tin nhắn mỗi 3 giây
+
+});
+
+</script>
+
+<style>
+    /* Tổng quan form nhắn tin */
+    .conversation {
+        max-height: 500px;
+        overflow-y: auto;
+        padding: 10px;
+        background-color: #f1f1f1;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin-top: 10px;
+    }
+
+    /* Tin nhắn của người gửi (người dùng hiện tại) */
+    .message.sent {
+        background-color: #d1f7c4;
+        text-align: right;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px 0;
+        max-width: 70%;
+        margin-left: auto;
+    }
+
+    /* Tin nhắn của người nhận */
+    .message.received {
+        background-color: #f1f1f1;
+        text-align: left;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px 0;
+        max-width: 70%;
+        margin-right: auto;
+    }
+
+    /* Định dạng cho tên người gửi */
+    .message strong {
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* Định dạng thời gian gửi */
+    .message small {
+        color: #777;
+        font-size: 12px;
+        display: block;
+        margin-top: 5px;
+    }
+
+    /* Định dạng textarea */
+    textarea {
+        width: 94%;
+        height: 60px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+        font-size: 14px;
+        resize: none;
+        box-sizing: border-box;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    /* Định dạng nút gửi */
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 5px;
+        transition: background-color 0.3s ease;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 10px;
+    }
+
+        /* Nút gửi khi hover */
+        button:hover {
+            background-color: #45a049;
+        }
+
+    /* Cải thiện bố cục của form */
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    /* Responsive cho thiết bị di động */
+    @@media (max-width: 768px) {
+        .conversation {
+            max-height: 400px;
+            padding: 8px;
+        }
+
+        textarea {
+            height: 50px;
+            font-size: 12px;
+        }
+
+        button {
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+        /* Đảm bảo tin nhắn và các phần tử vẫn hợp lý trên màn hình nhỏ */
+        .message.sent, .message.received {
+            max-width: 85%; /* Giảm chiều rộng tin nhắn để tránh chiếm quá nhiều không gian trên màn hình nhỏ */
+        }
+    }
+
+    @@media (max-width: 480px) {
+        /* Trên các màn hình rất nhỏ như điện thoại di động */
+        .conversation {
+            max-height: 300px;
+        }
+
+        textarea {
+            font-size: 10px;
+            height: 40px;
+        }
+
+        button {
+            font-size: 12px;
+            padding: 6px 10px;
+        }
+    }
+</style>

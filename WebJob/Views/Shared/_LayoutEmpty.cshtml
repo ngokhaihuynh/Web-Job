@@ -9,7 +9,7 @@
     <!-- Roboto Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
- 
+
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.min.css">
 
@@ -40,7 +40,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-             box-shadow: none;
+            box-shadow: none;
         }
 
 
@@ -63,7 +63,6 @@
             .job-title a:hover {
                 text-decoration: underline; /* Hiệu ứng khi rê chuột */
             }
-
     </style>
     <style>
         .nav-item {
@@ -184,6 +183,17 @@
                 color: #007bff;
             }
     </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+    <style>
+        #chatBox {
+            transition: all 0.3s ease-in-out;
+        }
+
+        #chatIcon:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s;
+        }
+    </style>
 </head>
 
 <body>
@@ -287,6 +297,136 @@
     <!-- (end) main nav -->
 
     <div class="clearfix"></div>
+
+    <!-- Icon chat -->
+    <div id="chatIcon" style="position: fixed; bottom: 110px; right: 30px; cursor: pointer; z-index: 1000;">
+        <i class="fas fa-comment-dots" style="font-size: 40px; color: #007bff;"></i>
+    </div>
+
+    <!-- Chat box -->
+    <div id="chatBox" style="display: none; position: fixed; bottom: 160px; right: 60px; width: 300px; height: 400px; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); z-index: 1000; overflow: hidden;">
+        <div id="messagesContainer" style="height: 85%; overflow-y: auto; padding: 10px;">
+            <!-- Tin nhắn sẽ được hiển thị ở đây -->
+        </div>
+        <form id="sendMessageForm" style="padding: 10px; display: flex; gap: 10px;">
+            <textarea name="content" required style="flex: 1; resize: none; border: 1px solid #ddd; border-radius: 5px; padding: 5px;"></textarea>
+            <button type="submit" style="background: #007bff; color: #fff; border: none; padding: 5px 10px; border-radius: 5px;">Gửi</button>
+        </form>
+    </div>
+
+    <style>
+        /* Định dạng container tin nhắn */
+        #messagesContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Tin nhắn người dùng */
+        .message.user {
+            background-color: #007bff;
+            color: #fff;
+            text-align: right;
+            padding: 10px;
+            border-radius: 15px;
+            align-self: flex-end;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        /* Tin nhắn Admin */
+        .message.admin {
+            background-color: #28a745;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            border-radius: 15px;
+            align-self: flex-start;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+    </style>
+
+
+    <script>
+
+// Hàm để tải tin nhắn mới
+// Hàm để tải tin nhắn mới
+function loadMessages() {
+    $.ajax({
+        url: '@Url.Action("GetMessages", "Message")',
+        type: 'GET',
+        success: function (response) {
+            var messagesContainer = document.getElementById("messagesContainer");
+
+            // Xóa nội dung cũ và hiển thị tin nhắn mới
+            messagesContainer.innerHTML = "";
+
+            // Hiển thị từng tin nhắn
+            if (response.success !== false) {
+                response.forEach(function (message) {
+                    var messageElement = document.createElement("div");
+                    messageElement.className = (message.Sender === "Bạn") ? "message user" : "message admin";
+                    messageElement.innerHTML = `<strong>${message.Sender}:</strong> ${message.Content}`;
+                    messagesContainer.appendChild(messageElement);
+                });
+
+                // Cuộn xuống cuối container để hiển thị tin nhắn mới nhất
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        }
+    });
+}
+
+// Gọi hàm loadMessages mỗi 3 giây
+setInterval(loadMessages, 3000);
+
+// Xử lý mở/đóng chat box
+document.getElementById("chatIcon").onclick = function () {
+    var chatBox = document.getElementById("chatBox");
+
+    if (chatBox.style.display === "none" || chatBox.style.display === "") {
+        chatBox.style.display = "block";
+        loadMessages(); // Tải tin nhắn khi mở chat box
+    } else {
+        chatBox.style.display = "none";
+    }
+};
+
+// Xử lý gửi tin nhắn
+document.getElementById("sendMessageForm").onsubmit = function (event) {
+    event.preventDefault(); // Ngừng việc tải lại trang
+    var content = document.querySelector("textarea[name='content']").value.trim();
+
+    if (content === "") return; // Kiểm tra tin nhắn trống
+
+    $.ajax({
+        url: '@Url.Action("SendMessage", "Message")',
+        type: 'POST',
+        data: { content: content },
+        success: function (response) {
+            if (response.success) {
+                var messagesContainer = document.getElementById("messagesContainer");
+
+                // Thêm tin nhắn mới vào container
+                var newMessage = document.createElement("div");
+                newMessage.className = "message user";
+                newMessage.innerHTML = `<strong>Bạn:</strong> ${response.message}`;
+                messagesContainer.appendChild(newMessage);
+
+                // Làm sạch textarea
+                document.querySelector("textarea[name='content']").value = "";
+
+                // Cuộn xuống cuối container
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            } else {
+                alert("Gửi tin nhắn thất bại. Vui lòng đăng nhập    !");
+            }
+        }
+    });
+};
+
+    </script>
 
 
 

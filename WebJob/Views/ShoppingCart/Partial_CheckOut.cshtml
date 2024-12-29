@@ -11,7 +11,7 @@
     UpdateTargetId = "load_data",
     OnComplete = "OnSuccessCO",
     OnFailure = "OnFailure",
-    OnBegin= "OnBeginCO"
+    OnBegin = "OnBeginCO"
 
 }, new { @Id = "myForm" }))
 {
@@ -76,15 +76,59 @@
     <!-- Hình thức thanh toán -->
     <div class="form-group" id="load_form_payment" style="display:none">
         <label for="paymentMethod">Chọn phương thức thanh toán:</label>
-        <label><input type="radio" name="TypePaymentVN" value="0" checked />Cổng thanh toán VNPAY</label>
-        <label><input type="radio" name="TypePaymentVN" value="1" checked />Thanh toán qua ứng dụng hỗ trợ VNPAY</label>
-        <label><input type="radio" name="TypePaymentVN" value="2" checked />ATM tài khoản ngân hàng nội địa</label>
-        <label><input type="radio" name="TypePaymentVN" value="3" checked />Thanh toán qua thẻ quốc tế</label>
+        <label><input type="radio" name="TypePaymentVN" value="0" checked /> Cổng thanh toán VNPAY</label>
+        <label><input type="radio" name="TypePaymentVN" value="1" /> Thanh toán qua ứng dụng hỗ trợ VNPAY</label>
+        <label><input type="radio" name="TypePaymentVN" value="2" /> ATM tài khoản ngân hàng nội địa</label>
+        <label><input type="radio" name="TypePaymentVN" value="3" /> Thanh toán qua thẻ quốc tế</label>
     </div>
+
 
     <div class="form-group" id="load_send"></div>
     <div class="form-group">
-        <button type="submit" class="btn btn-block btn-success" id="btnCheckOut" >Đặt hàng</button>
+        <button type="submit" class="btn btn-block btn-success" id="btnCheckOut">Đặt hàng</button>
     </div>
 }
 
+<style>
+    /* Định dạng cho form thanh toán */
+#load_form_payment {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+/* Label của các phương thức thanh toán */
+#load_form_payment label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Định dạng cho radio buttons */
+#load_form_payment input[type="radio"] {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+/* Style cho các phương thức thanh toán */
+#load_form_payment label input[type="radio"] + span {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Responsive cho thiết bị di động */
+@@media (max-width: 768px) {
+    #load_form_payment {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    #load_form_payment label {
+        font-size: 14px;
+    }
+}
+
+</style>
