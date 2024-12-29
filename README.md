@@ -5,6 +5,7 @@ Website Lao Động Việc Làm là một hệ thống hỗ trợ tuyển dụng
 ## Chức năng chính
 
 ### 1. Quản lý người dùng
+![Xác thực tài khoản](img/xacthuc.png)
 - **Đăng ký tài khoản**: 
   - Nhập thông tin cá nhân (họ tên, email, số điện thoại, mật khẩu).
   - Xác thực email.
@@ -26,6 +27,7 @@ Website Lao Động Việc Làm là một hệ thống hỗ trợ tuyển dụng
   - Xóa tin tuyển dụng.
 
 ### 3. Tìm kiếm và lọc việc làm
+![Trang công việc](img/job.png)
 - **Tìm kiếm theo từ khóa**.
 - **Lọc việc làm**: 
   - Theo địa điểm.
@@ -54,12 +56,25 @@ Website Lao Động Việc Làm là một hệ thống hỗ trợ tuyển dụng
 - Xuất báo cáo tổng hợp (định dạng PDF, Excel).
 
 ### 8. Quản trị hệ thống
+![Giao diện quản trị](img/admin.png)
 - **Quản lý người dùng**: 
   - Xem thông tin tài khoản.
   - Xóa tài khoản.
 - **Xem báo cáo hệ thống**: 
   - Tình trạng hoạt động.
   - Các phản hồi từ người dùng.
+ 
+@@@ 9. Một số giao diện của website lao động việc làm.
+  - Trang chủ ứng viên
+![Trang chủ ứng viên](img/home.png)
+![Trang chủ ứng viên](img/home1.png)
+![Trang chủ ứng viên](img/home2.png)
+
+  - Trang danh sách việc làm
+![Trang danh sách việc làm](img/job.png)
+
+  - Trang giao diện của nhà tuyển dung
+![Trang giao diện của nhà tuyển dung](img/nhatuyendung.png)
 
 ## Yêu cầu hệ thống
 - Ngôn ngữ: C# (ASP.NET MVC).
