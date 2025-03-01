@@ -2,6 +2,11 @@
 
 Website Lao Động Việc Làm là một hệ thống hỗ trợ tuyển dụng và tìm kiếm việc làm, cung cấp nhiều chức năng để kết nối nhà tuyển dụng và người lao động. Dự án bao gồm nhiều tính năng quan trọng giúp tối ưu hóa quy trình tuyển dụng và ứng tuyển.
 
+## Công nghệ sử dụng
+- Backend: c#, Asp.net MVC
+- Fontend: html, css, js, jquery, bootrap
+- Database: SQL server
+
 ## Chức năng chính
 
 ### 1. Quản lý người dùng
