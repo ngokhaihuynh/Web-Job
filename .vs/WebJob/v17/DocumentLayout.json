@@ -1,29 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "G:\\Jobs\\WebJobcp2update - Copy\\",
+  "WorkspaceRootPath": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|G:\\Jobs\\WebJobcp2update - Copy\\webjob\\controllers\\myapplicantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|d:\\hocdaihoc\\webjobcp2willdemo-chuan\\webjob\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|d:\\hocdaihoc\\webjobcp2willdemo-chuan\\webjob\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|d:\\hocdaihoc\\webjobcp2willdemo-chuan\\webjob\\views\\account\\_externalloginslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\views\\account\\_externalloginslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|d:\\hocdaihoc\\webjobcp2willdemo-chuan\\webjob\\controllers\\myapplicantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\controllers\\myapplicantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|g:\\jobs\\webjobcp2update - copy\\webjob\\views\\myapplicant\\_feedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\webjob\\views\\myapplicant\\_feedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\views\\myapplicant\\_feedback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|G:\\Jobs\\WebJobcp2update - Copy\\webjob\\views\\myapplicant\\myappliedjobs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\webjob\\views\\myapplicant\\myappliedjobs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\views\\myapplicant\\myappliedjobs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|G:\\Jobs\\WebJobcp2update - Copy\\webjob\\models\\ef\\applicant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\webjob\\models\\ef\\applicant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\models\\ef\\applicant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|G:\\Jobs\\WebJobcp2update - Copy\\webjob\\areas\\employer\\views\\applicant\\applicantsbyjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\webjob\\areas\\employer\\views\\applicant\\applicantsbyjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\areas\\employer\\views\\applicant\\applicantsbyjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|G:\\Jobs\\WebJobcp2update - Copy\\webjob\\areas\\employer\\views\\applicant\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\webjob\\areas\\employer\\views\\applicant\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{990D7CBA-F439-4D66-B70E-BB3F86231520}|WebJob\\WebJob.csproj|solutionrelative:webjob\\areas\\employer\\views\\applicant\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -39,23 +51,61 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Feedback.cshtml",
-              "DocumentMoniker": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Views\\MyApplicant\\_Feedback.cshtml",
-              "RelativeDocumentMoniker": "WebJob\\Views\\MyApplicant\\_Feedback.cshtml",
-              "ToolTip": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Views\\MyApplicant\\_Feedback.cshtml",
-              "RelativeToolTip": "WebJob\\Views\\MyApplicant\\_Feedback.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "WebJob\\Views\\Account\\Register.cshtml",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "WebJob\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAD8AAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-13T08:45:00.691Z",
+              "WhenOpened": "2025-03-03T08:48:57.305Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "WebJob\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "WebJob\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAFcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T08:45:41.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ExternalLoginsListPartial.cshtml",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\Account\\_ExternalLoginsListPartial.cshtml",
+              "RelativeDocumentMoniker": "WebJob\\Views\\Account\\_ExternalLoginsListPartial.cshtml",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\Account\\_ExternalLoginsListPartial.cshtml",
+              "RelativeToolTip": "WebJob\\Views\\Account\\_ExternalLoginsListPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T08:45:38.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Feedback.cshtml",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\MyApplicant\\_Feedback.cshtml",
+              "RelativeDocumentMoniker": "WebJob\\Views\\MyApplicant\\_Feedback.cshtml",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\MyApplicant\\_Feedback.cshtml",
+              "RelativeToolTip": "WebJob\\Views\\MyApplicant\\_Feedback.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-13T08:45:00.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MyApplicantController.cs",
-              "DocumentMoniker": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Controllers\\MyApplicantController.cs",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Controllers\\MyApplicantController.cs",
               "RelativeDocumentMoniker": "WebJob\\Controllers\\MyApplicantController.cs",
-              "ToolTip": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Controllers\\MyApplicantController.cs",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Controllers\\MyApplicantController.cs",
               "RelativeToolTip": "WebJob\\Controllers\\MyApplicantController.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAIwDUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -64,11 +114,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "MyAppliedJobs.cshtml",
-              "DocumentMoniker": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Views\\MyApplicant\\MyAppliedJobs.cshtml",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\MyApplicant\\MyAppliedJobs.cshtml",
               "RelativeDocumentMoniker": "WebJob\\Views\\MyApplicant\\MyAppliedJobs.cshtml",
-              "ToolTip": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Views\\MyApplicant\\MyAppliedJobs.cshtml",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Views\\MyApplicant\\MyAppliedJobs.cshtml",
               "RelativeToolTip": "WebJob\\Views\\MyApplicant\\MyAppliedJobs.cshtml",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAACsAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -76,11 +126,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Applicant.cs",
-              "DocumentMoniker": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Models\\EF\\Applicant.cs",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Models\\EF\\Applicant.cs",
               "RelativeDocumentMoniker": "WebJob\\Models\\EF\\Applicant.cs",
-              "ToolTip": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Models\\EF\\Applicant.cs",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Models\\EF\\Applicant.cs",
               "RelativeToolTip": "WebJob\\Models\\EF\\Applicant.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAqwCwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -88,11 +138,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ApplicantsByJob.cshtml",
-              "DocumentMoniker": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Areas\\Employer\\Views\\Applicant\\ApplicantsByJob.cshtml",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Areas\\Employer\\Views\\Applicant\\ApplicantsByJob.cshtml",
               "RelativeDocumentMoniker": "WebJob\\Areas\\Employer\\Views\\Applicant\\ApplicantsByJob.cshtml",
-              "ToolTip": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Areas\\Employer\\Views\\Applicant\\ApplicantsByJob.cshtml",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Areas\\Employer\\Views\\Applicant\\ApplicantsByJob.cshtml",
               "RelativeToolTip": "WebJob\\Areas\\Employer\\Views\\Applicant\\ApplicantsByJob.cshtml",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -100,11 +150,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Areas\\Employer\\Views\\Applicant\\Index.cshtml",
+              "DocumentMoniker": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Areas\\Employer\\Views\\Applicant\\Index.cshtml",
               "RelativeDocumentMoniker": "WebJob\\Areas\\Employer\\Views\\Applicant\\Index.cshtml",
-              "ToolTip": "G:\\Jobs\\WebJobcp2update - Copy\\WebJob\\Areas\\Employer\\Views\\Applicant\\Index.cshtml",
+              "ToolTip": "D:\\HocDaiHoc\\WebJobcp2Willdemo-chuan\\WebJob\\Areas\\Employer\\Views\\Applicant\\Index.cshtml",
               "RelativeToolTip": "WebJob\\Areas\\Employer\\Views\\Applicant\\Index.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
